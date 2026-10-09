@@ -1,0 +1,644 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  My Gadgets UK — design tokens (brief §3.2)                         */
+/* ------------------------------------------------------------------ */
+:root {
+  /* Kept dark for the one permanently-dark surface (Footer) — everything
+     else uses the light system below. */
+  --shim: #1f242b;
+  --aluminium: #9aa2ad;
+  --bone: #f2f3f5;
+
+  /* Light system — default surface, from here down */
+  --bench: #f7f9fc;
+  --bench-ink: #0a1b33;
+  --bench-rule: #e8edf5;
+  --navy: #0a1b33;
+
+  /* Action — HSL triplet so both hsl(var(--primary)) and Tailwind's
+     hsl(var(--primary)) utility classes resolve to the same blue */
+  --primary: 217 83% 50%; /* #1567E8 */
+  --primary-hover: 217 78% 58%; /* #3E7DEC */
+  --primary-ink: #ffffff;
+  --success: #16a34a;
+  --signal: hsl(var(--primary));
+  --signal-ink: #ffffff;
+  --ok: #16a34a;
+  --warn: #e0574b;
+
+  /* The logo's gradient, reused on primary buttons */
+  --brand-gradient: linear-gradient(
+    100deg,
+    #21c3d6 0%,
+    #3e5be0 26%,
+    #8b3ce8 50%,
+    #d6398c 74%,
+    #f2963e 100%
+  );
+
+  /* Card surface */
+  --card-shadow: 0 2px 12px rgba(10, 27, 51, 0.06);
+  --radius-card: 16px;
+
+  /* shadcn/ui primitives */
+  --background: 216 45% 98%;
+  --foreground: 215 67% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 67% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 67% 12%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 39% 94%;
+  --secondary-foreground: 215 67% 12%;
+  --muted: 217 39% 94%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 217 83% 96%;
+  --accent-foreground: 217 83% 30%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 217 39% 94%;
+  --input: 217 39% 94%;
+  --ring: 217 83% 50%;
+  --radius: 1rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Fonts — self-hosted, swap, latin subset                            */
+/* ------------------------------------------------------------------ */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-vf.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+  font-style: normal;
+}
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--bench);
+    color: var(--bench-ink);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+  ::selection {
+    background: var(--signal);
+    color: var(--signal-ink);
+  }
+
+  /* Visible focus ring, primary blue */
+  :focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 2px var(--bench),
+      0 0 0 4px var(--signal);
+    border-radius: 2px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Type scale (brief §3.3)                                            */
+/* ------------------------------------------------------------------ */
+.display-xl {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.75rem, 7vw, 6rem);
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.display-ll {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.75rem, 3.6vw, 6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.display-l {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Accent underline flourish beneath the key hero word */
+.accent-underline {
+  position: relative;
+  color: hsl(var(--primary));
+  white-space: nowrap;
+}
+.accent-underline::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -0.06em;
+  height: 0.1em;
+  background: hsl(var(--primary));
+  border-radius: 2px;
+  opacity: 0.35;
+}
+.body-copy {
+  max-width: 68ch;
+}
+.small {
+  font-size: 0.875rem;
+}
+.label {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.price {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.mono {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.text-aluminium {
+  color: var(--aluminium);
+}
+.text-muted {
+  color: #6b7280;
+}
+.text-bone {
+  color: var(--bone);
+}
+.text-ok {
+  color: var(--ok);
+}
+.text-warn {
+  color: var(--warn);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Layout (brief §3.6)                                                */
+/* ------------------------------------------------------------------ */
+.container-12 {
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (min-width: 1024px) {
+  .container-12 {
+    padding-inline: 32px;
+  }
+}
+.section-pad {
+  padding-block: 96px;
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-block: 160px;
+  }
+}
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+}
+@media (min-width: 1024px) {
+  .grid-12 {
+    gap: 32px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Docket — reusable card. Plain white surface, shadow + border,      */
+/*  16px radius. One light surface site-wide.                          */
+/* ------------------------------------------------------------------ */
+.docket {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--bench-rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+  font-variant-numeric: tabular-nums;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    border-color 150ms ease;
+}
+a.docket:hover,
+.docket.is-hoverable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 27, 51, 0.1);
+  border-color: hsl(var(--primary) / 0.35);
+}
+.docket-id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--bench-rule);
+  color: #6b7280;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+.docket-id::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--bench-rule);
+}
+.docket-body {
+  padding: 16px 18px 18px;
+}
+.docket-title {
+  color: var(--bench-ink);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 10px;
+}
+.docket-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.8125rem;
+  padding-block: 4px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.docket-row .k {
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.docket-row .v {
+  color: var(--bench-ink);
+  text-align: right;
+}
+.docket-row .v.price-v {
+  color: hsl(var(--primary));
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Surfaces                                                           */
+/* ------------------------------------------------------------------ */
+.panel {
+  background: #ffffff;
+  border: 1px solid var(--bench-rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+}
+.bench-panel {
+  background: #ffffff;
+  border: 1px solid var(--bench-rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+}
+.bench-rule {
+  border-color: var(--bench-rule);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Buttons — machined, no pills (brief §3.6)                          */
+/* ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease;
+  cursor: pointer;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-signal {
+  background: var(--brand-gradient);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  color: var(--signal-ink);
+  transition:
+    transform 150ms ease,
+    background-position 250ms ease;
+}
+.btn-signal:hover {
+  background-position: 100% 50%;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--bench-ink);
+  border: 1px solid var(--bench-rule);
+}
+.btn-ghost:hover {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+.btn-ghost-bench {
+  color: var(--bench-ink);
+  border: 1px solid var(--bench-rule);
+  background: transparent;
+}
+.btn-ghost-bench:hover {
+  border-color: var(--bench-ink);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reveal motion (brief §3.8)                                         */
+/* ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sticky action bar (brief §3.6)                                     */
+/* ------------------------------------------------------------------ */
+.sticky-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid var(--bench-rule);
+  box-shadow: 0 -2px 12px rgba(10, 27, 51, 0.06);
+  z-index: 60;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .sticky-bar {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 64px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Forms (on bench)                                                   */
+/* ------------------------------------------------------------------ */
+.field label {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--bench-rule);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--bench-ink);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow:
+    0 0 0 2px var(--bench),
+    0 0 0 4px hsl(var(--primary));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Price tables                                                       */
+/* ------------------------------------------------------------------ */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.price-table th {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bench-rule);
+  color: #6b7280;
+}
+.price-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--bench-rule);
+  font-size: 0.9375rem;
+  vertical-align: top;
+}
+.price-table .num {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Battery health bar */
+.health-bar {
+  height: 6px;
+  background: var(--bench-rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.health-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--success);
+  border-radius: 3px;
+}
+
+/* Photo slot — commissioned photography placeholder (brief §3.7) */
+.photo-slot {
+  position: relative;
+  background: #eef2f8;
+  border: 1px solid var(--bench-rule);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.photo-slot .photo-caption {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+  padding: 10px 14px;
+  border-top: 1px solid var(--bench-rule);
+  background: rgba(255, 255, 255, 0.75);
+  width: 100%;
+}
+.photo-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--bench-rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bench-rule) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.6;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid var(--bench-rule);
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 0;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--bench-ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary .faq-marker {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: hsl(var(--primary));
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+.faq-item[open] summary .faq-marker {
+  transform: rotate(45deg);
+}
+.faq-item .faq-body {
+  padding: 0 0 20px;
+  color: #4b5563;
+  max-width: 68ch;
+}
+
+/* Link list */
+.link-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--bench-rule);
+  color: var(--bench-ink);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition:
+    border-color 150ms ease,
+    color 150ms ease;
+}
+.link-list a:hover {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+.link-list a .arrow {
+  color: #6b7280;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.8125rem;
+}
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+.crumbs a {
+  color: #6b7280;
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: hsl(var(--primary));
+}
+.crumbs .sep {
+  margin-inline: 8px;
+  color: var(--bench-rule);
+}
+
+/* Consent banner */
+.consent {
+  position: fixed;
+  left: 16px;
+  bottom: 80px;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1px solid var(--bench-rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+  padding: 18px;
+  z-index: 70;
+}
+@media (min-width: 768px) {
+  .consent {
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+  }
+}
