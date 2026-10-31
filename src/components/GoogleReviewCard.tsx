@@ -2,11 +2,10 @@ import { Star } from 'lucide-react';
 import GoogleIcon from '@/components/icons/GoogleIcon';
 import type { GoogleReview } from '@/data/reviews';
 
-const AVATAR_COLORS = ['#1A73E8', '#D93025', '#188038', '#F9AB00', '#9334E6', '#12A4AF'];
-
 function avatarColor(name: string) {
+  const tones = ['#9a3412', '#1c1916', '#3f3a34', '#7c4a2d', '#5c4033', '#2f4a3c'];
   const hash = Array.from(name).reduce((acc, c) => acc + c.charCodeAt(0), 0);
-  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+  return tones[hash % tones.length];
 }
 
 export default function GoogleReviewCard({ review, clamp = true }: { review: GoogleReview; clamp?: boolean }) {

@@ -14,7 +14,7 @@ export default function PricingPreview() {
       </div>
 
       <Tabs defaultValue={DEVICE_HUBS[0].slug}>
-        <TabsList style={{ height: 'auto', flexWrap: 'wrap', padding: 4, background: '#EEF2F8' }}>
+        <TabsList style={{ height: 'auto', flexWrap: 'wrap', padding: 4, background: '#efeae3' }}>
           {DEVICE_HUBS.map((d) => (
             <TabsTrigger key={d.slug} value={d.slug} style={{ padding: '9px 16px' }}>
               {d.label}

@@ -5,8 +5,8 @@ import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Map from '@/components/Map';
 import { SITE, AREAS_COVERED, canonical } from '@/data/site';
-import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import { LISTINGS } from '@/data/listings';
+import ActionRow from '@/components/ActionRow';
 import Hero from '@/components/home/Hero';
 import TrustStrip from '@/components/home/TrustStrip';
 import DeviceSelector from '@/components/home/DeviceSelector';
@@ -34,12 +34,13 @@ export default function Home() {
 
       <Hero />
       <TrustStrip />
-      <DeviceSelector />
-      <OfferBanner />
       <PopularServices />
+      <WhyChooseUs />
+      <HowItWorks />
+      <Testimonials />
 
       {/* --------------------------- IN THE SHOP --------------------------- */}
-      <section style={{ background: '#FFFFFF', borderBlock: '1px solid var(--bench-rule)' }}>
+      <section className="band">
         <div className="container-12 section-pad">
           <Reveal>
             <div className="grid-12" style={{ alignItems: 'end', marginBottom: 48 }}>
@@ -61,6 +62,8 @@ export default function Home() {
                   id={`STK-${l.identifier}`}
                   title={`${l.name} · ${l.year}`}
                   href={`/shop/${l.slug}/`}
+                  image={l.photoHero}
+                  imageAlt={l.photoHero ? `${l.name} ${l.year}, grade ${l.grade}` : undefined}
                   rows={[
                     { k: 'SPEC', v: `${l.cpu.split(',')[0]} · ${l.ram} · ${l.ssd}` },
                     { k: 'BATTERY', v: `${l.cycles > 0 ? `${l.cycles} cycles · ` : ''}${l.batteryHealth}% health`, ok: true },
@@ -80,14 +83,40 @@ export default function Home() {
         </div>
       </section>
 
-      <HowItWorks />
+      <DeviceSelector />
       <PricingPreview />
-      <WhyChooseUs />
-      <Testimonials />
+      <OfferBanner />
       <HomeFaq />
 
+      {/* ------------------------------ AREAS ------------------------------ */}
+      <section className="container-12 section-pad">
+        <div className="grid-12">
+          <div className="col-span-12 lg:col-span-5">
+            <Reveal>
+              <p className="label" style={{ color: 'hsl(var(--primary))', marginBottom: 12 }}>Coverage</p>
+              <h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Areas we cover</h2>
+              <p style={{ color: '#5c564e' }}>
+                Within four miles of the bench. Each area page has real travel times, prices and a job we have actually done from that area.
+              </p>
+            </Reveal>
+          </div>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+            <Reveal>
+              <div className="area-grid">
+                {AREAS_COVERED.map((a) => (
+                  <Link key={a.slug} to={`/areas/${a.slug}/`} className="area-chip">
+                    <span>{a.name}</span>
+                    <span className="mono">{a.postcode}</span>
+                  </Link>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ------------------------------ FIND US ------------------------------ */}
-      <section style={{ background: '#FFFFFF', borderBlock: '1px solid var(--bench-rule)' }}>
+      <section className="band">
         <div className="container-12 section-pad">
           <div className="grid-12">
             <div className="col-span-12 lg:col-span-5">
@@ -99,20 +128,18 @@ export default function Home() {
                   {SITE.street}, {SITE.locality}<br />
                   {SITE.region} {SITE.postcode}
                 </address>
-                <p style={{ color: '#4B5563' }}>{SITE.landmark} {SITE.parking}</p>
-                <div style={{ marginTop: 20, fontSize: '0.9375rem', color: 'var(--bench-ink)' }}>
+                <p style={{ color: '#5c564e' }}>{SITE.landmark} {SITE.parking}</p>
+                <div className="hours-list">
                   {SITE.hours.map((h) => (
-                    <div key={h.days} style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 320, paddingBlock: 8, borderBottom: '1px solid var(--bench-rule)' }}>
-                      <span style={{ color: '#6B7280' }}>{h.days}</span>
+                    <div key={h.days}>
+                      <span>{h.days}</span>
                       <span className="mono">{h.opens === 'Closed' ? 'Closed' : `${h.opens}–${h.closes}`}</span>
                     </div>
                   ))}
                 </div>
-                <p className="small" style={{ marginTop: 12, color: '#6B7280' }}>{SITE.hoursNote}</p>
-                <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
-                  <a href={SITE.phoneHref} className="btn btn-signal">Call the shop</a>
-                  <a href={SITE.whatsappHref} target="_blank" rel="noopener" className="btn btn-ghost"><WhatsAppIcon size={18} /> WhatsApp us</a>
-                  <a href="https://maps.google.com/?q=My+Gadgets+UK+Whitton+High+Street" target="_blank" rel="noopener" className="btn btn-ghost">Directions</a>
+                <p className="small" style={{ marginTop: 12, color: '#5c564e' }}>{SITE.hoursNote}</p>
+                <div style={{ marginTop: 24 }}>
+                  <ActionRow whatsappLabel="WhatsApp us" />
                 </div>
               </Reveal>
             </div>
@@ -135,6 +162,8 @@ export default function Home() {
                     alt="My Gadgets UK shop front on Whitton High Street"
                     width={1376}
                     height={774}
+                    loading="lazy"
+                    decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                 </figure>
@@ -144,32 +173,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ------------------------------ AREAS ------------------------------ */}
-      <section className="container-12 section-pad">
-        <div className="grid-12">
-          <div className="col-span-12 lg:col-span-5">
-            <Reveal>
-              <p className="label" style={{ color: 'hsl(var(--primary))', marginBottom: 12 }}>Coverage</p>
-              <h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Areas we cover</h2>
-              <p style={{ color: '#4B5563' }}>
-                Within four miles of the bench. Each area page has real travel times, prices and a job we have actually done from that area.
-              </p>
-            </Reveal>
-          </div>
-          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-            <Reveal>
-              <div className="link-list">
-                {AREAS_COVERED.map((a) => (
-                  <Link key={a.slug} to={`/areas/${a.slug}/`}>
-                    <span>{a.name}</span>
-                    <span className="arrow">{a.postcode} →</span>
-                  </Link>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-    </Layout>
+      </Layout>
   );
 }

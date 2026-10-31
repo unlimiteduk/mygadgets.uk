@@ -14,11 +14,18 @@ interface DocketProps {
   rows: DocketRow[];
   href?: string;
   className?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
-export default function Docket({ id, title, rows, href, className = '' }: DocketProps) {
+export default function Docket({ id, title, rows, href, className = '', image, imageAlt }: DocketProps) {
   const body = (
     <>
+      {image && (
+        <figure className="docket-photo">
+          <img src={image} alt={imageAlt ?? ''} width={800} height={500} loading="lazy" decoding="async" />
+        </figure>
+      )}
       <div className="docket-id">MG-{id}</div>
       <div className="docket-body">
         <div className="docket-title">{title}</div>

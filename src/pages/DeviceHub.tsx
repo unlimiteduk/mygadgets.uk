@@ -6,6 +6,7 @@ import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
 import AreaLinks from '@/components/AreaLinks';
 import RepairCta from '@/components/RepairCta';
+import ActionRow from '@/components/ActionRow';
 import { DEVICE_HUBS, servicesByDevice } from '@/data/services';
 import { MODELS } from '@/data/models';
 import { SITE } from '@/data/site';
@@ -46,6 +47,9 @@ export default function DeviceHub() {
             )) : (
               <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>{hub.blurb}</p>
             )}
+            <div style={{ marginTop: 28 }}>
+              <ActionRow bookLabel="Book a repair" whatsappLabel="WhatsApp us" />
+            </div>
           </div>
         </div>
 
