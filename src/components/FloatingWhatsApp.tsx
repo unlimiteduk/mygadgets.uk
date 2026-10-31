@@ -1,8 +1,7 @@
 import { SITE } from '@/data/site';
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 
-// Persistent floating WhatsApp button, all pages. Hidden on small
-// screens where StickyBar already puts WhatsApp one tap away.
+// Desktop WhatsApp. On phones the sticky bar is the call button.
 export default function FloatingWhatsApp() {
   return (
     <a

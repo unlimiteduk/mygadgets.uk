@@ -53,11 +53,11 @@ function ShopGrid({ title, intro, category, crumbs }: { title: string; intro: st
             <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>{title}</h1>
             <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>{intro}</p>
           </div>
-          <div className="col-span-12 lg:col-span-3 lg:col-start-10">
-            <div className="link-list">
+          <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+            <div className="area-grid">
               {SHOP_CATEGORIES.map((c) => (
-                <Link key={c.slug} to={`/shop/${c.slug}/`}>
-                  <span>{c.label}</span><span className="arrow">→</span>
+                <Link key={c.slug} to={`/shop/${c.slug}/`} className="area-chip">
+                  <span>{c.label}</span>
                 </Link>
               ))}
             </div>
@@ -71,6 +71,8 @@ function ShopGrid({ title, intro, category, crumbs }: { title: string; intro: st
                 id={`STK-${l.identifier}`}
                 title={`${l.name} · ${l.year}`}
                 href={`/shop/${l.slug}/`}
+                image={l.photoHero}
+                imageAlt={l.photoHero ? `${l.name} ${l.year}, grade ${l.grade}` : undefined}
                 rows={[
                   { k: 'SPEC', v: `${l.cpu.split(',')[0]} · ${l.ram} · ${l.ssd}` },
                   { k: 'BATTERY', v: l.cycles > 0 ? `${l.cycles} cycles · ${l.batteryHealth}%` : 'Desktop unit' },

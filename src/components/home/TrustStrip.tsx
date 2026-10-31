@@ -10,37 +10,16 @@ const ITEMS = [
 
 export default function TrustStrip() {
   return (
-    <section style={{ borderBlock: '1px solid var(--bench-rule)', background: '#FFFFFF' }}>
-      <div
-        className="container-12"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-          columnGap: 24,
-          rowGap: 20,
-          paddingBlock: 28,
-        }}
-      >
+    <section className="trust-strip" aria-label="Why people use the shop">
+      <div className="container-12 trust-grid">
         {ITEMS.map(({ icon: Icon, label, copy }) => (
-          <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-            <span
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 40,
-                height: 40,
-                borderRadius: 10,
-                background: 'hsl(var(--accent))',
-                color: 'hsl(var(--primary))',
-                flexShrink: 0,
-              }}
-            >
+          <div key={label} className="trust-item">
+            <span className="icon-tile" aria-hidden="true">
               <Icon size={20} />
             </span>
             <div>
-              <div style={{ fontWeight: 700, fontSize: '0.9375rem', color: 'var(--bench-ink)' }}>{label}</div>
-              <div style={{ fontSize: '0.8125rem', color: '#6B7280', marginTop: 2 }}>{copy}</div>
+              <strong>{label}</strong>
+              <span>{copy}</span>
             </div>
           </div>
         ))}

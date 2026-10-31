@@ -7,9 +7,9 @@ import Crumbs from '@/components/Crumbs';
 import PhotoSlot from '@/components/PhotoSlot';
 import { getService, SERVICES, type Service } from '@/data/services';
 import { AREAS_COVERED, SITE, canonical } from '@/data/site';
-import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import AreaLinks from '@/components/AreaLinks';
 import RepairCta from '@/components/RepairCta';
+import ActionRow from '@/components/ActionRow';
 import NotFound from './NotFound';
 
 function serviceOffer(svc: Service, path: string) {
@@ -78,9 +78,8 @@ export default function ServicePage() {
             <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>
               {svc.metaDescription}
             </p>
-            <div style={{ display: 'flex', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
-              <Link to="/book/" className="btn btn-signal">Book this repair</Link>
-              <a href={SITE.whatsappHref} target="_blank" rel="noopener" className="btn btn-ghost"><WhatsAppIcon size={18} /> WhatsApp a photo of the damage</a>
+            <div style={{ marginTop: 28 }}>
+              <ActionRow bookLabel="Book this repair" whatsappLabel="WhatsApp a photo of the damage" />
             </div>
           </div>
           <div className="col-span-12 lg:col-span-4 lg:col-start-9" style={{ marginTop: 24 }}>
@@ -190,9 +189,8 @@ export default function ServicePage() {
                   <p style={{ color: '#4B5563', marginTop: 12, maxWidth: '62ch' }}>
                     This repair is not on the published price list. The fault and the part depend on the exact machine, so we look at it first. Diagnosis is free, and the figure we give you is the one we stick to. Call {SITE.phoneDisplay} or bring it to {SITE.street}.
                   </p>
-                  <div style={{ display: 'flex', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
-                    <a href={SITE.phoneHref} className="btn btn-signal">Call {SITE.phoneDisplay}</a>
-                    <Link to="/contact/" className="btn btn-ghost-bench">Visit the shop</Link>
+                  <div style={{ marginTop: 28 }}>
+                    <ActionRow visitLabel="Visit the shop" />
                   </div>
                 </div>
               </div>

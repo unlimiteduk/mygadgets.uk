@@ -8,46 +8,30 @@ const STEPS = [
 export default function HowItWorks() {
   return (
     <section className="container-12 section-pad">
-      <div style={{ marginBottom: 40 }}>
-        <p className="label" style={{ color: 'hsl(var(--primary))', marginBottom: 12 }}>How it works</p>
-        <h2 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>From booking to fixed, in four steps</h2>
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
-        {STEPS.map((s, i) => (
-          <div key={s.n} style={{ position: 'relative', paddingLeft: 0 }}>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                marginBottom: 14,
-              }}
-            >
-              <span
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 36,
-                  height: 36,
-                  borderRadius: 999,
-                  background: 'hsl(var(--primary))',
-                  color: '#FFFFFF',
-                  fontWeight: 700,
-                  fontSize: '0.875rem',
-                  flexShrink: 0,
-                }}
-              >
-                {i + 1}
-              </span>
-              {i < STEPS.length - 1 && (
-                <span className="hidden lg:block" style={{ flex: 1, height: 2, background: 'var(--bench-rule)' }} />
-              )}
-            </div>
-            <div style={{ fontWeight: 700, fontSize: '1.0625rem', color: 'var(--bench-ink)' }}>{s.h}</div>
-            <p style={{ fontSize: '0.875rem', color: '#6B7280', marginTop: 6 }}>{s.p}</p>
+      <div className="split-media">
+        <div>
+          <p className="label section-kicker" style={{ color: 'hsl(var(--primary))' }}>How it works</p>
+          <h2 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>From booking to fixed, in four steps</h2>
+          <div className="steps" style={{ marginTop: 28 }}>
+            {STEPS.map((s, i) => (
+              <div key={s.n}>
+                <div className="step-no">{i + 1}</div>
+                <div style={{ fontWeight: 680, fontSize: '1.0625rem', letterSpacing: '-0.02em' }}>{s.h}</div>
+                <p style={{ fontSize: '0.9375rem', color: '#5c564e', marginTop: 6 }}>{s.p}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <figure className="frame" style={{ aspectRatio: '4 / 5' }}>
+          <img
+            src="/images/hero-device-group.webp"
+            alt="iPhone, MacBook and Galaxy phone laid out on the repair bench, freshly repaired"
+            width={800}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
     </section>
   );

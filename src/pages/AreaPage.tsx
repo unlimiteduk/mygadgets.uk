@@ -9,7 +9,7 @@ import { getArea } from '@/data/areas';
 import { getService } from '@/data/services';
 import { PRIORITY_REPAIR_LINKS } from '@/data/extra-repairs';
 import { AREAS_COVERED, SITE } from '@/data/site';
-import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
+import ActionRow from '@/components/ActionRow';
 import NotFound from './NotFound';
 
 // Area page template — satisfies §5.2: unique copy, real anchoring,
@@ -48,9 +48,8 @@ export default function AreaPage() {
             {area.intro.map((p) => (
               <p key={p.slice(0, 20)} className="body-copy text-muted" style={{ fontSize: '1.0625rem', marginTop: 20 }}>{p}</p>
             ))}
-            <div style={{ display: 'flex', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
-              <Link to="/book/" className="btn btn-signal">Get a price</Link>
-              <a href={SITE.phoneHref} className="btn btn-ghost mono" style={{ fontSize: '0.875rem' }}>Call {SITE.phoneDisplay}</a>
+            <div style={{ marginTop: 28 }}>
+              <ActionRow bookLabel="Get a price" />
             </div>
           </div>
 
@@ -195,9 +194,8 @@ export default function AreaPage() {
                 <p className="text-muted body-copy">
                   {SITE.street}, {SITE.locality}, {SITE.region} {SITE.postcode}. {SITE.hours[0].days} {SITE.hours[0].opens}–{SITE.hours[0].closes}, Saturday {SITE.hours[1].opens}–{SITE.hours[1].closes}.
                 </p>
-                <div style={{ display: 'flex', gap: 12, marginTop: 20, flexWrap: 'wrap' }}>
-                  <Link to="/book/" className="btn btn-signal">Book a repair</Link>
-                  <a href={SITE.whatsappHref} target="_blank" rel="noopener" className="btn btn-ghost"><WhatsAppIcon size={18} /> WhatsApp us</a>
+                <div style={{ marginTop: 20 }}>
+                  <ActionRow bookLabel="Book a repair" whatsappLabel="WhatsApp us" />
                 </div>
               </Reveal>
             </div>

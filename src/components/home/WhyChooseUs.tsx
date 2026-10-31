@@ -10,13 +10,13 @@ const ITEMS = [
 
 export default function WhyChooseUs() {
   return (
-    <section style={{ background: '#FFFFFF', borderBlock: '1px solid var(--bench-rule)' }}>
+    <section className="band">
       <div className="container-12 section-pad">
         <div style={{ marginBottom: 40 }}>
           <p className="label" style={{ color: 'hsl(var(--primary))', marginBottom: 12 }}>Why choose us</p>
           <h2 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>Repairs you don't have to think twice about</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
+        <div className="why-grid">
           {ITEMS.map(({ icon: Icon, h, p }) => (
             <div key={h}>
               <span

@@ -18,6 +18,8 @@ export const SITE = {
   phoneHref: 'tel:+447918440326',
   whatsappDisplay: '07918 440326',
   whatsappHref: 'https://wa.me/447918440326',
+  directionsHref:
+    'https://www.google.com/maps/dir/?api=1&destination=23+High+Street,+Whitton,+Twickenham+TW2+7LB',
   email: 'bench@mygadgetsuk.co.uk',
   hours: [
     { days: 'Monday – Friday', opens: '09:00', closes: '18:30' },

@@ -10,11 +10,11 @@ export default function AreaLinks({ except }: { except?: string }) {
         <p className="body-copy text-muted">
           The bench is on Whitton High Street. Each of these places has its own page, with how to get here.
         </p>
-        <div className="link-list">
+        <div className="area-grid">
           {areas.map((a) => (
-            <Link key={a.slug} to={`/areas/${a.slug}/`}>
+            <Link key={a.slug} to={`/areas/${a.slug}/`} className="area-chip">
               <span>{a.name}</span>
-              <span className="arrow">{a.postcode} →</span>
+              <span className="mono">{a.postcode}</span>
             </Link>
           ))}
         </div>

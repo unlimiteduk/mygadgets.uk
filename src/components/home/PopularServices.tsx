@@ -1,9 +1,21 @@
 import { Link } from 'react-router';
-import { Laptop, BatteryCharging, ShieldCheck, Wrench, Cpu, Keyboard, Smartphone, TabletSmartphone, ArrowRight, HardDrive, Gamepad2 } from 'lucide-react';
-import { getService } from '@/data/services';
+import {
+  ArrowRight,
+  BatteryCharging,
+  Cable,
+  Cpu,
+  Gamepad2,
+  HardDrive,
+  Keyboard,
+  Laptop,
+  Monitor,
+  ShieldCheck,
+  Smartphone,
+  TabletSmartphone,
+  Wrench,
+} from 'lucide-react';
+import { DEVICE_HUBS, getService } from '@/data/services';
 
-// One representative service per popular-repair category, curated across
-// devices — computer repair (MacBook + Windows laptop) leads, phones follow.
 const POPULAR = [
   { category: 'Screen replacement', icon: Laptop, slug: 'macbook/screen-replacement' },
   { category: 'Battery replacement', icon: BatteryCharging, slug: 'macbook/battery-replacement' },
@@ -15,43 +27,117 @@ const POPULAR = [
   { category: 'Samsung Galaxy screen', icon: TabletSmartphone, slug: 'samsung/screen-replacement' },
   { category: 'Laptop SSD upgrade', icon: HardDrive, slug: 'laptop/ssd-upgrade' },
   { category: 'PlayStation HDMI port', icon: Gamepad2, slug: 'playstation/hdmi-port-repair' },
+  { category: 'Xbox HDMI port', icon: Cable, slug: 'xbox/hdmi-port-repair' },
+  { category: 'Laptop screen', icon: Monitor, slug: 'laptop/screen-replacement' },
 ] as const;
 
+function priceLine(slug: string) {
+  const service = getService(slug);
+  if (!service) return '';
+  return service.quoteOnly ? 'Quote at the bench' : `From ${service.fromPrice}`;
+}
+
 export default function PopularServices() {
+  const macbook = DEVICE_HUBS.find((d) => d.slug === 'macbook');
+  const consoles = DEVICE_HUBS.find((d) => d.slug === 'console');
+  const screen = getService('macbook/screen-replacement');
+  const laptopScreen = getService('laptop/screen-replacement');
+  const ssd = getService('macbook/ssd-upgrade');
+  const hdmi = getService('playstation/hdmi-port-repair');
+
+  const featuredHrefs = new Set([
+    '/repairs/macbook/screen-replacement/',
+    '/repairs/playstation/hdmi-port-repair/',
+  ]);
+
   return (
-    <section className="container-12 section-pad" style={{ paddingTop: 0 }}>
-      <div style={{ marginBottom: 40 }}>
-        <p className="label" style={{ color: 'hsl(var(--primary))', marginBottom: 12 }}>Popular repairs</p>
-        <h2 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>The repairs people ask for most</h2>
+    <section className="container-12 section-pad">
+      <p className="label section-kicker" style={{ color: 'hsl(var(--primary))' }}>Popular repairs</p>
+      <h2 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>The repairs people ask for most</h2>
+
+      <div className="feature-grid" style={{ marginTop: 28 }}>
+        <Link to="/repairs/macbook/" className="feature-card is-lead">
+          <img
+            src="/images/macbook-screen-replacement.webp"
+            alt="Before and after — cracked MacBook lid next to the same machine with a fresh display"
+            width={1200}
+            height={800}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="feature-copy">
+            <span className="icon-tile" aria-hidden="true"><Laptop size={22} /></span>
+            <h3>MacBook repair</h3>
+            <p>{macbook?.blurb}</p>
+            <div className="feature-meta">
+              <span>View MacBook repairs</span>
+              <ArrowRight size={16} />
+            </div>
+          </div>
+        </Link>
+
+        <Link to="/repairs/macbook/screen-replacement/" className="feature-card">
+          <span className="icon-tile" aria-hidden="true"><Monitor size={22} /></span>
+          <h3>Screen & LCD repair</h3>
+          <p>
+            {screen ? `${screen.deviceLabel} screens ${screen.quoteOnly ? 'quoted at the bench' : `from ${screen.fromPrice}`}, ${screen.turnaround.toLowerCase()}.` : null}
+            {laptopScreen && !laptopScreen.quoteOnly ? ` Windows laptops from ${laptopScreen.fromPrice}.` : null}
+          </p>
+          <div className="feature-meta">
+            <span>{screen && !screen.quoteOnly ? `From ${screen.fromPrice}` : 'Quote at the bench'}</span>
+            <ArrowRight size={16} />
+          </div>
+        </Link>
+
+        <Link to="/repairs/macbook/ssd-upgrade/" className="feature-card">
+          <span className="icon-tile" aria-hidden="true"><HardDrive size={22} /></span>
+          <h3>SSD upgrade</h3>
+          <p>
+            {ssd ? `${ssd.deviceLabel} ${ssd.name.toLowerCase()}${ssd.quoteOnly ? ', quoted at the bench' : `, from ${ssd.fromPrice}`}. ${ssd.turnaround}.` : null}
+            {' '}Windows laptop SSD upgrades are quoted after we see the machine.
+          </p>
+          <div className="feature-meta">
+            <span>{ssd && !ssd.quoteOnly ? `From ${ssd.fromPrice}` : 'Quote at the bench'}</span>
+            <ArrowRight size={16} />
+          </div>
+        </Link>
+
+        <Link to="/repairs/console/" className="feature-card">
+          <span className="icon-tile" aria-hidden="true"><Gamepad2 size={22} /></span>
+          <h3>Console repair</h3>
+          <p>{consoles?.blurb}</p>
+          <div className="feature-meta">
+            <span>PlayStation & Xbox</span>
+            <ArrowRight size={16} />
+          </div>
+        </Link>
+
+        <Link to="/repairs/playstation/hdmi-port-repair/" className="feature-card">
+          <span className="icon-tile" aria-hidden="true"><Cable size={22} /></span>
+          <h3>HDMI port repair</h3>
+          <p>
+            {hdmi ? `${hdmi.name} for PlayStation and Xbox. ${hdmi.quoteOnly ? 'Quote at the bench after a free look.' : `From ${hdmi.fromPrice}.`}` : null}
+          </p>
+          <div className="feature-meta">
+            <span>{hdmi?.quoteOnly ? 'Quote at the bench' : priceLine('playstation/hdmi-port-repair')}</span>
+            <ArrowRight size={16} />
+          </div>
+        </Link>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
-        {POPULAR.map(({ category, icon: Icon, slug }) => {
+
+      <h3 className="h3" style={{ margin: '40px 0 16px', color: 'var(--bench-ink)' }}>More from the bench</h3>
+      <div className="service-grid">
+        {POPULAR.filter((item) => !featuredHrefs.has(`/repairs/${item.slug}/`)).map(({ category, icon: Icon, slug }) => {
           const service = getService(slug);
           if (!service) return null;
           return (
-            <Link key={slug} to={`/repairs/${slug}/`} className="docket is-hoverable" style={{ textDecoration: 'none', display: 'block' }}>
-              <div style={{ padding: '24px 20px' }}>
-                <span
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: 44,
-                    height: 44,
-                    borderRadius: 10,
-                    background: 'hsl(var(--accent))',
-                    color: 'hsl(var(--primary))',
-                    marginBottom: 14,
-                  }}
-                >
-                  <Icon size={22} />
-                </span>
-                <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--bench-ink)' }}>{category}</div>
-                <p style={{ fontSize: '0.8125rem', color: '#6B7280', marginTop: 6, marginBottom: 14 }}>{service.deviceLabel} · {service.turnaround}</p>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontWeight: 700, color: 'hsl(var(--primary))' }}>{service.quoteOnly ? 'Quote at the bench' : `From ${service.fromPrice}`}</span>
-                  <ArrowRight size={16} style={{ color: '#6B7280' }} />
-                </div>
+            <Link key={slug} to={`/repairs/${slug}/`} className="service-card">
+              <span className="icon-tile" aria-hidden="true"><Icon size={20} /></span>
+              <strong>{category}</strong>
+              <p>{service.deviceLabel} · {service.turnaround}</p>
+              <div className="feature-meta">
+                <span>{service.quoteOnly ? 'Quote at the bench' : `From ${service.fromPrice}`}</span>
+                <ArrowRight size={16} />
               </div>
             </Link>
           );
