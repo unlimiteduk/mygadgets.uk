@@ -4,6 +4,8 @@
 // signed-off price list before launch (brief §8, blocking item 3).
 // ------------------------------------------------------------------
 
+import { EXTRA_HUBS, EXTRA_SERVICES } from './extra-repairs';
+
 export interface PriceRow {
   model: string;
   modelSlug?: string;
@@ -17,15 +19,41 @@ export interface Faq {
   a: string;
 }
 
+export type RepairDevice =
+  | 'macbook'
+  | 'iphone'
+  | 'ipad'
+  | 'samsung'
+  | 'laptop'
+  | 'playstation'
+  | 'xbox'
+  | 'imac'
+  | 'pc';
+
+export interface ServiceSection {
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface RepairLink {
+  href: string;
+  label: string;
+  note?: string;
+}
+
 export interface Service {
   slug: string;
-  device: 'macbook' | 'iphone' | 'ipad' | 'samsung' | 'laptop';
+  device: RepairDevice;
   deviceLabel: string;
   name: string;
   title: string;
   metaDescription: string;
+  /** When set, used as the page H1 instead of "{device} {name}". */
+  h1?: string;
   fromPrice: string;
   turnaround: string;
+  /** No published price. The page must not invent one. */
+  quoteOnly?: boolean;
   faultLooksLike: string[];
   whatWeDo: string[];
   parts: string;
@@ -34,6 +62,26 @@ export interface Service {
   photoImage?: string;
   priceTable: PriceRow[];
   faqs: Faq[];
+  sections?: ServiceSection[];
+  related?: RepairLink[];
+}
+
+export interface DeviceHub {
+  slug: string;
+  label: string;
+  blurb: string;
+  /** Omitted or true: the device appears in the booking flow. */
+  bookable?: boolean;
+  /** Homepage device card destination. Defaults to the booking form. */
+  selectorTo?: string;
+  modelPlaceholder?: string;
+  title?: string;
+  metaDescription?: string;
+  h1?: string;
+  intro?: string[];
+  sections?: ServiceSection[];
+  faqs?: Faq[];
+  links?: RepairLink[];
 }
 
 export const SERVICES: Service[] = [
@@ -741,18 +789,20 @@ export const SERVICES: Service[] = [
       { q: 'Why is my laptop suddenly so slow?', a: 'Often junkware and a startup list grown out of control rather than a virus — the tune-up fixes both, and you get the machine back the same day in most cases.' },
     ],
   },
+  ...EXTRA_SERVICES,
 ];
 
 export function getService(slug: string): Service | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }
 
-export const DEVICE_HUBS: { slug: string; label: string; blurb: string }[] = [
+export const DEVICE_HUBS: DeviceHub[] = [
   { slug: 'macbook', label: 'MacBook', blurb: 'Screens, batteries, keyboards, logic boards, liquid damage, data recovery and upgrades.' },
-  { slug: 'laptop', label: 'Windows laptops', blurb: 'Screens, hinges and tune-ups for Dell, HP, Lenovo, ASUS and Acer.' },
+  { slug: 'laptop', label: 'Windows laptops', blurb: 'Screens, hinges, SSD upgrades, data recovery and tune-ups for Dell, HP, Lenovo, ASUS and Acer.' },
   { slug: 'iphone', label: 'iPhone', blurb: 'Screens, batteries, charge ports and back glass — most while you wait.' },
   { slug: 'samsung', label: 'Samsung Galaxy', blurb: 'Service-pack screen assemblies for S and A series, same day.' },
   { slug: 'ipad', label: 'iPad', blurb: 'Digitiser and laminated screen replacement across all generations.' },
+  ...EXTRA_HUBS,
 ];
 
 export function servicesByDevice(device: string): Service[] {

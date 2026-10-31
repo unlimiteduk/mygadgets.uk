@@ -2,13 +2,14 @@ import Seo, { breadcrumbSchema } from '@/components/Seo';
 import Layout from '@/components/Layout';
 import Reveal from '@/components/Reveal';
 import { Link } from 'react-router';
+import { SITE } from '@/data/site';
 
 export default function About() {
   return (
     <Layout>
       <Seo
-        title="About — the workshop on Whitton High Street | My Gadgets UK"
-        description="My Gadgets UK is an independent repair workshop on Whitton High Street: ESD mats, torque drivers, microscopes, and prices in writing. The bench, not the kiosk."
+        title={`About — the workshop on Whitton High Street | ${SITE.name}`}
+        description={`${SITE.name} is an independent repair workshop on Whitton High Street: ESD mats, torque drivers, microscopes, and prices in writing. The bench, not the kiosk.`}
         path="/about/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])}
       />

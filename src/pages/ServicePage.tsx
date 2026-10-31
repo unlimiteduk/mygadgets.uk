@@ -5,10 +5,31 @@ import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
 import PhotoSlot from '@/components/PhotoSlot';
-import { getService, SERVICES } from '@/data/services';
-import { SITE } from '@/data/site';
+import { getService, SERVICES, type Service } from '@/data/services';
+import { AREAS_COVERED, SITE, canonical } from '@/data/site';
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
+import AreaLinks from '@/components/AreaLinks';
+import RepairCta from '@/components/RepairCta';
 import NotFound from './NotFound';
+
+function serviceOffer(svc: Service, path: string) {
+  const base = {
+    '@type': 'Service',
+    name: `${svc.deviceLabel} ${svc.name}`,
+    serviceType: svc.name,
+    url: canonical(path),
+    provider: { '@id': `${SITE.domain}/#business` },
+    areaServed: AREAS_COVERED.map((a) => a.name),
+  };
+  if (svc.quoteOnly) return base;
+  return {
+    ...base,
+    offers: {
+      '@type': 'Offer',
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'GBP', description: `From ${svc.fromPrice}` },
+    },
+  };
+}
 
 // Repair service page template (brief §6). Docket header → fault →
 // what we do → parts → price table on bench → warranty → before/after
@@ -26,7 +47,7 @@ export default function ServicePage() {
   return (
     <Layout>
       <Seo
-        title={`${svc.title} | My Gadgets UK`}
+        title={`${svc.title} | ${SITE.name}`}
         description={svc.metaDescription}
         path={path}
         schema={[
@@ -36,16 +57,7 @@ export default function ServicePage() {
             { name: svc.deviceLabel, path: deviceHub },
             { name: svc.name, path },
           ]),
-          {
-            '@type': 'Service',
-            name: `${svc.deviceLabel} ${svc.name}`,
-            provider: { '@id': `${SITE.domain}/#business` },
-            areaServed: ['Whitton', 'Twickenham', 'Hounslow', 'Feltham', 'Isleworth', 'Hanworth', 'Teddington', 'Richmond'],
-            offers: {
-              '@type': 'Offer',
-              priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'GBP', description: `From ${svc.fromPrice}` },
-            },
-          },
+          serviceOffer(svc, path),
           faqSchema(svc.faqs),
         ]}
       />
@@ -61,7 +73,7 @@ export default function ServicePage() {
         <div className="grid-12">
           <div className="col-span-12 lg:col-span-7">
             <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>
-              {svc.deviceLabel} {svc.name.toLowerCase()}
+              {svc.h1 ?? `${svc.deviceLabel} ${svc.name.toLowerCase()}`}
             </h1>
             <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>
               {svc.metaDescription}
@@ -75,10 +87,14 @@ export default function ServicePage() {
             <Docket
               id={svc.slug.split('/').pop()!.slice(0, 6).toUpperCase()}
               title={`${svc.deviceLabel} · ${svc.name}`}
-              rows={[
+              rows={svc.quoteOnly ? [
+                { k: 'QUOTE', v: 'At the bench' },
+                { k: 'DIAGNOSIS', v: 'Free' },
+                { k: 'WARRANTY', v: SITE.repairsWarranty },
+              ] : [
                 { k: 'FROM', v: svc.fromPrice, price: true },
                 { k: 'TURNAROUND', v: svc.turnaround, ok: true },
-                { k: 'WARRANTY', v: '3 months' },
+                { k: 'WARRANTY', v: SITE.repairsWarranty },
                 { k: 'DIAGNOSIS', v: 'Free' },
               ]}
             />
@@ -125,6 +141,14 @@ export default function ServicePage() {
                 <h3 className="h3" style={{ color: 'var(--bench-ink)', marginTop: 32 }}>Warranty</h3>
                 <p className="body-copy text-muted">{svc.warranty} Full terms on the <Link to="/warranty/" style={{ color: 'var(--bench-ink)' }}>warranty page</Link>.</p>
               </Reveal>
+              {svc.sections?.map((section) => (
+                <Reveal key={section.heading}>
+                  <h3 className="h3" style={{ color: 'var(--bench-ink)', marginTop: 40 }}>{section.heading}</h3>
+                  {section.paragraphs.map((p) => (
+                    <p key={p.slice(0, 24)} className="body-copy text-muted">{p}</p>
+                  ))}
+                </Reveal>
+              ))}
             </div>
             <div className="col-span-12 lg:col-span-4 lg:col-start-9">
               <Reveal>
@@ -155,9 +179,26 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Price table on bench */}
+      {/* Price table on bench, or a quote panel when no figure is published */}
       <section className="bench">
         <div className="container-12 section-pad">
+          {svc.quoteOnly || svc.priceTable.length === 0 ? (
+            <Reveal>
+              <div className="grid-12">
+                <div className="col-span-12 lg:col-span-7">
+                  <h2 className="h2" style={{ margin: 0 }}>Quote at the bench</h2>
+                  <p style={{ color: '#4B5563', marginTop: 12, maxWidth: '62ch' }}>
+                    This repair is not on the published price list. The fault and the part depend on the exact machine, so we look at it first. Diagnosis is free, and the figure we give you is the one we stick to. Call {SITE.phoneDisplay} or bring it to {SITE.street}.
+                  </p>
+                  <div style={{ display: 'flex', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
+                    <a href={SITE.phoneHref} className="btn btn-signal">Call {SITE.phoneDisplay}</a>
+                    <Link to="/contact/" className="btn btn-ghost-bench">Visit the shop</Link>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ) : (
+          <>
           <Reveal>
             <div className="grid-12" style={{ marginBottom: 40 }}>
               <div className="col-span-12 lg:col-span-7">
@@ -202,6 +243,8 @@ export default function ServicePage() {
               <Link to="/repairs/prices/" className="btn btn-ghost-bench">Full price list →</Link>
             </div>
           </Reveal>
+          </>
+          )}
         </div>
       </section>
 
@@ -234,7 +277,7 @@ export default function ServicePage() {
                 {sameDevice.map((s) => (
                   <Link key={s.slug} to={`/repairs/${s.slug}/`}>
                     <span>{s.name}</span>
-                    <span className="arrow">FROM {s.fromPrice} →</span>
+                    <span className="arrow">{s.quoteOnly ? 'Quote →' : `FROM ${s.fromPrice} →`}</span>
                   </Link>
                 ))}
               </div>
@@ -245,7 +288,7 @@ export default function ServicePage() {
                 {sameFault.length > 0 ? sameFault.map((s) => (
                   <Link key={s.slug} to={`/repairs/${s.slug}/`}>
                     <span>{s.deviceLabel} {s.name.toLowerCase()}</span>
-                    <span className="arrow">FROM {s.fromPrice} →</span>
+                    <span className="arrow">{s.quoteOnly ? 'Quote →' : `FROM ${s.fromPrice} →`}</span>
                   </Link>
                 )) : (
                   <p className="small text-muted">This one is {svc.deviceLabel}-specific — board-level work lives on the Mac side of the bench.</p>
@@ -253,8 +296,25 @@ export default function ServicePage() {
               </div>
             </div>
           </div>
+          {svc.related && svc.related.length > 0 && (
+            <div className="grid-12" style={{ marginTop: 40 }}>
+              <div className="col-span-12">
+                <h2 className="h3" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Related repairs</h2>
+                <div className="link-list">
+                  {svc.related.map((l) => (
+                    <Link key={l.href} to={l.href}>
+                      <span>{l.label}</span>
+                      <span className="arrow">→</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
+      <AreaLinks />
+      {svc.quoteOnly && <RepairCta heading="Call or bring it in" />}
     </Layout>
   );
 }

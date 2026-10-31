@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Laptop, BatteryCharging, ShieldCheck, Wrench, Cpu, Keyboard, Smartphone, TabletSmartphone, ArrowRight } from 'lucide-react';
+import { Laptop, BatteryCharging, ShieldCheck, Wrench, Cpu, Keyboard, Smartphone, TabletSmartphone, ArrowRight, HardDrive, Gamepad2 } from 'lucide-react';
 import { getService } from '@/data/services';
 
 // One representative service per popular-repair category, curated across
@@ -13,6 +13,8 @@ const POPULAR = [
   { category: 'Keyboard & trackpad', icon: Keyboard, slug: 'macbook/keyboard-replacement' },
   { category: 'iPhone screen & battery', icon: Smartphone, slug: 'iphone/screen-replacement' },
   { category: 'Samsung Galaxy screen', icon: TabletSmartphone, slug: 'samsung/screen-replacement' },
+  { category: 'Laptop SSD upgrade', icon: HardDrive, slug: 'laptop/ssd-upgrade' },
+  { category: 'PlayStation HDMI port', icon: Gamepad2, slug: 'playstation/hdmi-port-repair' },
 ] as const;
 
 export default function PopularServices() {
@@ -47,7 +49,7 @@ export default function PopularServices() {
                 <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--bench-ink)' }}>{category}</div>
                 <p style={{ fontSize: '0.8125rem', color: '#6B7280', marginTop: 6, marginBottom: 14 }}>{service.deviceLabel} · {service.turnaround}</p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontWeight: 700, color: 'hsl(var(--primary))' }}>From {service.fromPrice}</span>
+                  <span style={{ fontWeight: 700, color: 'hsl(var(--primary))' }}>{service.quoteOnly ? 'Quote at the bench' : `From ${service.fromPrice}`}</span>
                   <ArrowRight size={16} style={{ color: '#6B7280' }} />
                 </div>
               </div>

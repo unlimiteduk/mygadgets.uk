@@ -44,7 +44,7 @@ export default function Prices() {
   return (
     <Layout>
       <Seo
-        title="Repair price list — every model, every fault | My Gadgets UK, Whitton"
+        title={`Repair price list — every model, every fault | ${SITE.name}`}
         description="The full repair price list: MacBook, iPhone, Samsung and iPad, by model, with turnaround — plus Windows laptop screen and hinge pricing by part number. No 'contact us for a quote' — the numbers are here."
         path="/repairs/prices/"
         schema={breadcrumbSchema([

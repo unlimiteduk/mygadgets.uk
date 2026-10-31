@@ -11,8 +11,8 @@ export default function Reviews() {
   return (
     <Layout>
       <Seo
-        title="Reviews — straight from Google, verbatim | My Gadgets UK"
-        description={`${GOOGLE_RATING.average} stars from ${GOOGLE_RATING.count} Google reviews for My Gadgets UK, Whitton. Real reviewer names, ratings and quotes, pulled from our Business Profile — we do not write, curate or filter them.`}
+        title={`Reviews — straight from Google, verbatim | ${SITE.name}`}
+        description={`${GOOGLE_RATING.average} stars from ${GOOGLE_RATING.count} Google reviews for ${SITE.name}. Real reviewer names, ratings and quotes, pulled from our Business Profile — we do not write, curate or filter them.`}
         path="/reviews/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Reviews', path: '/reviews/' }])}
       />

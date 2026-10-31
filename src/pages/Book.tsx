@@ -10,6 +10,7 @@ import StepDetails from '@/components/booking/StepDetails';
 import PriceSummaryPanel from '@/components/booking/PriceSummaryPanel';
 import ConfirmationScreen from '@/components/booking/ConfirmationScreen';
 import type { BookingState } from '@/components/booking/types';
+import { SITE } from '@/data/site';
 
 const EMPTY_STATE: BookingState = {
   deviceSlug: '',
@@ -58,7 +59,7 @@ export default function Book() {
   if (step === 4) {
     return (
       <Layout>
-        <Seo title="Booked — job ticket | My Gadgets UK" description="Your repair booking is in. We confirm every booking by text." path="/book/" />
+        <Seo title={`Booked — job ticket | ${SITE.name}`} description="Your repair booking is in. We confirm every booking by text." path="/book/" />
         <section className="container-12 section-pad">
           <ConfirmationScreen state={state} />
         </section>
@@ -69,8 +70,8 @@ export default function Book() {
   return (
     <Layout>
       <Seo
-        title="Book a repair — Whitton High Street | My Gadgets UK"
-        description="Book a repair at My Gadgets UK, Whitton High Street. Free diagnosis, fixed quote before any work, most repairs same day. Or WhatsApp us — same bench, same prices."
+        title={`Book a repair — Whitton High Street | ${SITE.name}`}
+        description={`Book a repair at ${SITE.name}, Whitton High Street. Free diagnosis, fixed quote before any work, most repairs same day. Or WhatsApp us — same bench, same prices.`}
         path="/book/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Book', path: '/book/' }])}
       />

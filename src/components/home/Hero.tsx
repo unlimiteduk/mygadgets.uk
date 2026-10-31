@@ -45,8 +45,7 @@ export default function Hero() {
             className="display-ll"
             style={{ color: "var(--bench-ink)", margin: 0 }}
           >
-            Computer repair, <span className="accent-underline">fixed</span>{" "}
-            today, on Whitton High Street.
+            <span className="accent-underline">MacBook, Laptop & Console Repair in Whitton, Twickenham</span>
           </h1>
           <p
             style={{
@@ -57,9 +56,10 @@ export default function Hero() {
             }}
           >
             MacBook and Windows laptop repairs — screens, batteries, logic
-            boards, virus removal — plus iPhone and Android. Most back the
-            same day. The price is on this site before you set off, and every
-            repair carries a written warranty.
+            boards, SSD upgrades and data recovery — plus PlayStation and Xbox
+            HDMI port repair. Most repairs are back the same day. Where a price
+            is published on this site, that is the price, and every repair
+            carries a written warranty.
           </p>
 
           <div

@@ -36,7 +36,7 @@ export default function SellDevice() {
   return (
     <Layout>
       <Seo
-        title="Sell your device — working, broken or water-damaged | My Gadgets UK, Whitton"
+        title={`Sell your device — working, broken or water-damaged | ${SITE.name}`}
         description="We buy working, broken and water-damaged iPhones, MacBooks, iPads and Samsung phones. Indicative price online, firm offer at the counter, paid the same day."
         path="/sell-your-device/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Sell your device', path: '/sell-your-device/' }])}

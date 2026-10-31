@@ -5,13 +5,14 @@ import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
 import { DEVICE_HUBS, servicesByDevice } from '@/data/services';
+import { SITE } from '@/data/site';
 
 export default function RepairsHub() {
   return (
     <Layout>
       <Seo
-        title="Computer & Laptop Repairs — MacBook, Windows, iPhone, Samsung, iPad | My Gadgets UK, Whitton"
-        description="Every repair we do, with the price in writing: MacBook and Windows laptop computer repair, plus iPhone, Samsung Galaxy and iPad. Same-day on most, 3-month warranty on all. Whitton High Street."
+        title={`Computer, MacBook, laptop and console repairs | ${SITE.name}`}
+        description="MacBook, laptop, PlayStation, Xbox, iMac and PC repairs on Whitton High Street, plus the priced phone and tablet work already on this site. Free diagnosis. Quote before any work."
         path="/repairs/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Repairs', path: '/repairs/' }])}
       />
@@ -21,7 +22,7 @@ export default function RepairsHub() {
           <div className="col-span-12 lg:col-span-8">
             <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>Repairs, priced before we start</h1>
             <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>
-              Every service below has a real price and a real turnaround. Diagnosis is free, the quote is fixed in writing, and if we cannot fix it you pay nothing.
+              Where a price is printed, that is the fitted price. Console, iMac, PC and some laptop jobs are quoted after a free diagnosis, because the part depends on the machine. If we cannot fix it, you pay nothing.
             </p>
           </div>
         </div>
@@ -39,6 +40,7 @@ export default function RepairsHub() {
                     <p className="small text-muted" style={{ marginTop: 8, marginBottom: 0 }}>{d.blurb}</p>
                   </div>
                 </div>
+                {services.length > 0 ? (
                 <div className="grid-12">
                   {services.map((s) => (
                     <div key={s.slug} className="col-span-12 md:col-span-6 lg:col-span-4">
@@ -46,15 +48,29 @@ export default function RepairsHub() {
                         id={s.slug.split('/').pop()!.slice(0, 6).toUpperCase()}
                         title={`${d.label} ${s.name.toLowerCase()}`}
                         href={`/repairs/${s.slug}/`}
-                        rows={[
+                        rows={s.quoteOnly ? [
+                          { k: 'QUOTE', v: 'At the bench' },
+                          { k: 'DIAGNOSIS', v: 'Free' },
+                          { k: 'WARRANTY', v: SITE.repairsWarranty },
+                        ] : [
                           { k: 'FROM', v: s.fromPrice, price: true },
                           { k: 'TURNAROUND', v: s.turnaround, ok: true },
-                          { k: 'WARRANTY', v: '3 months' },
+                          { k: 'WARRANTY', v: SITE.repairsWarranty },
                         ]}
                       />
                     </div>
                   ))}
                 </div>
+                ) : (
+                  <div className="link-list">
+                    {(d.links ?? []).map((l) => (
+                      <Link key={l.href} to={l.href}>
+                        <span>{l.label}</span>
+                        <span className="arrow">{l.note ?? 'View'} →</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             </Reveal>
           );

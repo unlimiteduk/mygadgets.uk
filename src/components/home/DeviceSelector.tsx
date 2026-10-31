@@ -6,6 +6,9 @@ import {
   TabletSmartphone,
   Laptop2,
   ArrowRight,
+  Gamepad2,
+  Monitor,
+  PcCase,
 } from "lucide-react";
 import { DEVICE_HUBS } from "@/data/services";
 
@@ -15,6 +18,11 @@ const ICONS: Record<string, typeof Laptop> = {
   ipad: Tablet,
   samsung: TabletSmartphone,
   laptop: Laptop2,
+  console: Gamepad2,
+  playstation: Gamepad2,
+  xbox: Gamepad2,
+  imac: Monitor,
+  pc: PcCase,
 };
 
 export default function DeviceSelector() {
@@ -34,8 +42,7 @@ export default function DeviceSelector() {
           Pick your device
         </h2>
         <p style={{ color: "#4B5563", marginTop: 12, maxWidth: "60ch" }}>
-          Tap a device to jump straight into booking — we'll have the right
-          model and faults ready for you.
+          Phones and laptops open booking. Consoles, iMacs and PCs open the repair page.
         </p>
       </div>
       <div
@@ -50,7 +57,7 @@ export default function DeviceSelector() {
           return (
             <Link
               key={d.slug}
-              to={`/book/?device=${d.slug}`}
+              to={d.selectorTo ?? `/book/?device=${d.slug}`}
               className="docket is-hoverable"
               style={{ textDecoration: "none", display: "block" }}
             >

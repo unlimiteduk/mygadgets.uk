@@ -6,7 +6,7 @@ import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
 import PhotoSlot from '@/components/PhotoSlot';
 import { getListing, SHOP_CATEGORIES } from '@/data/listings';
-import { SITE } from '@/data/site';
+import { SITE, canonical } from '@/data/site';
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import NotFound from './NotFound';
 
@@ -23,7 +23,7 @@ export default function Listing() {
   return (
     <Layout>
       <Seo
-        title={`${l.name} ${l.year} · grade ${l.grade} · £${l.price} | My Gadgets UK refurbished`}
+        title={`${l.name} ${l.year} · grade ${l.grade} · £${l.price} | ${SITE.name}`}
         description={`${l.name} (${l.identifier}, ${l.year}): ${l.cpu}, ${l.ram}, ${l.ssd}. ${l.cycles > 0 ? `${l.cycles} battery cycles, ${l.batteryHealth}% health. ` : ''}Grade ${l.grade} with every mark described. ${SITE.refurbWarranty} warranty. £${l.price}.`}
         path={path}
         schema={[
@@ -37,16 +37,22 @@ export default function Listing() {
             '@type': 'Product',
             name: `${l.name} (${l.identifier}, ${l.year}) — refurbished`,
             sku: `MGU-${l.slug.toUpperCase().slice(0, 18)}`,
-            description: l.summary,
+            description: `${l.summary} ${SITE.refurbWarranty} warranty, in writing.`,
+            url: canonical(path),
+            ...( [l.photoHero, l.photoLid, l.photoPorts].some(Boolean)
+              ? { image: [l.photoHero, l.photoLid, l.photoPorts].filter((src): src is string => Boolean(src)).map((src) => `${SITE.domain}${src}`) }
+              : {}),
             itemCondition: 'https://schema.org/RefurbishedCondition',
             brand: { '@type': 'Brand', name: 'Apple' },
+            category: l.category === 'imac' ? 'Refurbished iMac' : 'Refurbished MacBook',
             offers: {
               '@type': 'Offer',
-              price: l.price,
+              url: canonical(path),
+              price: l.price.toFixed(2),
               priceCurrency: 'GBP',
-              availability: available ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+              availability: available ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+              itemCondition: 'https://schema.org/RefurbishedCondition',
               seller: { '@id': `${SITE.domain}/#business` },
-              warranty: `${SITE.refurbWarranty} warranty, in writing`,
             },
           },
         ]}

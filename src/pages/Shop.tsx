@@ -41,7 +41,7 @@ function ShopGrid({ title, intro, category, crumbs }: { title: string; intro: st
   return (
     <Layout>
       <Seo
-        title={`${title} | My Gadgets UK, Whitton`}
+        title={`${title} | ${SITE.name}`}
         description={intro}
         path={path}
         schema={breadcrumbSchema(crumbs ?? [{ name: 'Home', path: '/' }, { name: 'Shop', path: '/shop/' }])}

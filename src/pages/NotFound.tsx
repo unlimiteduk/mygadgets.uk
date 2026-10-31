@@ -1,11 +1,14 @@
 import { Link } from 'react-router';
 import Seo from '@/components/Seo';
 import Layout from '@/components/Layout';
+import { SITE } from '@/data/site';
+import { setPrerenderStatus } from '@/prerender-status';
 
 export default function NotFound() {
+  setPrerenderStatus(404);
   return (
     <Layout>
-      <Seo title="Page not found | My Gadgets UK" description="That page is not on the bench. Try the repair hub or the price list." path="/404/" />
+      <Seo title={`Page not found | ${SITE.name}`} description="That page is not on the bench. Try the repair hub or the price list." path="/404/" robots="noindex" />
       <section className="container-12 section-pad">
         <p className="label text-muted" style={{ marginBottom: 16 }}>Fault 404 — page not found</p>
         <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>This one we cannot repair.</h1>

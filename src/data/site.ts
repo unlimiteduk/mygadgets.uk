@@ -3,9 +3,11 @@
 // ------------------------------------------------------------------
 
 export const SITE = {
-  name: 'My Gadgets UK',
-  legalName: 'My Gadgets UK Ltd',
-  domain: 'https://www.mygadgetsuk.co.uk',
+  // Visual logo wordmark. Schema, titles and NAP use `name` (the Google Business Profile).
+  brandName: 'My Gadgets UK',
+  name: 'My Gadgets Whitton',
+  legalName: 'MY GADGETS LTD',
+  domain: 'https://www.mygadgets.uk',
   street: '23 High Street',
   locality: 'Whitton',
   region: 'Twickenham',

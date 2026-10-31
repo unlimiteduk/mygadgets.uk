@@ -24,7 +24,7 @@ export default function ModelPage() {
   return (
     <Layout>
       <Seo
-        title={`${model.name} (${model.identifier}) repair prices | My Gadgets UK, Whitton`}
+        title={`${model.name} (${model.identifier}) repair prices | ${SITE.name}`}
         description={`${model.name} repairs in Whitton: ${model.faults.map((f) => `${f.label.toLowerCase()} ${f.price}`).join(', ')}. Most same day, ${model.warranty} warranty, free diagnosis.`}
         path={path}
         schema={[
