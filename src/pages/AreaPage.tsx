@@ -6,8 +6,9 @@ import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
 import Map from '@/components/Map';
 import { getArea } from '@/data/areas';
-import { SERVICES } from '@/data/services';
-import { SITE } from '@/data/site';
+import { getService } from '@/data/services';
+import { PRIORITY_REPAIR_LINKS } from '@/data/extra-repairs';
+import { AREAS_COVERED, SITE } from '@/data/site';
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import NotFound from './NotFound';
 
@@ -18,12 +19,14 @@ export default function AreaPage() {
   const area = getArea(slug ?? '');
   if (!area) return <NotFound />;
   const path = `/areas/${area.slug}/`;
-  const featured = SERVICES.slice(0, 6);
+  const featured = ['macbook/screen-replacement', 'laptop/screen-replacement', 'macbook/ssd-upgrade', 'macbook/data-recovery']
+    .map((slug) => getService(slug))
+    .filter((s) => s != null);
 
   return (
     <Layout>
       <Seo
-        title={`${area.headline} | My Gadgets UK`}
+        title={`${area.headline} | ${SITE.name}`}
         description={area.metaDescription}
         path={path}
         schema={[
@@ -98,6 +101,22 @@ export default function AreaPage() {
           <Reveal>
             <Link to="/repairs/prices/" className="btn btn-ghost" style={{ marginTop: 32 }}>Full price list →</Link>
           </Reveal>
+          <div className="grid-12" style={{ marginTop: 48 }}>
+            <div className="col-span-12 lg:col-span-4">
+              <h2 className="h3" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Also booked from {area.name}</h2>
+              <p className="text-muted">Consoles, desktops and upgrades sit alongside the priced jobs above.</p>
+            </div>
+            <div className="col-span-12 lg:col-span-7 lg:col-start-6">
+              <div className="link-list">
+                {PRIORITY_REPAIR_LINKS.map((l) => (
+                  <Link key={l.href} to={l.href}>
+                    <span>{l.label}</span>
+                    <span className="arrow">{l.note ?? 'View'} →</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -148,6 +167,18 @@ export default function AreaPage() {
               </Reveal>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="container-12" style={{ paddingBottom: 64 }}>
+        <h2 className="h3" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Other places we cover</h2>
+        <div className="link-list">
+          {AREAS_COVERED.filter((a) => a.slug !== area.slug).map((a) => (
+            <Link key={a.slug} to={`/areas/${a.slug}/`}>
+              <span>{a.name} repairs</span>
+              <span className="arrow">{a.postcode} →</span>
+            </Link>
+          ))}
         </div>
       </section>
 

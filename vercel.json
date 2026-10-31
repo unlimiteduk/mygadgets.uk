@@ -1,3 +1,23 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mygadgets.uk" }],
+      "destination": "https://www.mygadgets.uk/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mygadgetsuk.co.uk" }],
+      "destination": "https://www.mygadgets.uk/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.mygadgetsuk.co.uk" }],
+      "destination": "https://www.mygadgets.uk/:path*",
+      "statusCode": 301
+    }
+  ]
 }

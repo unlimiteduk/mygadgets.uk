@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid-12">
           <div className="col-span-12 md:col-span-4">
             <span style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--bone)', borderRadius: 8, padding: '6px 12px', marginBottom: 16 }}>
-              <img src="/logo.png" alt="My Gadgets UK" style={{ height: 24, width: 'auto', display: 'block' }} />
+              <img src="/logo.png" alt={SITE.brandName} style={{ height: 24, width: 'auto', display: 'block' }} />
             </span>
             <p className="small text-aluminium" style={{ maxWidth: '32ch' }}>
               {SITE.street}, {SITE.locality}, {SITE.region} {SITE.postcode}
@@ -33,9 +33,15 @@ export default function Footer() {
             <FooterLinks links={[
               ['/repairs/macbook/screen-replacement/', 'MacBook screens'],
               ['/repairs/laptop/screen-replacement/', 'Laptop screens'],
-              ['/repairs/laptop/virus-removal/', 'Laptop virus removal'],
-              ['/repairs/iphone/screen-replacement/', 'iPhone screens'],
-              ['/repairs/samsung/screen-replacement/', 'Samsung screens'],
+              ['/repairs/laptop/ssd-upgrade/', 'Laptop SSD upgrade'],
+              ['/repairs/laptop/data-recovery/', 'Laptop data recovery'],
+              ['/repairs/console/', 'Console repair'],
+              ['/repairs/playstation/', 'PlayStation'],
+              ['/repairs/playstation/hdmi-port-repair/', 'PlayStation HDMI port'],
+              ['/repairs/xbox/', 'Xbox'],
+              ['/repairs/xbox/hdmi-port-repair/', 'Xbox HDMI port'],
+              ['/repairs/imac/', 'iMac repair'],
+              ['/repairs/pc/', 'PC repair'],
               ['/repairs/ipad/screen-replacement/', 'iPad screens'],
               ['/repairs/prices/', 'Full price list'],
             ]} />

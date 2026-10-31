@@ -19,8 +19,8 @@ export default function Track() {
   return (
     <Layout>
       <Seo
-        title="Track your repair | My Gadgets UK"
-        description="Check the live status of your repair at My Gadgets UK — enter your booking reference to see where your device is in the queue."
+        title={`Track your repair | ${SITE.name}`}
+        description={`Check the live status of your repair at ${SITE.name} — enter your booking reference to see where your device is in the queue.`}
         path="/track/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Track repair', path: '/track/' }])}
       />

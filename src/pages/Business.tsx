@@ -9,7 +9,7 @@ export default function Business() {
   return (
     <Layout>
       <Seo
-        title="Business repairs & refurbished fleets | My Gadgets UK, Whitton"
+        title={`Business repairs & refurbished fleets | ${SITE.name}`}
         description="Repairs, refurbished Mac fleets and priority turnaround for schools, offices and studios around Whitton, Twickenham and Richmond. Invoiced, warrantied, documented."
         path="/business/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Business', path: '/business/' }])}

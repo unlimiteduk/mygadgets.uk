@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Laptop, Smartphone, Tablet, TabletSmartphone, Laptop2, Search } from 'lucide-react';
+import { Laptop, Smartphone, Tablet, TabletSmartphone, Laptop2, Search, Gamepad2, Monitor, PcCase } from 'lucide-react';
 import { DEVICE_HUBS } from '@/data/services';
 import { MODELS } from '@/data/models';
 import { DEVICE_SLUG_TO_MODEL_DEVICE, type BookingState } from './types';
@@ -10,6 +10,11 @@ const ICONS: Record<string, typeof Laptop> = {
   ipad: Tablet,
   samsung: TabletSmartphone,
   laptop: Laptop2,
+  console: Gamepad2,
+  playstation: Gamepad2,
+  xbox: Gamepad2,
+  imac: Monitor,
+  pc: PcCase,
 };
 
 interface Props {
@@ -39,7 +44,7 @@ export default function StepDevice({ state, update, onNext }: Props) {
       <p style={{ color: '#4B5563', marginTop: 12, marginBottom: 32 }}>Pick a device, then find your exact model.</p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 12, marginBottom: 28 }}>
-        {DEVICE_HUBS.map((d) => {
+        {DEVICE_HUBS.filter((d) => d.bookable !== false).map((d) => {
           const Icon = ICONS[d.slug] ?? Laptop;
           const active = state.deviceSlug === d.slug;
           return (
@@ -120,7 +125,7 @@ export default function StepDevice({ state, update, onNext }: Props) {
           <label htmlFor="model-free">Model</label>
           <input
             id="model-free"
-            placeholder="e.g. Dell XPS 13, HP Pavilion 15…"
+            placeholder={DEVICE_HUBS.find((d) => d.slug === state.deviceSlug)?.modelPlaceholder ?? 'e.g. Dell XPS 13, HP Pavilion 15…'}
             value={state.modelName}
             onChange={(e) => update({ modelName: e.target.value })}
           />

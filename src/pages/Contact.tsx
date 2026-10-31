@@ -60,8 +60,8 @@ export default function Contact() {
   return (
     <Layout>
       <Seo
-        title="Contact — Whitton High Street, TW2 | My Gadgets UK"
-        description="Call, WhatsApp or walk in: My Gadgets UK, Whitton High Street, TW2. Mon–Fri 09:00–18:30, Sat 09:30–17:30. Two doors from Whitton station."
+        title={`Contact — Whitton High Street, TW2 | ${SITE.name}`}
+        description={`Call, WhatsApp or walk in: ${SITE.name}, Whitton High Street, TW2. Mon–Fri 09:00–18:30, Sat 09:30–17:30. Two doors from Whitton station.`}
         path="/contact/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])}
       />

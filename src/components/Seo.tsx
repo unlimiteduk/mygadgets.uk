@@ -1,16 +1,22 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { SITE, canonical } from '@/data/site';
+import { registerPrerenderHead } from '@/prerender-status';
 
 interface SeoProps {
   title: string;
   description: string;
   path: string; // canonical path, e.g. /repairs/macbook/screen-replacement/
   schema?: object | object[]; // page-specific JSON-LD
+  robots?: string;
 }
 
-function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
+function upsertMeta(attr: 'name' | 'property', key: string, content: string | undefined) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+  if (!content) {
+    el?.remove();
+    return;
+  }
   if (!el) {
     el = document.createElement('meta');
     el.setAttribute(attr, key);
@@ -19,30 +25,34 @@ function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
   el.setAttribute('content', content);
 }
 
-export default function Seo({ title, description, path, schema }: SeoProps) {
+export default function Seo({ title, description, path, schema, robots }: SeoProps) {
   const { pathname } = useLocation();
+  const graph = [localBusinessSchema(), ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
+  const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+  const canonicalHref = canonical(path);
+
+  registerPrerenderHead({ title, description, canonical: canonicalHref, jsonLd, robots });
 
   useEffect(() => {
     document.title = title;
     upsertMeta('name', 'description', description);
+    upsertMeta('name', 'robots', robots);
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {
       link = document.createElement('link');
       link.setAttribute('rel', 'canonical');
       document.head.appendChild(link);
     }
-    link.setAttribute('href', canonical(path));
+    link.setAttribute('href', canonicalHref);
 
-    // JSON-LD: sitewide LocalBusiness + page-specific graph
     const id = 'jsonld-page';
     document.getElementById(id)?.remove();
     const script = document.createElement('script');
     script.id = id;
     script.type = 'application/ld+json';
-    const graph = [localBusinessSchema(), ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
-    script.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+    script.textContent = jsonLd;
     document.head.appendChild(script);
-  }, [title, description, path, pathname]);
+  }, [title, description, canonicalHref, jsonLd, robots, pathname]);
 
   return null;
 }
@@ -53,18 +63,27 @@ export function localBusinessSchema() {
     '@id': `${SITE.domain}/#business`,
     name: SITE.name,
     legalName: SITE.legalName,
-    url: SITE.domain,
-    telephone: SITE.phoneHref.replace('tel:', ''),
+    url: canonical('/'),
+    image: `${SITE.domain}/images/storefront.webp`,
+    logo: `${SITE.domain}/logo.png`,
+    telephone: '+447918440326',
     email: SITE.email,
     description:
-      'Computer repair specialists on Whitton High Street: MacBook and Windows laptop screens, batteries, logic boards and virus removal, plus iPhone, iPad and Samsung Galaxy repairs and refurbished MacBooks.',
+      'Computer repair shop in Whitton, Twickenham: MacBook and laptop screen repair, SSD upgrades, data recovery, PlayStation and Xbox HDMI port repair, iMac and PC repair, and refurbished MacBooks.',
     knowsAbout: [
       'Computer repair',
       'Laptop repair',
       'MacBook repair',
-      'Windows laptop repair',
-      'iPhone repair',
+      'MacBook screen repair',
+      'SSD upgrade',
+      'Data recovery',
+      'PlayStation repair',
+      'Xbox repair',
+      'HDMI port repair',
+      'iMac repair',
+      'PC repair',
       'iPad repair',
+      'iPhone repair',
       'Samsung Galaxy repair',
       'Refurbished MacBooks',
     ],
@@ -92,7 +111,7 @@ export function localBusinessSchema() {
       'Teddington', 'St Margarets', 'Richmond', 'Bedfont', 'Heston',
       'TW1', 'TW2', 'TW3', 'TW5', 'TW7', 'TW9', 'TW11', 'TW13', 'TW14',
     ],
-    hasMap: 'https://maps.google.com/?q=My+Gadgets+UK+Whitton',
+    hasMap: SITE.socials.gbp,
     sameAs: [SITE.socials.gbp, SITE.socials.facebook, SITE.socials.instagram, SITE.socials.tiktok, SITE.socials.trustpilot],
   };
 }

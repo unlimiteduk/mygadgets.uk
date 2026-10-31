@@ -3,13 +3,14 @@ import Layout from '@/components/Layout';
 import Crumbs from '@/components/Crumbs';
 import BlogPostCard from '@/components/BlogPostCard';
 import { BLOG_POSTS } from '@/data/blog';
+import { SITE } from '@/data/site';
 
 export default function BlogIndex() {
   return (
     <Layout>
       <Seo
-        title="Blog — repair guides and advice | My Gadgets UK"
-        description="Straight answers on device repair, data safety and getting more life out of your phone and laptop, from the bench at My Gadgets UK."
+        title={`Blog — repair guides and advice | ${SITE.name}`}
+        description={`Straight answers on device repair, data safety and getting more life out of your phone and laptop, from the bench at ${SITE.name}.`}
         path="/blog/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }])}
       />

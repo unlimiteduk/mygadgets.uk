@@ -18,7 +18,7 @@ export default function BlogPost() {
   return (
     <Layout>
       <Seo
-        title={`${post.title} | My Gadgets UK`}
+        title={`${post.title} | ${SITE.name}`}
         description={post.metaDescription}
         path={path}
         schema={[

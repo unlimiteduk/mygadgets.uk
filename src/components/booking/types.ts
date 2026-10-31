@@ -6,6 +6,10 @@ export const DEVICE_SLUG_TO_MODEL_DEVICE: Record<string, Model['device'] | null>
   ipad: 'iPad',
   samsung: 'Galaxy',
   laptop: null,
+  playstation: null,
+  xbox: null,
+  imac: null,
+  pc: null,
 };
 
 export interface SelectedFault {

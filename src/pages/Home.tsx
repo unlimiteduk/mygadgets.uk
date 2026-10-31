@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Map from '@/components/Map';
-import { SITE, AREAS_COVERED } from '@/data/site';
+import { SITE, AREAS_COVERED, canonical } from '@/data/site';
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import { LISTINGS } from '@/data/listings';
 import Hero from '@/components/home/Hero';
@@ -22,18 +22,13 @@ export default function Home() {
   return (
     <Layout>
       <Seo
-        title="My Gadgets UK — Computer, MacBook & Laptop Repairs, Whitton High Street"
-        description="Computer repair specialists on Whitton High Street, TW2: MacBook and Windows laptop screens, batteries, logic boards and virus removal, plus iPhone, iPad and Samsung. Most back the same day, prices in writing. Refurbished MacBooks with a 6-month warranty."
+        title="MacBook & Laptop Repair Whitton, Twickenham | My Gadgets Whitton"
+        description="MacBook, laptop and console repair on Whitton High Street, Twickenham. Screens, SSD upgrades, PlayStation and Xbox HDMI ports. Refurbished MacBooks in stock."
         path="/"
         schema={{
           '@type': 'WebSite',
           name: SITE.name,
-          url: SITE.domain,
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: `${SITE.domain}/repairs/prices/?q={query}`,
-            'query-input': 'required name=query',
-          },
+          url: canonical('/'),
         }}
       />
 

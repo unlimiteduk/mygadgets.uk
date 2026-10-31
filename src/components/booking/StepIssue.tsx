@@ -56,7 +56,7 @@ export default function StepIssue({ state, update, onNext, onBack }: Props) {
             >
               <span>
                 <span style={{ display: 'block', fontWeight: 600, fontSize: '0.9375rem', color: 'var(--bench-ink)' }}>{f.label}</span>
-                <span style={{ display: 'block', fontSize: '0.75rem', color: '#6B7280', marginTop: 2 }}>{f.price} · {f.turnaround}</span>
+                <span style={{ display: 'block', fontSize: '0.75rem', color: '#6B7280', marginTop: 2 }}>{f.price === 'Quote' ? 'Quote at the bench · free diagnosis' : `${f.price} · ${f.turnaround}`}</span>
               </span>
               <span
                 style={{

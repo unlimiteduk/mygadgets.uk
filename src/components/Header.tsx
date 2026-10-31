@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet';
 
 const NAV = [
   { to: '/repairs/', label: 'Repairs' },
+  { to: '/repairs/console/', label: 'Consoles' },
   { to: '/repairs/prices/', label: 'Prices' },
   { to: '/shop/', label: 'Refurbished' },
   { to: '/track/', label: 'Track repair' },
@@ -25,9 +26,9 @@ export default function Header() {
       }}
     >
       <div className="container-12" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} aria-label="My Gadgets UK — home">
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} aria-label={`${SITE.brandName} — home`}>
           <span style={{ display: 'inline-flex', alignItems: 'center', background: '#FFFFFF', borderRadius: 8, padding: '6px 12px' }}>
-            <img src="/logo.png" alt="My Gadgets UK" style={{ height: 26, width: 'auto', display: 'block' }} />
+            <img src="/logo.png" alt={SITE.brandName} style={{ height: 26, width: 'auto', display: 'block' }} />
           </span>
         </Link>
 
@@ -84,7 +85,7 @@ export default function Header() {
         <SheetContent side="right" className="w-[85vw] sm:max-w-sm" style={{ background: '#FFFFFF', padding: 0 }}>
           <SheetTitle style={{ padding: '20px 24px 0' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', background: '#FFFFFF', borderRadius: 8, padding: '6px 12px' }}>
-              <img src="/logo.png" alt="My Gadgets UK" style={{ height: 24, width: 'auto' }} />
+              <img src="/logo.png" alt={SITE.brandName} style={{ height: 24, width: 'auto' }} />
             </span>
           </SheetTitle>
           <nav aria-label="Mobile" style={{ padding: '12px 24px 24px', display: 'flex', flexDirection: 'column' }}>

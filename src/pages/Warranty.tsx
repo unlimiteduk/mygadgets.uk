@@ -8,7 +8,7 @@ export default function Warranty() {
   return (
     <Layout>
       <Seo
-        title="Warranty — repairs 3 months, refurbished 6 | My Gadgets UK"
+        title={`Warranty — repairs ${SITE.repairsWarranty}, refurbished ${SITE.refurbWarranty} | ${SITE.name}`}
         description="Every repair carries a written 3-month warranty; every refurbished Mac carries 6 months. What is covered, what is not, and how a claim actually works."
         path="/warranty/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Warranty', path: '/warranty/' }])}
