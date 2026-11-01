@@ -290,7 +290,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     intro: [
       'My Gadgets Whitton repairs PlayStation and Xbox consoles on the same bench as the laptops. The job we see most is HDMI: no signal, a picture that only works if the cable is held just so, or a socket that took a knock when the lead was caught. Disc faults, consoles that will not power on, and machines that overheat and shut down come in as well.',
       'This page is the hub. The PlayStation page and the Xbox page go into each brand, and each has its own HDMI port repair page, because the boards are not the same and a single price would be a guess. We do not publish console prices. Diagnosis is free, and the quote is made after the console is open.',
-      'The shop is 23 High Street, Whitton, Twickenham TW2 7LB, two doors from Whitton station, on the ticket-office side. Call 07918 440326 or walk in during opening hours.',
+      'The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Call 07918 440326 or walk in during opening hours.',
     ],
     sections: [
       {
@@ -439,7 +439,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
       {
         q: 'Where is the shop?',
-        a: '23 High Street, Whitton, Twickenham TW2 7LB, two doors from Whitton station. Call 07918 440326. Area pages cover the trip from Twickenham, Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington.',
+        a: '23 High Street, Whitton, Twickenham TW2 7LB. Call 07918 440326. Area pages cover Twickenham, Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington.',
       },
     ],
     links: [
@@ -476,7 +476,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       {
         heading: 'Getting a large iMac here',
         paragraphs: [
-          'A 27-inch travels on the back seat more happily than on the train from Twickenham. Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington are a short drive. Short-stay bays are on the High Street, and Percy Road car park is a two-minute walk.',
+          'A 27-inch travels on the back seat more happily than on the train from Twickenham. Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington are a short drive. Short-stay bays are on the High Street outside the shop.',
           'Call 07918 440326 before you set off if the iMac is a 27-inch and you want to be sure there is bench space the same day. Walk-ins are still welcome. Opening hours are the ones already published on this site: Monday to Friday 09:00–18:30, Saturday 09:30–17:30, Sunday closed.',
         ],
       },
