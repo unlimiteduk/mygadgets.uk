@@ -186,7 +186,7 @@ export default function AreaPage() {
         <div className="container-12 section-pad">
           <div className="grid-12" style={{ alignItems: 'center' }}>
             <div className="col-span-12 lg:col-span-6">
-              <Reveal><Map /></Reveal>
+              <Map />
             </div>
             <div className="col-span-12 lg:col-span-5 lg:col-start-8">
               <Reveal>

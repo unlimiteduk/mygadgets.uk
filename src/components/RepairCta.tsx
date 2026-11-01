@@ -9,7 +9,7 @@ export default function RepairCta({ heading }: { heading: string }) {
           <div className="col-span-12 lg:col-span-7">
             <h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>{heading}</h2>
             <p className="body-copy text-muted">
-              {SITE.name}, {SITE.street}, {SITE.locality}, {SITE.region} {SITE.postcode}. {SITE.landmark}
+              {SITE.name}, {SITE.street}, {SITE.locality}, {SITE.region} {SITE.postcode}.
             </p>
             <div className="hours-list">
               {SITE.hours.map((h) => (

@@ -1,6 +1,7 @@
 // ------------------------------------------------------------------
 // Area pages (brief §5.1–5.2). Each entry is written separately, with
-// real local anchoring — streets, stations, bus routes, drive times.
+// Each area is written separately. The shop address is 23 High Street;
+// do not add landmark directions.
 // Job dockets below are realistic EXAMPLES structured exactly as the
 // client's completed-job records will be; swap in real jobs before
 // launch (brief §8, item 7). Reviews are omitted unless real.
@@ -38,17 +39,17 @@ export const AREAS: Area[] = [
     lean: 'The shop itself — flagship page.',
     headline: 'The repair shop on Whitton High Street',
     metaDescription:
-      'My Gadgets UK is on Whitton High Street, TW2, two doors from Whitton station. MacBook, iPhone and laptop repairs, most same day. Refurbished MacBooks with a 6-month warranty.',
+      'MacBook, iPhone and laptop repairs at 23 High Street, Whitton, TW2. Most jobs are back the same day. Refurbished MacBooks with a 6-month warranty.',
     intro: [
       'This is home. The bench, the microscope and the refurb shelf are all here on the High Street, and most of the repairs on this site are done within a few metres of the front door.',
       'If you are in Whitton you do not need directions — you need to know we will tell you the price before we touch the device, and that most jobs are back the same day. Cracked screen at breakfast, working phone by lunch.',
     ],
     travel: [
-      { mode: 'On foot', detail: 'Anywhere in Whitton is a fifteen-minute walk at most. We are on the High Street, two doors from the station, on the same side as the ticket office.', time: '2–15 mins' },
-      { mode: 'Bus', detail: 'The 281 and H22 stop practically outside — Whitton High Street / Admiral Nelson stop.', time: '–' },
-      { mode: 'Car', detail: 'Free 30-minute bays on the High Street; Percy Road car park is two minutes on foot.', time: '2–5 mins' },
+      { mode: 'On foot', detail: 'The shop is 23 High Street, Whitton, Twickenham TW2 7LB.', time: 'Walk in' },
+      { mode: 'Bus', detail: 'The 281 and H22 both run along Whitton High Street.', time: 'Bus' },
+      { mode: 'Car', detail: 'Free 30-minute bays on the High Street outside the shop.', time: '2–5 mins' },
     ],
-    anchorNote: 'Whitton station (South Western Railway, Waterloo line) is 300 yards away. Kneller Road, Hospital Bridge Road and Percy Road all feed straight to us.',
+    anchorNote: '23 High Street, Whitton, Twickenham TW2 7LB.',
     job: {
       ticket: 'MG-2417',
       device: 'MacBook Air 13" M1 (A2337)',
@@ -60,7 +61,7 @@ export const AREAS: Area[] = [
     },
     faqs: [
       { q: 'Do I need to book, or can I just walk in?', a: 'Walk in. Whitton locals mostly do. Booking ahead means the part is reserved and the job starts when you arrive, but the door is open either way.' },
-      { q: 'Where exactly is the shop?', a: 'On Whitton High Street, TW2, two doors from Whitton station on the ticket-office side. If you can see the station, you can see us.' },
+      { q: 'Where exactly is the shop?', a: '23 High Street, Whitton, Twickenham TW2 7LB.' },
       { q: 'Can I drop a device off before work and collect after?', a: 'That is the most common Whitton pattern. In before 09:30, most phone and MacBook jobs are ready by early afternoon — we text you the moment it is done.' },
     ],
   },
@@ -74,11 +75,11 @@ export const AREAS: Area[] = [
       'Cracked screen in Twickenham? My Gadgets UK is one stop on the train or eight minutes on the 281. iPhone screens from £59, MacBook screens from £129, most same day.',
     intro: [
       'Twickenham sends us more MacBooks than anywhere else — St Mary\'s and Richmond University students with deadline-week disasters, and a steady Saturday flow of phones that did not survive the rugby.',
-      'From Twickenham station we are one stop on the Waterloo line to Whitton — four minutes — then 300 yards on foot. The 281 runs the length of the route along London Road and the High Street if you would rather stay above ground.',
+      'The shop is 23 High Street, Whitton, Twickenham TW2 7LB. The 281 runs along London Road and the High Street if you would rather not drive.',
     ],
     travel: [
-      { mode: 'Train', detail: 'Twickenham → Whitton, South Western Railway, one stop. We are 300 yards from Whitton station.', time: '4 mins + 3 min walk' },
-      { mode: 'Bus', detail: 'The 281 from Twickenham station or London Road runs straight down Whitton High Street. Get off at the Admiral Nelson stop.', time: '8–12 mins' },
+      { mode: 'Train', detail: 'Twickenham to Whitton on South Western Railway, then walk to 23 High Street.', time: 'Train' },
+      { mode: 'Bus', detail: 'The 281 runs from Twickenham along London Road to Whitton High Street.', time: '8–12 mins' },
       { mode: 'Car', detail: 'London Road → A316 → Nelson Road. Free 30-minute bays outside the shop.', time: '7–10 mins' },
     ],
     anchorNote: 'Match day note: on rugby days the 281 is the reliable route — the roads around the stadium close long before kick-off.',
@@ -110,7 +111,7 @@ export const AREAS: Area[] = [
       'We see a lot of Galaxy A-series and iPhone work from Hounslow — high-volume, everyday phones where the price has to make sense against the value of the device. A £69 screen on a Galaxy A14 either beats replacing it or we will tell you it does not.',
     ],
     travel: [
-      { mode: 'Bus', detail: 'The 281 from Hounslow bus station runs direct to Whitton High Street. The H22 from Hounslow West does the same.', time: '15–20 mins' },
+      { mode: 'Bus', detail: 'The 281 from Hounslow runs to Whitton High Street. The H22 from Hounslow West does the same.', time: '15–20 mins' },
       { mode: 'Train', detail: 'Hounslow → Whitton is one change at Twickenham, or take the Piccadilly line one stop to Hounslow Central and pick up the 281.', time: '~25 mins' },
       { mode: 'Car', detail: 'A312 (The Parkway) → Hospital Bridge Road, or Staines Road → Nelson Road. Free bays outside.', time: '10–15 mins' },
     ],
@@ -143,7 +144,7 @@ export const AREAS: Area[] = [
       'The pattern we see most from Feltham: work phones and family laptops, the devices that cannot be down for long. Batteries and screens are same-day work; we text you the moment it is ready.',
     ],
     travel: [
-      { mode: 'Car', detail: 'A312 (Uxbridge Road/Hampton Road West) → Hanworth Road → Whitton. Free bays on the High Street, Percy Road car park behind.', time: '10–12 mins' },
+      { mode: 'Car', detail: 'A312 (Uxbridge Road/Hampton Road West) to Hanworth Road, then Whitton. Free bays on the High Street outside the shop.', time: '10–12 mins' },
       { mode: 'Train', detail: 'Feltham → Whitton is one stop on some Waterloo services, otherwise change at Twickenham — still under 20 minutes.', time: '15–20 mins' },
       { mode: 'Bus', detail: 'The 490 or H25 to Hanworth, then the 111 or a short walk down Hanworth Road into Whitton.', time: '25–30 mins' },
     ],
@@ -173,12 +174,12 @@ export const AREAS: Area[] = [
       'Isleworth\'s nearest proper repair bench: My Gadgets UK, Whitton High Street. Twelve minutes by car or the H22. iPhone screens from £59, refurb MacBooks with a 6-month warranty.',
     intro: [
       'Isleworth sits on the other side of Hounslow from us, and the customers who make the trip tend to come for the two things a kiosk cannot do: board-level MacBook work, and refurbished MacBooks graded honestly enough to describe every mark.',
-      'Syon Lane commuters often drop a device on the way to the station and collect on the way home — we text when it is done, so there is no wasted journey.',
+      'People from Isleworth drop a device in on the way through and collect it on the way home — we text when it is done, so there is no wasted journey.',
     ],
     travel: [
       { mode: 'Bus', detail: 'The H22 from Isleworth (London Road) runs via Hounslow West to Whitton. The 481 from West Middlesex Hospital also reaches Whitton.', time: '20–25 mins' },
       { mode: 'Car', detail: 'London Road → A314 Hanworth Road, or Twickenham Road → A316 → Nelson Road.', time: '12–15 mins' },
-      { mode: 'Train', detail: 'Isleworth or Syon Lane → Twickenham, then one stop to Whitton. 300 yards on foot at our end.', time: '~20 mins' },
+      { mode: 'Train', detail: 'Isleworth or Syon Lane to Twickenham, then on to Whitton, and walk to 23 High Street.', time: '~20 mins' },
     ],
     anchorNote: 'West Middlesex Hospital staff: we are straight down Hospital Bridge Road — a five-minute drive from the staff car parks.',
     job: {
@@ -192,7 +193,7 @@ export const AREAS: Area[] = [
     },
     faqs: [
       { q: 'Do you sell refurbished MacBooks to Isleworth customers?', a: 'Yes — and you can reserve online and inspect at the counter before paying. Every unit is graded A+, A or B with every mark described in writing.' },
-      { q: 'Is parking easy?', a: 'Easier than Isleworth High Street. Thirty-minute bays directly outside, and Percy Road car park two minutes away for anything longer.' },
+      { q: 'Is parking easy?', a: 'Thirty-minute bays are on the High Street directly outside the shop.' },
       { q: 'Can I drop off before work and pick up same day?', a: 'That is the West Mid pattern we know well. In before 09:30, most repairs are ready early afternoon, and we text you — no guessing.' },
     ],
   },
@@ -240,11 +241,11 @@ export const AREAS: Area[] = [
       'Teddington to Whitton in seven minutes by car or 281. Graded refurbished MacBooks with 6-month warranties, and same-day MacBook repairs at My Gadgets UK, Whitton High Street.',
     intro: [
       'Teddington customers buy more refurbished MacBooks from us than anywhere outside Whitton itself — freelancers and small studios who want M-series performance graded honestly, with the marks described in writing and a six-month warranty behind it.',
-      'Repairs run the other way too: the 281 from Teddington High Street stops outside our door, so a cracked MacBook screen is a seven-minute problem, not an Apple-Store-in-Kingston afternoon.',
+      'Repairs run the other way too: the 281 from Teddington High Street runs to Whitton, so a cracked MacBook screen does not mean a trip to Kingston.',
     ],
     travel: [
-      { mode: 'Bus', detail: 'The 281 from Teddington High Street or Broad Street runs direct down Whitton High Street — our stop is Admiral Nelson.', time: '10–14 mins' },
-      { mode: 'Car', detail: 'A313 through Twickenham, or Waldegrave Road → Strawberry Hill → Nelson Road. Bays outside; Percy Road car park behind.', time: '7–10 mins' },
+      { mode: 'Bus', detail: 'The 281 from Teddington High Street or Broad Street runs to Whitton High Street.', time: '10–14 mins' },
+      { mode: 'Car', detail: 'Through Twickenham to Whitton. Free bays on the High Street outside the shop.', time: '7–10 mins' },
       { mode: 'Train', detail: 'Teddington → Twickenham → Whitton, or walk it via Strawberry Hill in about 35 minutes on a decent day.', time: '15 mins' },
     ],
     anchorNote: 'Bushy Park parkrun regulars: drop the device on the way past, collect on the way home. We open at 09:00.',
@@ -277,8 +278,8 @@ export const AREAS: Area[] = [
     ],
     travel: [
       { mode: 'Car', detail: 'St Margarets Road → Twickenham → A316 → Nelson Road. Ten minutes outside the school run.', time: '8–12 mins' },
-      { mode: 'Bus', detail: 'The 281 from Twickenham station, or the H22 — both stop on Whitton High Street.', time: '12–15 mins' },
-      { mode: 'Train', detail: 'St Margarets → Twickenham → Whitton. Three minutes on foot at our end.', time: '~15 mins' },
+      { mode: 'Bus', detail: 'The 281 or the H22 both run to Whitton High Street.', time: '12–15 mins' },
+      { mode: 'Train', detail: 'St Margarets to Twickenham to Whitton, then walk to 23 High Street.', time: '~15 mins' },
     ],
     anchorNote: 'From the St Margarets Crown Road shops, we are a straight run down through Twickenham — no navigation required.',
     job: {
@@ -309,11 +310,11 @@ export const AREAS: Area[] = [
       'For refurbished machines, Richmond businesses and freelancers make up a growing share of the shelf: graded units, every mark described, six months of warranty, and the machine inspected at the counter before any money moves.',
     ],
     travel: [
-      { mode: 'Train', detail: 'Richmond → Twickenham → Whitton on South Western Railway. Three minutes on foot from Whitton station.', time: '12–15 mins' },
-      { mode: 'Car', detail: 'A316 from Richmond Circus straight to Nelson Road, or through Twickenham. Percy Road car park is easiest for anything over 30 minutes.', time: '12–18 mins' },
+      { mode: 'Train', detail: 'Richmond to Twickenham to Whitton on South Western Railway, then walk to 23 High Street.', time: '12–15 mins' },
+      { mode: 'Car', detail: 'A316 from Richmond Circus towards Whitton, or through Twickenham. Free bays on the High Street outside the shop.', time: '12–18 mins' },
       { mode: 'Bus', detail: 'The H22 runs Richmond → Whitton along the High Street. The 281 connects via Twickenham.', time: '25–30 mins' },
     ],
-    anchorNote: 'From Richmond station the train via Twickenham beats the traffic on match days and market days alike.',
+    anchorNote: 'From Richmond, the train via Twickenham avoids the traffic on match days and market days.',
     job: {
       ticket: 'MG-2361',
       device: 'MacBook Air 13" M2 (A2681)',
@@ -375,7 +376,7 @@ export const AREAS: Area[] = [
       'We see a lot of value Androids and family laptops from Heston — the jobs where "is it worth it?" is the real question. We answer that at the counter in five minutes, free, before anyone commits to anything.',
     ],
     travel: [
-      { mode: 'Car', detail: 'A312 The Parkway straight south to Whitton — the simplest drive on this list. Bays outside; Percy Road behind.', time: '12–15 mins' },
+      { mode: 'Car', detail: 'A312 The Parkway south to Whitton. Free bays on the High Street outside the shop.', time: '12–15 mins' },
       { mode: 'Bus', detail: 'The H32 or 111 to Hounslow, then the 281 or H22 down to Whitton High Street.', time: '30–35 mins' },
       { mode: 'Train', detail: 'Hounslow West (Piccadilly) to Hounslow Central for the 281, or Osterley then the H28 towards Osterley Tesco and change — the bus via Hounslow is usually simpler.', time: '30–40 mins' },
     ],

@@ -128,7 +128,7 @@ export default function Home() {
                   {SITE.street}, {SITE.locality}<br />
                   {SITE.region} {SITE.postcode}
                 </address>
-                <p style={{ color: '#5c564e' }}>{SITE.landmark} {SITE.parking}</p>
+                <p style={{ color: '#5c564e' }}>{SITE.parking}</p>
                 <div className="hours-list">
                   {SITE.hours.map((h) => (
                     <div key={h.days}>
@@ -144,9 +144,7 @@ export default function Home() {
               </Reveal>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-              <Reveal>
-                <Map />
-              </Reveal>
+              <Map />
               <Reveal>
                 <figure
                   style={{
