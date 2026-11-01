@@ -31,7 +31,7 @@ export const SITE = {
   whatsappDisplay: '07918 440326',
   whatsappHref: 'https://wa.me/447918440326',
   directionsHref: MAPS_PLACE,
-  email: 'bench@mygadgetsuk.co.uk',
+  email: 'contact@mygadgets.uk',
   hours: [
     { days: 'Monday – Friday', opens: '09:00', closes: '18:30' },
     { days: 'Saturday', opens: '09:30', closes: '17:30' },
