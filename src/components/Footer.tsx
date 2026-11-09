@@ -24,7 +24,7 @@ export default function Footer() {
               <a href={`mailto:${SITE.email}`} style={{ color: 'var(--aluminium)', textDecoration: 'none' }}>{SITE.email}</a>
             </p>
             <p className="small text-aluminium" style={{ marginTop: 12 }}>
-              Mon–Fri 09:00–18:30 · Sat 09:30–17:30 · Sun closed
+              Mon–Fri 09:00–18:00 · Sat 10:30–17:00 · Sun closed
             </p>
           </div>
 

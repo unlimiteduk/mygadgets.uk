@@ -33,8 +33,8 @@ export const SITE = {
   directionsHref: MAPS_PLACE,
   email: 'contact@mygadgets.uk',
   hours: [
-    { days: 'Monday – Friday', opens: '09:00', closes: '18:30' },
-    { days: 'Saturday', opens: '09:30', closes: '17:30' },
+    { days: 'Monday – Friday', opens: '09:00', closes: '18:00' },
+    { days: 'Saturday', opens: '10:30', closes: '17:00' },
     { days: 'Sunday', opens: 'Closed', closes: '' },
   ],
   hoursNote: 'Bank holiday hours posted on the door and on Google.',

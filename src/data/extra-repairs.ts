@@ -477,7 +477,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
         heading: 'Getting a large iMac here',
         paragraphs: [
           'A 27-inch travels on the back seat more happily than on the train from Twickenham. Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington are a short drive. Short-stay bays are on the High Street outside the shop.',
-          'Call 07918 440326 before you set off if the iMac is a 27-inch and you want to be sure there is bench space the same day. Walk-ins are still welcome. Opening hours are the ones already published on this site: Monday to Friday 09:00–18:30, Saturday 09:30–17:30, Sunday closed.',
+          'Call 07918 440326 before you set off if the iMac is a 27-inch and you want to be sure there is bench space the same day. Walk-ins are still welcome. Opening hours are the ones already published on this site: Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.',
         ],
       },
     ],
