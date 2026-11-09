@@ -102,9 +102,9 @@ export function localBusinessSchema() {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '09:00',
-        closes: '18:30',
+        closes: '18:00',
       },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:30', closes: '17:30' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:30', closes: '17:00' },
     ],
     areaServed: [
       'Whitton', 'Twickenham', 'Hounslow', 'Feltham', 'Isleworth', 'Hanworth',

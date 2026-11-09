@@ -160,7 +160,7 @@ export const AREAS: Area[] = [
     },
     faqs: [
       { q: 'Do you really collect from Feltham?', a: 'Ask when you book. For Feltham, Hanworth and Bedfont we arrange collection and return locally where the diary allows — same diagnosis, same written quote before any work.' },
-      { q: 'I work shifts at Heathrow. Can I drop off outside 9–5?', a: 'The shop opens 09:00 Monday to Saturday, but message us on WhatsApp and we will usually find a way — early drop-offs are common from airport staff.' },
+      { q: 'I work shifts at Heathrow. Can I drop off outside 9–5?', a: 'The shop opens at 09:00 Monday to Friday and at 10:30 on Saturday, and is closed on Sunday. Message us on WhatsApp and we will usually find a way — early drop-offs are common from airport staff.' },
       { q: 'Can a family laptop be fixed in a day?', a: 'Screens and batteries, yes, with the part on the shelf. Full tune-ups and virus removal are same day too. Only board-level work runs to days rather than hours.' },
     ],
   },
@@ -248,7 +248,7 @@ export const AREAS: Area[] = [
       { mode: 'Car', detail: 'Through Twickenham to Whitton. Free bays on the High Street outside the shop.', time: '7–10 mins' },
       { mode: 'Train', detail: 'Teddington → Twickenham → Whitton, or walk it via Strawberry Hill in about 35 minutes on a decent day.', time: '15 mins' },
     ],
-    anchorNote: 'Bushy Park parkrun regulars: drop the device on the way past, collect on the way home. We open at 09:00.',
+    anchorNote: 'Bushy Park parkrun regulars: drop the device on the way past, collect on the way home. We open at 10:30 on Saturday.',
     job: {
       ticket: 'MG-2389',
       device: 'MacBook Pro 14" M1 Pro (A2442)',

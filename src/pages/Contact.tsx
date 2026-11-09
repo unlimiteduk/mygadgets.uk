@@ -61,7 +61,7 @@ export default function Contact() {
     <Layout>
       <Seo
         title={`Contact — Whitton High Street, TW2 | ${SITE.name}`}
-        description={`Call, WhatsApp or walk in: ${SITE.name}, 23 High Street, Whitton, Twickenham TW2 7LB. Mon–Fri 09:00–18:30, Sat 09:30–17:30.`}
+        description={`Call, WhatsApp or walk in: ${SITE.name}, 23 High Street, Whitton, Twickenham TW2 7LB. Mon–Fri 09:00–18:00, Sat 10:30–17:00.`}
         path="/contact/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])}
       />
@@ -164,7 +164,7 @@ export default function Contact() {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', padding: '14px 0' }}>
                     <span className="label">Hours</span>
-                    <span className="mono small" style={{ textAlign: 'right' }}>Mon–Fri 09:00–18:30<br />Sat 09:30–17:30<br />Sun closed</span>
+                    <span className="mono small" style={{ textAlign: 'right' }}>Mon–Fri 09:00–18:00<br />Sat 10:30–17:00<br />Sun closed</span>
                   </div>
                 </div>
               </div>
