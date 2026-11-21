@@ -54,6 +54,12 @@ export interface Service {
   turnaround: string;
   /** No published price. The page must not invent one. */
   quoteOnly?: boolean;
+  /** Numeric GBP amount for JSON-LD Offer.price, without a currency symbol. */
+  offerPrice?: string;
+  /** Names the JSON-LD Offer when the published figure is narrower than the page. */
+  offerName?: string;
+  /** Replaces the default "From £x" line on the JSON-LD PriceSpecification. */
+  offerDescription?: string;
   faultLooksLike: string[];
   whatWeDo: string[];
   parts: string;

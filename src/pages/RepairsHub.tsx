@@ -12,7 +12,7 @@ export default function RepairsHub() {
     <Layout>
       <Seo
         title={`Computer, MacBook, laptop and console repairs | ${SITE.name}`}
-        description="MacBook, laptop, PlayStation, Xbox, iMac and PC repairs on Whitton High Street, plus the priced phone and tablet work already on this site. Free diagnosis. Quote before any work."
+        description="MacBook, laptop, PlayStation, Xbox, iMac and PC repairs on Whitton High Street. PS5 and Xbox HDMI port repair is £70. Free diagnosis before any work."
         path="/repairs/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Repairs', path: '/repairs/' }])}
       />
@@ -22,7 +22,7 @@ export default function RepairsHub() {
           <div className="col-span-12 lg:col-span-8">
             <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>Repairs, priced before we start</h1>
             <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>
-              Where a price is printed, that is the fitted price. Console, iMac, PC and some laptop jobs are quoted after a free diagnosis, because the part depends on the machine. If we cannot fix it, you pay nothing.
+              Where a price is printed, that is the fitted price. PS5 and Xbox HDMI port repair is £70. Other console faults, plus iMac, PC and some laptop jobs, are quoted after a free diagnosis, because the part depends on the machine. If we cannot fix it, you pay nothing.
             </p>
           </div>
         </div>
