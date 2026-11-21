@@ -22,11 +22,24 @@ function serviceOffer(svc: Service, path: string) {
     areaServed: AREAS_COVERED.map((a) => a.name),
   };
   if (svc.quoteOnly) return base;
+  const specification: {
+    '@type': 'PriceSpecification';
+    priceCurrency: 'GBP';
+    description: string;
+    price?: string;
+  } = {
+    '@type': 'PriceSpecification',
+    priceCurrency: 'GBP',
+    description: svc.offerDescription ?? `From ${svc.fromPrice}`,
+  };
+  if (svc.offerPrice) specification.price = svc.offerPrice;
   return {
     ...base,
     offers: {
       '@type': 'Offer',
-      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'GBP', description: `From ${svc.fromPrice}` },
+      ...(svc.offerName ? { name: svc.offerName } : {}),
+      ...(svc.offerPrice ? { price: svc.offerPrice, priceCurrency: 'GBP' as const } : {}),
+      priceSpecification: specification,
     },
   };
 }

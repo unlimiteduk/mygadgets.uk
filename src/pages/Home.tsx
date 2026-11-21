@@ -23,7 +23,7 @@ export default function Home() {
     <Layout>
       <Seo
         title="MacBook & Laptop Repair Whitton, Twickenham | My Gadgets Whitton"
-        description="MacBook, laptop and console repair on Whitton High Street, Twickenham. Screens, SSD upgrades, PlayStation and Xbox HDMI ports. Refurbished MacBooks in stock."
+        description="MacBook, laptop and console repair on Whitton High Street, Twickenham. Screens, SSD upgrades, PS5 and Xbox HDMI ports from £70. Refurbished MacBooks in stock."
         path="/"
         schema={{
           '@type': 'WebSite',
