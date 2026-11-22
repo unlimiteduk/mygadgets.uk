@@ -4,6 +4,7 @@
 // signed-off price list before launch (brief §8, blocking item 3).
 // ------------------------------------------------------------------
 
+import { CONSOLE_FAULTS } from './console-faults';
 import { EXTRA_HUBS, EXTRA_SERVICES } from './extra-repairs';
 
 export interface PriceRow {
@@ -796,6 +797,7 @@ export const SERVICES: Service[] = [
     ],
   },
   ...EXTRA_SERVICES,
+  ...CONSOLE_FAULTS,
 ];
 
 export function getService(slug: string): Service | undefined {

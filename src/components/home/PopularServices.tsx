@@ -4,6 +4,9 @@ import {
   BatteryCharging,
   Cable,
   Cpu,
+  Power,
+  RotateCw,
+  Thermometer,
   Gamepad2,
   HardDrive,
   Keyboard,
@@ -28,6 +31,10 @@ const POPULAR = [
   { category: 'Laptop SSD upgrade', icon: HardDrive, slug: 'laptop/ssd-upgrade' },
   { category: 'PlayStation HDMI port', icon: Gamepad2, slug: 'playstation/hdmi-port-repair' },
   { category: 'Xbox HDMI port', icon: Cable, slug: 'xbox/hdmi-port-repair' },
+  { category: 'PS5 overheating', icon: Thermometer, slug: 'playstation/overheating-repair' },
+  { category: 'PS5 keeps turning off', icon: Power, slug: 'playstation/keeps-turning-off' },
+  { category: 'Xbox will not turn on', icon: Power, slug: 'xbox/no-power' },
+  { category: 'Xbox Series X restarting', icon: RotateCw, slug: 'xbox/random-restart' },
   { category: 'Laptop screen', icon: Monitor, slug: 'laptop/screen-replacement' },
 ] as const;
 
