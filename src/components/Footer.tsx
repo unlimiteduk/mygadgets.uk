@@ -37,7 +37,7 @@ export default function Footer() {
               ['/repairs/laptop/data-recovery/', 'Laptop data recovery'],
               ['/repairs/console/', 'Console repair'],
               ['/repairs/playstation/', 'PlayStation'],
-              ['/repairs/playstation/hdmi-port-repair/', 'PS5 HDMI, shop or post'],
+              ['/repairs/playstation/hdmi-port-repair/', 'PS5 HDMI by post, free return'],
               ['/repairs/xbox/', 'Xbox'],
               ['/repairs/xbox/hdmi-port-repair/', 'Xbox HDMI port'],
               ['/repairs/playstation/overheating-repair/', 'PS5 overheating'],
