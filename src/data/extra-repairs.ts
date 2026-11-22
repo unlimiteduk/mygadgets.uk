@@ -18,7 +18,7 @@ export const PRIORITY_REPAIR_LINKS: RepairLink[] = [
   { href: '/repairs/laptop/data-recovery/', label: 'Laptop data recovery' },
   { href: '/repairs/console/', label: 'Games console repair' },
   { href: '/repairs/playstation/', label: 'PlayStation repair' },
-  { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70' },
+  { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70, or by post' },
   { href: '/repairs/xbox/', label: 'Xbox repair' },
   { href: '/repairs/xbox/hdmi-port-repair/', label: 'Xbox HDMI port repair', note: '£70' },
   { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating repair', note: 'Quoted after a look' },
@@ -43,16 +43,17 @@ export const EXTRA_SERVICES: Service[] = [
     device: 'playstation',
     deviceLabel: 'PlayStation',
     name: 'HDMI port repair',
-    h1: 'PlayStation HDMI port repair in Whitton',
-    title: 'PS5 HDMI port repair in Whitton, Twickenham — £70',
+    h1: 'PS5 HDMI port repair by post, or in Whitton',
+    title: 'PS5 HDMI port repair by post — £70, same day it arrives',
     metaDescription:
-      'PS5 HDMI port repair in Whitton, Twickenham is £70. No signal, flicker or a loose socket. PS4 is quoted after a free diagnosis. Call 07918 440326.',
+      'Mail-in PS5 HDMI repair in the UK is £70, repaired the same day it arrives. Post it to 23 High Street, Whitton, Twickenham TW2 7LB. PS4 is shop only. Call 07918 440326.',
     fromPrice: '£70',
     turnaround: 'After diagnosis',
     offerPrice: '70.00',
     offerName: 'PS5 HDMI port repair',
     offerDescription:
-      'PS5 HDMI port repair is £70. PS4, PS4 Slim and PS4 Pro HDMI port repair is quoted after a free diagnosis. An HDMI chip fault is quoted separately.',
+      'PS5 HDMI port repair is £70 in the shop or by post anywhere in the UK, and a posted console is repaired the same day it arrives. PS4, PS4 Slim and PS4 Pro are quoted in the shop and are not a postal service. An HDMI chip fault is quoted separately.',
+    mailIn: true,
     faultLooksLike: [
       'The TV stays on "no signal" with a cable and input you have already proved on another device',
       'Picture only appears if the plug is held at an angle, or it drops out when the console is nudged',
@@ -62,14 +63,15 @@ export const EXTRA_SERVICES: Service[] = [
     whatWeDo: [
       'The first check is boring and it saves people money. We try a known-good HDMI cable and a known-good screen in the shop before anyone talks about a new port. A surprising number of "broken consoles" from Twickenham and Hounslow are a crushed cable or the TV left on the wrong input.',
       'If the socket is loose or the pins are damaged, that is a port job. PS5 HDMI port repair is £70. We still open the console and check whether the fault stops at the connector or continues into the HDMI chip. A chip fault is a different repair, and that one is quoted after the free look. PS4, PS4 Slim and PS4 Pro port repairs are quoted too — there is no published figure for those models.',
-      'Saves stay on the console. An HDMI repair does not format the drive and does not touch your PSN account. You do not need to bring a controller for the diagnosis, though the power lead and the cable you were using are useful.',
+      'Saves stay on the console. An HDMI repair does not format the drive and does not touch your PSN account. You do not need to bring a controller for the diagnosis, though the power lead and the cable you were using are useful. A PS5 can also be posted; the section below is how that works. Xbox and PS4 are not a postal repair.',
     ],
     parts:
       'A replacement HDMI connector on a PS5 is £70 when the socket is the fault. If the inspection shows the fault is past the connector, the quote names that board repair before any soldering starts. PS4, PS4 Slim and PS4 Pro stay on a quote.',
     warranty: REPAIR_WARRANTY,
     photoShot: 'PlayStation HDMI socket under magnification, beside the cable the customer brought in',
     priceTable: [
-      { model: 'PS5 (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'After diagnosis' },
+      { model: 'PS5 by post (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'Same day it arrives' },
+      { model: 'PS5 in the shop (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'After diagnosis' },
       { model: 'PS4', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
       { model: 'PS4 Slim', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
       { model: 'PS4 Pro', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
@@ -81,14 +83,34 @@ export const EXTRA_SERVICES: Service[] = [
       },
       {
         q: 'How much does PS5 HDMI port repair cost in Twickenham?',
-        a: '£70. That is the PS5 HDMI port, disc or digital, when the socket is the fault. If the HDMI chip has failed, we quote that after a free diagnosis, before any work. PS4, PS4 Slim and PS4 Pro are not on this figure.',
+        a: '£70. That is the PS5 HDMI port, disc or digital, in the shop or by post, when the socket is the fault. A posted PS5 is repaired the same day it arrives. If the HDMI chip has failed, we quote that after a free diagnosis, before any work. PS4, PS4 Slim and PS4 Pro are not on this figure, and they are not a postal repair.',
+      },
+      {
+        q: 'Do you offer PS5 HDMI port repair by post?',
+        a: 'Yes. Pack the PS5 so it cannot shift in the box. Include your name, a phone number or email, and a short note of the fault. Send it to 23 High Street, Whitton, Twickenham TW2 7LB. We repair the HDMI port the same day it arrives, then return the console. We will confirm return postage when you get in touch. This mail-in service is PS5 only.',
+      },
+      {
+        q: 'Is mail-in PS5 HDMI repair available across the UK?',
+        a: 'Yes. Post it from anywhere in the UK to 23 High Street, Whitton, Twickenham TW2 7LB. The repair is £70 when the socket is the fault, the same as walking into the Whitton shop. Xbox, PS4 and any other fault are not a postal service.',
+      },
+      {
+        q: 'Is a posted PS5 a same-day HDMI repair?',
+        a: 'Yes. We repair it the same day the console arrives, then return it. That is the day it reaches the shop, not the day you hand it to the carrier. We will confirm return postage when you get in touch.',
       },
       {
         q: 'PS4 or PS5 — do you do both?',
-        a: 'Yes. Original PS4, Slim, Pro and PS5. PS5 HDMI port repair is £70. The PS4 boards are not the same, so those stay a quote for the machine in front of us.',
+        a: 'Yes, in the shop. Original PS4, Slim, Pro and PS5. PS5 HDMI port repair is £70, including by post. The PS4 boards are not the same, so those stay a quote, and we do not take a PS4 by post.',
       },
     ],
     sections: [
+      {
+        heading: 'PS5 HDMI port repair by post',
+        paragraphs: [
+          'Mail-in PS5 HDMI repair is the same £70 port repair as in the shop, for a disc or digital PS5, from anywhere in the UK. Pack the console so it cannot slide about. Include your name, a phone number or email, and a short note of the fault: no signal, a loose socket, or a picture that cuts out. Send it to 23 High Street, Whitton, Twickenham TW2 7LB.',
+          'We repair it the same day it arrives, then return it. We will confirm return postage when you get in touch. Post the power lead if you still have it. A controller is not needed, and the repair does not wipe your saves or your PSN account.',
+          'This postal service is PS5 HDMI port repair only. If the inspection shows the fault is the HDMI chip rather than the socket, that is a different job and we quote it before any further work. PS4, Xbox and every other repair on this site are shop jobs. Do not post those.',
+        ],
+      },
       {
         heading: 'What the bench is actually deciding',
         paragraphs: [
@@ -317,7 +339,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       'PlayStation and Xbox repair in Whitton, Twickenham. HDMI port repair is £70. PS5 overheating, shutdowns and an Xbox that will not turn on are quoted after a free look. Call 07918 440326.',
     intro: [
       'My Gadgets Whitton repairs PlayStation and Xbox consoles on the same bench as the laptops. The job we see most is HDMI: no signal, a picture that only works if the cable is held just so, or a socket that took a knock when the lead was caught. Disc faults, consoles that will not power on, and machines that overheat and shut down come in as well.',
-      'This page is the hub. PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70. Overheating, a console that keeps turning off, a random restart, and no power each have their own page, because they are not the HDMI job and they are not one quote. Diagnosis is free. The figure comes after the console is open.',
+      'This page is the hub. PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70. A PS5 can be posted for that port repair and is repaired the same day it arrives. Xbox cannot be posted. Overheating, a console that keeps turning off, a random restart, and no power each have their own page, because they are not the HDMI job and they are not one quote. Diagnosis is free.',
       'The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Call 07918 440326 or walk in during opening hours.',
     ],
     sections: [
@@ -348,7 +370,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
       {
         q: 'My PS5 keeps turning off, or the Xbox will not power on. Is that HDMI?',
-        a: 'No. HDMI leaves the console running and the television black. Overheating, a random restart, a console that shuts down and stays off, and a console that will not turn on each have their own page. Those are quoted after a free look. PS5 and Xbox HDMI port repair stays £70 when the socket is the fault.',
+        a: 'No. HDMI leaves the console running and the television black. Overheating, a random restart, a console that shuts down and stays off, and a console that will not turn on each have their own page. Those are quoted after a free look. PS5 and Xbox HDMI port repair stays £70 when the socket is the fault. A PS5 can also be posted for that port repair; Xbox cannot.',
       },
       {
         q: 'Will I lose my games?',
@@ -361,7 +383,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     ],
     links: [
       { href: '/repairs/playstation/', label: 'PlayStation repair', note: 'PS4 and PS5' },
-      { href: '/repairs/playstation/hdmi-port-repair/', label: 'PlayStation HDMI port', note: 'PS5 £70' },
+      { href: '/repairs/playstation/hdmi-port-repair/', label: 'PlayStation HDMI port', note: 'PS5 £70, or by post' },
       { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating', note: 'Quoted after a look' },
       { href: '/repairs/playstation/keeps-turning-off/', label: 'PS5 keeps turning off', note: 'Quoted after a look' },
       { href: '/repairs/playstation/random-restart/', label: 'PS5 random restart', note: 'Quoted after a look' },
@@ -385,10 +407,10 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'PlayStation repair in Whitton — PS4 and PS5',
     h1: 'PlayStation repair in Whitton — PS4 and PS5',
     metaDescription:
-      'PS5 repair in Whitton and Twickenham. HDMI port repair is £70. Overheating, shutting down, restarting and no power are quoted after a free diagnosis. Call 07918 440326.',
+      'PS5 repair in Whitton and Twickenham. HDMI port repair is £70, in the shop or by post. Overheating, shutting down and no power are quoted in the shop. Call 07918 440326.',
     intro: [
       'We repair PS4, PS4 Slim, PS4 Pro and PS5 at the shop on Whitton High Street. HDMI is the fault people travel in for: the console sounds awake and the television stays black. Disc drives that spit games back out, consoles that overheat and shut down mid-game, and machines that will not power on at all are the rest of the queue.',
-      'PS5 HDMI port repair is £70. Overheating, a PS5 that keeps turning off, a random restart, and a PS5 that will not turn on each have their own page. Those are quoted after a free diagnosis, because they are not the port job. The HDMI page explains the PS4 split. If we cannot justify a repair, we say so.',
+      'PS5 HDMI port repair is £70 in the shop, or by post to 23 High Street, Whitton, Twickenham TW2 7LB. A posted PS5 is repaired the same day it arrives. Overheating, a PS5 that keeps turning off, a random restart, and a PS5 that will not turn on each have their own page and are not a postal service. The HDMI page explains the PS4 split. If we cannot justify a repair, we say so.',
     ],
     sections: [
       {
@@ -426,7 +448,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
     ],
     links: [
-      { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70' },
+      { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70, or by post' },
       { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating repair', note: 'Quoted after a look' },
       { href: '/repairs/playstation/keeps-turning-off/', label: 'PS5 keeps turning off', note: 'Quoted after a look' },
       { href: '/repairs/playstation/random-restart/', label: 'PS5 random restart', note: 'Quoted after a look' },

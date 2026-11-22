@@ -22,7 +22,7 @@ export default function RepairsHub() {
           <div className="col-span-12 lg:col-span-8">
             <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>Repairs, priced before we start</h1>
             <p className="body-copy text-muted" style={{ fontSize: '1.125rem', marginTop: 20 }}>
-              Where a price is printed, that is the fitted price. PS5 and Xbox HDMI port repair is £70. Overheating, random restarts, shutting down and no power on PS5 and Xbox are quoted after a free diagnosis, as are iMac, PC and some laptop jobs. If we cannot fix it, you pay nothing.
+              Where a price is printed, that is the fitted price. PS5 and Xbox HDMI port repair is £70. A PS5 HDMI port can also be posted and is repaired the same day it arrives. Overheating, random restarts, shutting down and no power are quoted after a free diagnosis, as are iMac, PC and some laptop jobs. If we cannot fix it, you pay nothing.
             </p>
           </div>
         </div>

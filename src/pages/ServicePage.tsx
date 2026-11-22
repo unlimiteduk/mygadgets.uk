@@ -13,13 +13,41 @@ import ActionRow from '@/components/ActionRow';
 import NotFound from './NotFound';
 
 function serviceOffer(svc: Service, path: string) {
+  const localAreas = AREAS_COVERED.map((a) => a.name);
   const base = {
     '@type': 'Service',
     name: `${svc.deviceLabel} ${svc.name}`,
     serviceType: svc.name,
     url: canonical(path),
     provider: { '@id': `${SITE.domain}/#business` },
-    areaServed: AREAS_COVERED.map((a) => a.name),
+    areaServed: svc.mailIn
+      ? [{ '@type': 'Country', name: 'United Kingdom' }, ...localAreas]
+      : localAreas,
+    ...(svc.mailIn
+      ? {
+          availableChannel: [
+            {
+              '@type': 'ServiceChannel',
+              name: 'Mail-in PS5 HDMI repair',
+              serviceType: 'PS5 HDMI port repair by post',
+              servicePhone: '+447918440326',
+              servicePostalAddress: {
+                '@type': 'PostalAddress',
+                streetAddress: SITE.street,
+                addressLocality: SITE.locality,
+                addressRegion: SITE.region,
+                postalCode: SITE.postcode,
+                addressCountry: SITE.country,
+              },
+            },
+            {
+              '@type': 'ServiceChannel',
+              name: 'Walk-in at the Whitton shop',
+              serviceLocation: { '@id': `${SITE.domain}/#business` },
+            },
+          ],
+        }
+      : {}),
   };
   if (svc.quoteOnly) return base;
   const specification: {

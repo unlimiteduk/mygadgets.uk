@@ -142,7 +142,7 @@ export default function Prices() {
 
         <Reveal>
           <p className="small" style={{ color: '#6B7280', marginTop: 20 }}>
-            PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70 for Series X, Series S, Xbox One, One S and One X. PS4, PS4 Slim and PS4 Pro HDMI port repair is quoted after a free diagnosis — see{' '}
+            PS5 HDMI port repair is £70 in the shop or by post, repaired the same day a posted console arrives. Xbox HDMI port repair is £70 in the shop only. PS4, PS4 Slim and PS4 Pro HDMI port repair is quoted after a free diagnosis — see{' '}
             <Link to="/repairs/playstation/hdmi-port-repair/" style={{ color: 'var(--bench-ink)' }}>PlayStation HDMI port repair</Link> and{' '}
             <Link to="/repairs/xbox/hdmi-port-repair/" style={{ color: 'var(--bench-ink)' }}>Xbox HDMI port repair</Link>.{' '}
             Windows laptop screens and hinges are quoted by exact panel part number — see{' '}
