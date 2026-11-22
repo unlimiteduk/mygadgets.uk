@@ -21,6 +21,14 @@ export const PRIORITY_REPAIR_LINKS: RepairLink[] = [
   { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70' },
   { href: '/repairs/xbox/', label: 'Xbox repair' },
   { href: '/repairs/xbox/hdmi-port-repair/', label: 'Xbox HDMI port repair', note: '£70' },
+  { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating repair', note: 'Quoted after a look' },
+  { href: '/repairs/playstation/keeps-turning-off/', label: 'PS5 keeps turning off', note: 'Quoted after a look' },
+  { href: '/repairs/playstation/random-restart/', label: 'PS5 random restart', note: 'Quoted after a look' },
+  { href: '/repairs/playstation/no-power/', label: 'PS5 will not turn on', note: 'Quoted after a look' },
+  { href: '/repairs/xbox/overheating-repair/', label: 'Xbox overheating repair', note: 'Quoted after a look' },
+  { href: '/repairs/xbox/keeps-turning-off/', label: 'Xbox keeps turning off', note: 'Quoted after a look' },
+  { href: '/repairs/xbox/random-restart/', label: 'Xbox Series X restarting', note: 'Quoted after a look' },
+  { href: '/repairs/xbox/no-power/', label: 'Xbox will not turn on', note: 'Quoted after a look' },
   { href: '/repairs/imac/', label: 'iMac repair' },
   { href: '/repairs/pc/', label: 'PC repair' },
   { href: '/repairs/ipad/', label: 'iPad repair', note: 'Prices published' },
@@ -91,9 +99,10 @@ export const EXTRA_SERVICES: Service[] = [
     ],
     related: [
       { href: '/repairs/playstation/', label: 'All PlayStation repairs' },
+      { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating repair' },
+      { href: '/repairs/playstation/no-power/', label: 'PS5 will not turn on' },
       { href: '/repairs/xbox/hdmi-port-repair/', label: 'Xbox HDMI port repair' },
       { href: '/repairs/console/', label: 'Games console repair' },
-      { href: '/repairs/xbox/', label: 'Xbox repair' },
     ],
   },
   {
@@ -162,9 +171,10 @@ export const EXTRA_SERVICES: Service[] = [
     ],
     related: [
       { href: '/repairs/xbox/', label: 'All Xbox repairs' },
+      { href: '/repairs/xbox/no-power/', label: 'Xbox will not turn on' },
+      { href: '/repairs/xbox/random-restart/', label: 'Xbox Series X restarting' },
       { href: '/repairs/playstation/hdmi-port-repair/', label: 'PlayStation HDMI port repair' },
       { href: '/repairs/console/', label: 'Games console repair' },
-      { href: '/repairs/playstation/', label: 'PlayStation repair' },
     ],
   },
   {
@@ -298,16 +308,16 @@ export const EXTRA_HUBS: DeviceHub[] = [
   {
     slug: 'console',
     label: 'Games consoles',
-    blurb: 'PlayStation and Xbox. PS5 and Xbox HDMI port repair is £70.',
+    blurb: 'PlayStation and Xbox. HDMI port repair is £70. Overheating, shutdowns and no power are quoted after a look.',
     bookable: false,
     selectorTo: '/repairs/console/',
     title: 'Games console repair in Whitton, Twickenham — HDMI from £70',
     h1: 'Games console repair in Whitton, Twickenham',
     metaDescription:
-      'PlayStation and Xbox repair in Whitton, Twickenham. PS5 and Xbox HDMI port repair is £70. Other faults are quoted after a free look. Call 07918 440326.',
+      'PlayStation and Xbox repair in Whitton, Twickenham. HDMI port repair is £70. PS5 overheating, shutdowns and an Xbox that will not turn on are quoted after a free look. Call 07918 440326.',
     intro: [
       'My Gadgets Whitton repairs PlayStation and Xbox consoles on the same bench as the laptops. The job we see most is HDMI: no signal, a picture that only works if the cable is held just so, or a socket that took a knock when the lead was caught. Disc faults, consoles that will not power on, and machines that overheat and shut down come in as well.',
-      'This page is the hub. PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70. The PlayStation and Xbox pages go into each brand. Other console faults are still quoted after the machine is open, because a disc drive and a dead power supply are not the same job as a port. Diagnosis is free.',
+      'This page is the hub. PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70. Overheating, a console that keeps turning off, a random restart, and no power each have their own page, because they are not the HDMI job and they are not one quote. Diagnosis is free. The figure comes after the console is open.',
       'The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Call 07918 440326 or walk in during opening hours.',
     ],
     sections: [
@@ -337,6 +347,10 @@ export const EXTRA_HUBS: DeviceHub[] = [
         a: '£70. Xbox HDMI port repair is £70 as well, for Series X, Series S, Xbox One, One S and One X. PS4, PS4 Slim and PS4 Pro HDMI port repair is quoted after a free look. If the fault is the HDMI chip rather than the socket, we quote that separately before any work. You can say no and take the console away.',
       },
       {
+        q: 'My PS5 keeps turning off, or the Xbox will not power on. Is that HDMI?',
+        a: 'No. HDMI leaves the console running and the television black. Overheating, a random restart, a console that shuts down and stays off, and a console that will not turn on each have their own page. Those are quoted after a free look. PS5 and Xbox HDMI port repair stays £70 when the socket is the fault.',
+      },
+      {
         q: 'Will I lose my games?',
         a: 'Not for an HDMI repair. The drive is not wiped. If the storage itself is the fault, we stop and tell you before anything is erased.',
       },
@@ -348,25 +362,33 @@ export const EXTRA_HUBS: DeviceHub[] = [
     links: [
       { href: '/repairs/playstation/', label: 'PlayStation repair', note: 'PS4 and PS5' },
       { href: '/repairs/playstation/hdmi-port-repair/', label: 'PlayStation HDMI port', note: 'PS5 £70' },
+      { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating', note: 'Quoted after a look' },
+      { href: '/repairs/playstation/keeps-turning-off/', label: 'PS5 keeps turning off', note: 'Quoted after a look' },
+      { href: '/repairs/playstation/random-restart/', label: 'PS5 random restart', note: 'Quoted after a look' },
+      { href: '/repairs/playstation/no-power/', label: 'PS5 will not turn on', note: 'Quoted after a look' },
       { href: '/repairs/xbox/', label: 'Xbox repair', note: 'Series and Xbox One' },
       { href: '/repairs/xbox/hdmi-port-repair/', label: 'Xbox HDMI port', note: '£70' },
+      { href: '/repairs/xbox/overheating-repair/', label: 'Xbox overheating', note: 'Quoted after a look' },
+      { href: '/repairs/xbox/keeps-turning-off/', label: 'Xbox keeps turning off', note: 'Quoted after a look' },
+      { href: '/repairs/xbox/random-restart/', label: 'Xbox Series X restarting', note: 'Quoted after a look' },
+      { href: '/repairs/xbox/no-power/', label: 'Xbox will not turn on', note: 'Quoted after a look' },
       { href: '/repairs/laptop/', label: 'Windows laptop repair', note: 'If it is not a console' },
     ],
   },
   {
     slug: 'playstation',
     label: 'PlayStation',
-    blurb: 'PS4 and PS5. PS5 HDMI port repair is £70. Other faults are quoted after a free diagnosis.',
+    blurb: 'PS4 and PS5. HDMI port repair is £70. Overheating, shutdowns and no power are quoted after a look.',
     bookable: true,
     selectorTo: '/repairs/playstation/',
     modelPlaceholder: 'e.g. PS5, PS4 Pro, PS4 Slim…',
     title: 'PlayStation repair in Whitton — PS4 and PS5',
     h1: 'PlayStation repair in Whitton — PS4 and PS5',
     metaDescription:
-      'PS4 and PS5 repair in Whitton, Twickenham. PS5 HDMI port repair is £70. No power, disc faults and overheating are quoted after diagnosis. Call 07918 440326.',
+      'PS5 repair in Whitton and Twickenham. HDMI port repair is £70. Overheating, shutting down, restarting and no power are quoted after a free diagnosis. Call 07918 440326.',
     intro: [
       'We repair PS4, PS4 Slim, PS4 Pro and PS5 at the shop on Whitton High Street. HDMI is the fault people travel in for: the console sounds awake and the television stays black. Disc drives that spit games back out, consoles that overheat and shut down mid-game, and machines that will not power on at all are the rest of the queue.',
-      'PS5 HDMI port repair is £70. Other PlayStation repairs are not a flat price, because the quote depends on the board and what the inspection finds. The HDMI port page explains the PS4 split. Diagnosis is free. If we cannot justify a repair, we say so.',
+      'PS5 HDMI port repair is £70. Overheating, a PS5 that keeps turning off, a random restart, and a PS5 that will not turn on each have their own page. Those are quoted after a free diagnosis, because they are not the port job. The HDMI page explains the PS4 split. If we cannot justify a repair, we say so.',
     ],
     sections: [
       {
@@ -374,7 +396,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
         paragraphs: [
           'No picture is not automatically a dead console. We test a known-good cable and screen first, then the socket, then the HDMI circuitry. A port that has been yanked in a living room in Twickenham looks different under the microscope from a console that lost picture with the cable never touched. PS5 HDMI port repair is £70 when the socket is the fault. A failed HDMI chip is quoted after that look, and so is a PS4, PS4 Slim or PS4 Pro port.',
           'Disc-drive complaints need the same honesty. A PS5 Digital and a disc PS5 are different machines; a Digital has no drive to blame. On a disc model, a drive that ejects every game can be the drive, the rails, or the board telling the drive to give up. We identify which before we talk about parts.',
-          'Overheating that triggers a shutdown is usually dust and dried thermal paste, sometimes a fan that no longer spins properly. We do not sell that as a mystical "deep clean package". If that is the fault, the quote describes the work. If the console is shutting down for another reason, we will not clean it and call that the repair.',
+          'Overheating that triggers a shutdown is usually dust, a fan that no longer spins properly, or liquid metal on a PS5 that no longer covers the APU. We do not sell that as a mystical "deep clean package". The overheating, shutdown, restart and no-power pages describe each fault. If the console is shutting down for another reason, we will not clean it and call that the repair.',
         ],
       },
       {
@@ -405,6 +427,10 @@ export const EXTRA_HUBS: DeviceHub[] = [
     ],
     links: [
       { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70' },
+      { href: '/repairs/playstation/overheating-repair/', label: 'PS5 overheating repair', note: 'Quoted after a look' },
+      { href: '/repairs/playstation/keeps-turning-off/', label: 'PS5 keeps turning off', note: 'Quoted after a look' },
+      { href: '/repairs/playstation/random-restart/', label: 'PS5 random restart', note: 'Quoted after a look' },
+      { href: '/repairs/playstation/no-power/', label: 'PS5 will not turn on', note: 'Quoted after a look' },
       { href: '/repairs/console/', label: 'Games console repair', note: 'PlayStation and Xbox' },
       { href: '/repairs/xbox/', label: 'Xbox repair' },
       { href: '/repairs/xbox/hdmi-port-repair/', label: 'Xbox HDMI port repair' },
@@ -413,14 +439,14 @@ export const EXTRA_HUBS: DeviceHub[] = [
   {
     slug: 'xbox',
     label: 'Xbox',
-    blurb: 'Series and Xbox One. HDMI port repair is £70. Other faults are quoted after we open it.',
+    blurb: 'Series and Xbox One. HDMI port is £70. Overheating, restarting and no power are quoted after we open it.',
     bookable: true,
     selectorTo: '/repairs/xbox/',
     modelPlaceholder: 'e.g. Series X, Series S, Xbox One S…',
     title: 'Xbox repair in Whitton — Series X, Series S and Xbox One',
     h1: 'Xbox repair in Whitton — Series X, Series S and Xbox One',
     metaDescription:
-      'Xbox repair in Whitton, Twickenham for Series X, Series S and Xbox One. HDMI port repair is £70. Other faults are quoted after a free diagnosis. Call 07918 440326.',
+      'Xbox repair in Whitton, Twickenham. HDMI port repair is £70. Series X restarting, overheating and a console that will not turn on are quoted after a free diagnosis. Call 07918 440326.',
     intro: [
       'Xbox repairs at the Whitton shop cover the original Xbox One, Xbox One S, Xbox One X, Series S and Series X. The familiar complaint is HDMI: the console powers up, the controller connects, and the screen never leaves "no signal". No-power faults and consoles that shut themselves down after a few minutes are the other regulars.',
       'Xbox HDMI port repair is £70 for Series X, Series S, Xbox One, One S and One X. Other Xbox faults are not on a price list. Series S and Series X are different boards, and an original Xbox One still has an external power brick that has to be tested on its own. The HDMI page is the detailed version of the picture fault.',
@@ -431,7 +457,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
         paragraphs: [
           'Start with picture faults, because they are the ones that get misdiagnosed in the living room. A Series S has no disc drive and no second video port, so a bad HDMI socket looks like a console that is simply dead. We check that it is actually running, then the cable, then the port, then the chip that produces the HDMI signal. You get told which of those it is.',
           'Original Xbox One power bricks fail on their own. If you still have the brick, bring it. Replacing a console that only needed a power supply is a bad outcome, and we will not do it. One S, One X and the Series models have the power supply inside; those are bench jobs, quoted after they are open.',
-          'A console that boots, runs a game, and then shuts off is often heat: a fan full of dust, or paste that has dried out on a Series X that has lived on a carpet in a Hounslow flat. Sometimes it is not heat at all. We measure what it is doing rather than selling a clean as a cure-all.',
+          'A console that boots, runs a game, and then shuts off is often heat: a fan full of dust, liquid metal on a Series X, or paste that has dried on a Series S or Xbox One. Sometimes it is not heat at all. The overheating, shutdown, restart and no-power pages split those faults. We measure what it is doing rather than selling a clean as a cure-all.',
         ],
       },
       {
@@ -462,6 +488,10 @@ export const EXTRA_HUBS: DeviceHub[] = [
     ],
     links: [
       { href: '/repairs/xbox/hdmi-port-repair/', label: 'Xbox HDMI port repair', note: '£70' },
+      { href: '/repairs/xbox/overheating-repair/', label: 'Xbox overheating repair', note: 'Quoted after a look' },
+      { href: '/repairs/xbox/keeps-turning-off/', label: 'Xbox keeps turning off', note: 'Quoted after a look' },
+      { href: '/repairs/xbox/random-restart/', label: 'Xbox Series X restarting', note: 'Quoted after a look' },
+      { href: '/repairs/xbox/no-power/', label: 'Xbox will not turn on', note: 'Quoted after a look' },
       { href: '/repairs/console/', label: 'Games console repair' },
       { href: '/repairs/playstation/', label: 'PlayStation repair' },
       { href: '/repairs/playstation/hdmi-port-repair/', label: 'PlayStation HDMI port repair' },
