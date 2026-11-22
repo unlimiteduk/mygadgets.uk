@@ -66,7 +66,25 @@ export function localBusinessSchema() {
     url: canonical('/'),
     image: `${SITE.domain}/images/storefront.webp`,
     logo: `${SITE.domain}/logo.png`,
-    telephone: '+447918440326',
+    telephone: '+44 20 8847 4747',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+44 20 8847 4747',
+        contactType: 'customer service',
+        name: 'Landline',
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+44 7918 440326',
+        contactType: 'customer service',
+        name: 'Mobile & WhatsApp',
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+    ],
     email: SITE.email,
     description:
       'Computer repair shop in Whitton, Twickenham: MacBook and laptop screen repair, SSD upgrades, data recovery, PlayStation and Xbox HDMI port repair, iMac and PC repair, and refurbished MacBooks.',

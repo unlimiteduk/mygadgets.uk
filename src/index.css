@@ -452,9 +452,23 @@ a.docket:hover,
 }
 .sticky-bar .btn {
   flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 52px;
+  padding: 8px 6px;
+  line-height: 1.15;
+  font-size: 0.75rem;
+  white-space: normal;
+  text-align: center;
 }
 .sticky-bar .btn-signal {
-  flex: 1.7;
+  flex: 1.15;
+}
+.sticky-bar .sticky-k {
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 650;
 }
 @media (min-width: 768px) {
   .sticky-bar {
@@ -463,7 +477,7 @@ a.docket:hover,
 }
 @media (max-width: 767px) {
   body {
-    padding-bottom: 92px;
+    padding-bottom: 108px;
   }
 }
 
@@ -529,7 +543,6 @@ a.docket:hover,
 .price-table .num {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 /* Battery health bar */
@@ -744,13 +757,39 @@ a.docket:hover,
 .primary-nav a[aria-current="page"] {
   color: hsl(var(--primary));
 }
+.header-numbers {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  line-height: 1.2;
+}
+.header-numbers.mobile-only {
+  display: flex;
+  margin-left: auto;
+}
+.header-numbers a {
+  color: var(--bench-ink);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.header-numbers .k {
+  margin-right: 6px;
+  color: #6b7280;
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 .header-actions {
   display: none;
   align-items: center;
   gap: 10px;
 }
 @media (min-width: 980px) {
-  .header-actions {
+  .header-actions,
+  .header-numbers {
     display: flex;
   }
 }
@@ -1247,7 +1286,8 @@ a.feature-card {
   display: flex;
 }
 @media (min-width: 980px) {
-  .mobile-only {
+  .mobile-only,
+  .header-numbers.mobile-only {
     display: none;
   }
 }

@@ -14,13 +14,5 @@ export default function PhotoSlot({ shot, ratio = '4 / 3', src, alt }: { shot: s
       </figure>
     );
   }
-  return (
-    <figure className="photo-slot" style={{ aspectRatio: ratio, margin: 0 }}>
-      <div className="photo-grid-lines" aria-hidden="true" />
-      <div style={{ position: 'absolute', top: 14, left: 14 }} className="label">
-        Photo · to commission
-      </div>
-      <figcaption className="photo-caption">{shot}</figcaption>
-    </figure>
-  );
+  return null;
 }

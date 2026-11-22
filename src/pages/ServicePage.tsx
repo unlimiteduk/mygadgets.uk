@@ -4,7 +4,6 @@ import Layout from '@/components/Layout';
 import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
-import PhotoSlot from '@/components/PhotoSlot';
 import { getService, SERVICES, type Service } from '@/data/services';
 import { AREAS_COVERED, SITE, canonical } from '@/data/site';
 import AreaLinks from '@/components/AreaLinks';
@@ -30,7 +29,7 @@ function serviceOffer(svc: Service, path: string) {
               '@type': 'ServiceChannel',
               name: 'Mail-in PS5 HDMI repair',
               serviceType: 'PS5 HDMI port repair by post',
-              servicePhone: '+447918440326',
+              servicePhone: '+44 20 8847 4747',
               servicePostalAddress: {
                 '@type': 'PostalAddress',
                 streetAddress: SITE.street,
@@ -166,7 +165,7 @@ export default function ServicePage() {
       <section style={{ background: '#FFFFFF', borderBlock: '1px solid var(--bench-rule)' }}>
         <div className="container-12 section-pad">
           <div className="grid-12">
-            <div className="col-span-12 lg:col-span-7">
+            <div className={svc.photoImage ? 'col-span-12 lg:col-span-7' : 'col-span-12'}>
               <Reveal><h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>What we actually do</h2></Reveal>
               {svc.whatWeDo.map((p) => (
                 <Reveal key={p.slice(0, 24)}>
@@ -190,31 +189,29 @@ export default function ServicePage() {
                 </Reveal>
               ))}
             </div>
+            {svc.photoImage && (
             <div className="col-span-12 lg:col-span-4 lg:col-start-9">
               <Reveal>
-                {svc.photoImage ? (
-                  <figure
-                    style={{
-                      margin: 0,
-                      aspectRatio: '4 / 5',
-                      borderRadius: 'var(--radius-card)',
-                      overflow: 'hidden',
-                      border: '1px solid var(--bench-rule)',
-                    }}
-                  >
-                    <img
-                      src={svc.photoImage}
-                      alt={svc.photoShot ?? `Before and after — ${svc.name.toLowerCase()} on a ${svc.deviceLabel}`}
-                      width={1200}
-                      height={1500}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
-                  </figure>
-                ) : (
-                  <PhotoSlot shot={svc.photoShot ?? 'Before / after — repair in progress, same device, same angle'} ratio="4 / 5" />
-                )}
+                <figure
+                  style={{
+                    margin: 0,
+                    aspectRatio: '4 / 5',
+                    borderRadius: 'var(--radius-card)',
+                    overflow: 'hidden',
+                    border: '1px solid var(--bench-rule)',
+                  }}
+                >
+                  <img
+                    src={svc.photoImage}
+                    alt={svc.photoShot ?? `Before and after — ${svc.name.toLowerCase()} on a ${svc.deviceLabel}`}
+                    width={1200}
+                    height={1500}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                </figure>
               </Reveal>
             </div>
+            )}
           </div>
         </div>
       </section>
@@ -228,7 +225,7 @@ export default function ServicePage() {
                 <div className="col-span-12 lg:col-span-7">
                   <h2 className="h2" style={{ margin: 0 }}>Quote at the bench</h2>
                   <p style={{ color: '#4B5563', marginTop: 12, maxWidth: '62ch' }}>
-                    This repair is not on the published price list. The fault and the part depend on the exact machine, so we look at it first. Diagnosis is free, and the figure we give you is the one we stick to. Call {SITE.phoneDisplay} or bring it to {SITE.street}.
+                    This repair is not on the published price list. The fault and the part depend on the exact machine, so we look at it first. Diagnosis is free, and the figure we give you is the one we stick to. Call {SITE.landlineDisplay} or {SITE.mobileDisplay}, or bring it to {SITE.street}.
                   </p>
                   <div style={{ marginTop: 28 }}>
                     <ActionRow visitLabel="Visit the shop" />

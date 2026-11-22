@@ -46,7 +46,7 @@ export const EXTRA_SERVICES: Service[] = [
     h1: 'PS5 HDMI port repair by post, or in Whitton',
     title: 'PS5 HDMI port repair by post — £70, free return postage',
     metaDescription:
-      'Mail-in PS5 HDMI repair in the UK is £70, with free return postage, repaired the same day it arrives. Post it to 23 High Street, Whitton, Twickenham TW2 7LB. PS4 is shop only. Call 07918 440326.',
+      'PS5 HDMI port repair by post is £70, with free return postage, the same day it arrives. 23 High Street, Whitton, Twickenham TW2 7LB. PS4 is shop only.',
     fromPrice: '£70',
     turnaround: 'After diagnosis',
     offerPrice: '70.00',
@@ -70,7 +70,7 @@ export const EXTRA_SERVICES: Service[] = [
     warranty: REPAIR_WARRANTY,
     photoShot: 'PlayStation HDMI socket under magnification, beside the cable the customer brought in',
     priceTable: [
-      { model: 'PS5 by post (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'Same day it arrives, free return postage' },
+      { model: 'PS5 by post (disc and digital)', part: 'HDMI port, free return', price: '£70', turnaround: 'Same day it arrives' },
       { model: 'PS5 in the shop (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'After diagnosis' },
       { model: 'PS4', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
       { model: 'PS4 Slim', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
@@ -95,7 +95,7 @@ export const EXTRA_SERVICES: Service[] = [
       },
       {
         q: 'Is a posted PS5 a same-day HDMI repair?',
-        a: 'Yes. We repair it the same day the console arrives, then return it. That is the day it reaches the shop, not the day you hand it over to be posted. Return postage is free.',
+        a: 'Yes. We repair it the same day the console arrives, then return it. That is the day it reaches the shop, not the day you post it. Return postage is free.',
       },
       {
         q: 'PS4 or PS5 — do you do both?',
@@ -135,7 +135,7 @@ export const EXTRA_SERVICES: Service[] = [
     h1: 'Xbox HDMI port repair in Whitton',
     title: 'Xbox HDMI port repair in Whitton, Twickenham — £70',
     metaDescription:
-      'Xbox HDMI port repair in Whitton, Twickenham is £70 for Series X, Series S and Xbox One. No signal or a loose port. Call 07918 440326.',
+      'Xbox HDMI port repair in Whitton, Twickenham is £70 for Series X, Series S and Xbox One. No signal or a loose port. Call 020 8847 4747 or 07918 440326.',
     fromPrice: '£70',
     turnaround: 'After diagnosis',
     offerPrice: '70.00',
@@ -207,7 +207,7 @@ export const EXTRA_SERVICES: Service[] = [
     h1: 'Laptop SSD upgrade in Whitton',
     title: 'Laptop SSD upgrade in Whitton, Twickenham',
     metaDescription:
-      'SSD upgrades for Dell, HP, Lenovo and other Windows laptops in Whitton. We clone your files across. Quote after we see the machine. Call 07918 440326.',
+      'SSD upgrades for Dell, HP, Lenovo and other Windows laptops in Whitton. We clone your files across. Quote after we see the machine. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -269,7 +269,7 @@ export const EXTRA_SERVICES: Service[] = [
     h1: 'Laptop data recovery in Whitton',
     title: 'Laptop data recovery in Whitton, Twickenham',
     metaDescription:
-      'Data recovery from dead or damaged Windows laptops in Whitton, Twickenham. If we cannot recover the files you need, you pay nothing. Call 07918 440326.',
+      'Data recovery from dead or damaged Windows laptops in Whitton, Twickenham. If we cannot recover the files you need, you pay nothing. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -336,11 +336,11 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'Games console repair in Whitton, Twickenham — HDMI from £70',
     h1: 'Games console repair in Whitton, Twickenham',
     metaDescription:
-      'PlayStation and Xbox repair in Whitton, Twickenham. HDMI port repair is £70. PS5 overheating, shutdowns and an Xbox that will not turn on are quoted after a free look. Call 07918 440326.',
+      'PlayStation and Xbox repair in Whitton. HDMI ports are £70. PS5 can be posted, with free return postage. Overheating, shutdowns and no power are quoted after a look.',
     intro: [
       'My Gadgets Whitton repairs PlayStation and Xbox consoles on the same bench as the laptops. The job we see most is HDMI: no signal, a picture that only works if the cable is held just so, or a socket that took a knock when the lead was caught. Disc faults, consoles that will not power on, and machines that overheat and shut down come in as well.',
       'This page is the hub. PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70. A PS5 can be posted for that port repair, repaired the same day it arrives, with free return postage. Xbox cannot be posted. Overheating, a console that keeps turning off, a random restart, and no power each have their own page, because they are not the HDMI job and they are not one quote. Diagnosis is free.',
-      'The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Call 07918 440326 or walk in during opening hours.',
+      'The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Call 020 8847 4747 or 07918 440326, or walk in during opening hours.',
     ],
     sections: [
       {
@@ -378,7 +378,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
       {
         q: 'Do I need to book?',
-        a: 'No. Walk in during opening hours, or call 07918 440326. Booking is there if you want the part of the day set aside. The address is 23 High Street, Whitton, TW2 7LB.',
+        a: 'No. Walk in during opening hours, or call 020 8847 4747 or 07918 440326. Booking is there if you want the part of the day set aside. The address is 23 High Street, Whitton, TW2 7LB.',
       },
     ],
     links: [
@@ -407,7 +407,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'PlayStation repair in Whitton — PS4 and PS5',
     h1: 'PlayStation repair in Whitton — PS4 and PS5',
     metaDescription:
-      'PS5 repair in Whitton and Twickenham. HDMI port repair is £70, by post with free return postage. Overheating, shutting down and no power are quoted in the shop. Call 07918 440326.',
+      'PS5 repair in Whitton and Twickenham. HDMI port repair is £70, by post with free return postage. Overheating, shutting down and no power are quoted in the shop. Call 020 8847 4747 or 07918 440326.',
     intro: [
       'We repair PS4, PS4 Slim, PS4 Pro and PS5 at the shop on Whitton High Street. HDMI is the fault people travel in for: the console sounds awake and the television stays black. Disc drives that spit games back out, consoles that overheat and shut down mid-game, and machines that will not power on at all are the rest of the queue.',
       'PS5 HDMI port repair is £70 in the shop, or by post to 23 High Street, Whitton, Twickenham TW2 7LB. A posted PS5 is repaired the same day it arrives, and return postage is free. Overheating, a PS5 that keeps turning off, a random restart, and a PS5 that will not turn on each have their own page and are not a postal service. The HDMI page explains the PS4 split. If we cannot justify a repair, we say so.',
@@ -444,7 +444,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
       {
         q: 'How do I get a quote?',
-        a: 'Bring it to 23 High Street, Whitton, TW2 7LB, or call 07918 440326. The look is free. You can also book a repair online and describe the fault. Opening hours are on this site and on the door.',
+        a: 'Bring it to 23 High Street, Whitton, TW2 7LB, or call 020 8847 4747 or 07918 440326. The look is free. You can also book a repair online and describe the fault. Opening hours are on this site and on the door.',
       },
     ],
     links: [
@@ -468,7 +468,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'Xbox repair in Whitton — Series X, Series S and Xbox One',
     h1: 'Xbox repair in Whitton — Series X, Series S and Xbox One',
     metaDescription:
-      'Xbox repair in Whitton, Twickenham. HDMI port repair is £70. Series X restarting, overheating and a console that will not turn on are quoted after a free diagnosis. Call 07918 440326.',
+      'Xbox repair in Whitton, Twickenham. HDMI port repair is £70. Series X restarting, overheating and a console that will not turn on are quoted after a free diagnosis. Call 020 8847 4747 or 07918 440326.',
     intro: [
       'Xbox repairs at the Whitton shop cover the original Xbox One, Xbox One S, Xbox One X, Series S and Series X. The familiar complaint is HDMI: the console powers up, the controller connects, and the screen never leaves "no signal". No-power faults and consoles that shut themselves down after a few minutes are the other regulars.',
       'Xbox HDMI port repair is £70 for Series X, Series S, Xbox One, One S and One X. Other Xbox faults are not on a price list. Series S and Series X are different boards, and an original Xbox One still has an external power brick that has to be tested on its own. The HDMI page is the detailed version of the picture fault.',
@@ -505,7 +505,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
       {
         q: 'Where is the shop?',
-        a: '23 High Street, Whitton, Twickenham TW2 7LB. Call 07918 440326. Area pages cover Twickenham, Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington.',
+        a: '23 High Street, Whitton, Twickenham TW2 7LB. Call 020 8847 4747 or 07918 440326. Area pages cover Twickenham, Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington.',
       },
     ],
     links: [
@@ -529,7 +529,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'iMac repair in Whitton, Twickenham',
     h1: 'iMac repair in Whitton, Twickenham',
     metaDescription:
-      'iMac repair in Whitton and Twickenham: screens, drives and data on Intel and 24-inch M1 models. Free diagnosis, no guessed prices. Call 07918 440326.',
+      'iMac repair in Whitton and Twickenham: screens, drives and data on Intel and 24-inch M1 models. Free diagnosis, no guessed prices. Call 020 8847 4747 or 07918 440326.',
     intro: [
       'An iMac is not a laptop with a bigger screen. The glass, the display and the computer are one unit, and a 27-inch Intel machine is a different repair from a 24-inch M1. We work on both at 23 High Street, Whitton. There is no iMac price list on this site, because we do not have a signed-off figure for these jobs. The quote is made after a free look.',
       'If you want a machine to take away today rather than a repair, the refurbished iMacs are on the shop page, graded and described the same way as the MacBooks. A repair and a replacement are both options. We will say which one makes sense once we have seen yours.',
@@ -547,7 +547,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
         heading: 'Getting a large iMac here',
         paragraphs: [
           'A 27-inch travels on the back seat more happily than on the train from Twickenham. Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington are a short drive. Short-stay bays are on the High Street outside the shop.',
-          'Call 07918 440326 before you set off if the iMac is a 27-inch and you want to be sure there is bench space the same day. Walk-ins are still welcome. Opening hours are the ones already published on this site: Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.',
+          'Call 020 8847 4747 or 07918 440326 before you set off if the iMac is a 27-inch and you want to be sure there is bench space the same day. Walk-ins are still welcome. Opening hours are the ones already published on this site: Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.',
         ],
       },
     ],
@@ -583,7 +583,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'PC repair in Whitton, Twickenham',
     h1: 'PC repair in Whitton, Twickenham',
     metaDescription:
-      'Desktop PC repair in Whitton and Twickenham. No power, no display, failing drives and SSD upgrades where the PC allows it. Free diagnosis. Call 07918 440326.',
+      'Desktop PC repair in Whitton and Twickenham. No power, no display, failing drives and SSD upgrades where the PC allows it. Free diagnosis. Call 020 8847 4747 or 07918 440326.',
     intro: [
       'This page is for desktop PCs: towers, small-form machines and all-in-ones that are not iMacs. Laptops have their own pages, because a Dell tower and a Dell laptop do not fail the same way and should not be booked as the same job. We repair PCs at 23 High Street, Whitton. There is no PC price list in this site. We quote after a free diagnosis.',
       'The usual arrivals are a PC that does not switch on, a PC that switches on and never shows a picture, and a PC that has become too slow to use because the drive is failing or full. People also ask for an SSD. We will fit one when the machine has a bay or a slot for it, and we will say so when it does not.',
@@ -601,7 +601,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
         paragraphs: [
           'A desktop drive is usually the easiest storage we see, because it comes out. Data recovery from a PC that will not boot is often an image of that drive, and the rule is the same one published for laptop and MacBook data recovery: if we cannot recover the files you asked for, you pay nothing. BitLocker still needs the recovery key. Name the folders that matter.',
           'An SSD upgrade on a tower is a clone plus a drive that physically fits. We use named-brand drives, the standard already stated for MacBook upgrades. We do not publish a PC price beside the MacBook price, because they are not the same part. The laptop SSD page covers notebooks. Use that one if the computer folds shut.',
-          'Twickenham is one train stop away. Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington are a short drive, and each has an area page. Call 07918 440326 if you want the tower looked at the same day.',
+          'Twickenham is one train stop away. Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington are a short drive, and each has an area page. Call 020 8847 4747 or 07918 440326 if you want the tower looked at the same day.',
         ],
       },
     ],
@@ -620,7 +620,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
       },
       {
         q: 'How do I get a quote?',
-        a: 'Bring the tower to 23 High Street, Whitton, TW2 7LB, or call 07918 440326. Diagnosis is free. You approve the price before any parts are ordered or any work starts.',
+        a: 'Bring the tower to 23 High Street, Whitton, TW2 7LB, or call 020 8847 4747 or 07918 440326. Diagnosis is free. You approve the price before any parts are ordered or any work starts.',
       },
     ],
     links: [

@@ -7,7 +7,7 @@ import { SITE } from './site';
 const REPAIR_WARRANTY = `${SITE.repairsWarranty} on the work we carry out, the same written repair warranty as every other job on this site. It covers the part we fitted and the work we did. New physical damage after the repair is not covered. Full terms are on the warranty page.`;
 
 const VISIT =
-  'Walk in during opening hours, or call 07918 440326. The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.';
+  'Walk in during opening hours, or call 020 8847 4747 or 07918 440326. The shop is 23 High Street, Whitton, Twickenham TW2 7LB. Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.';
 
 function links(items: RepairLink[]): RepairLink[] {
   return items;
@@ -22,7 +22,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'PS5 overheating repair in Twickenham',
     title: 'PS5 overheating repair in Twickenham and Whitton',
     metaDescription:
-      'PS5 overheating repair in Twickenham and Whitton. Loud fan, a hot case, or it shuts down in a game. Free diagnosis, quote before work. Call 07918 440326.',
+      'PS5 overheating repair in Twickenham and Whitton. Loud fan, a hot case, or it shuts down in a game. Free diagnosis, quote before work. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -84,7 +84,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'PS5 keeps turning off — repair in Whitton',
     title: 'PS5 keeps turning off — repair in Whitton, Twickenham',
     metaDescription:
-      'PS5 keeps turning off? Repair in Whitton and Twickenham when it dies mid-game or at the menu and stays off. Free diagnosis, then a quote. Call 07918 440326.',
+      'PS5 keeps turning off? Repair in Whitton and Twickenham when it dies mid-game or at the menu and stays off. Free diagnosis, then a quote. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -146,7 +146,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'PS5 random restart repair in Whitton',
     title: 'PS5 random restart repair in Whitton, Twickenham',
     metaDescription:
-      'PS5 randomly restarting in Whitton and Twickenham. It reboots to the logo instead of staying on. Free diagnosis, quote before any work. Call 07918 440326.',
+      'PS5 randomly restarting in Whitton and Twickenham. It reboots to the logo instead of staying on. Free diagnosis, quote before any work. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -208,7 +208,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'PS5 won\'t turn on — repair in Whitton',
     title: 'PS5 won\'t turn on — repair in Whitton, Twickenham',
     metaDescription:
-      'PS5 won\'t turn on? No-power repair in Whitton and Twickenham. No light, a click, or it dies before the logo. Free diagnosis, then a quote. Call 07918 440326.',
+      'PS5 won\'t turn on? No-power repair in Whitton and Twickenham. No light, a click, or it dies before the logo. Free diagnosis, then a quote. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -270,7 +270,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'Xbox overheating repair in Whitton',
     title: 'Xbox overheating repair in Whitton, Twickenham',
     metaDescription:
-      'Xbox overheating repair in Whitton for Series X, Series S and Xbox One. Loud fan or it shuts down after a game. Quoted after a free look. Call 07918 440326.',
+      'Xbox overheating repair in Whitton for Series X, Series S and Xbox One. Loud fan or it shuts down after a game. Quoted after a free look. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -332,7 +332,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'Xbox keeps turning off — repair in Whitton',
     title: 'Xbox keeps turning off — repair in Whitton, Twickenham',
     metaDescription:
-      'Xbox keeps turning off in Whitton and Twickenham. Series X, Series S and Xbox One that shut down and stay off. Free diagnosis, then a quote. Call 07918 440326.',
+      'Xbox keeps turning off in Whitton and Twickenham. Series X, Series S and Xbox One that shut down and stay off. Free diagnosis, then a quote. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -375,7 +375,7 @@ export const CONSOLE_FAULTS: Service[] = [
         heading: 'Bring the brick if it has one',
         paragraphs: [
           'An original Xbox One without its power brick cannot be tested properly. Series X and Series S have nothing extra to carry. The controller is optional. The television is not needed.',
-          'The bench is in Whitton. Consoles come in from Twickenham, Hounslow, Isleworth, Feltham and Teddington. Call 07918 440326 if you want to know we are open before you set off. Hours are Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.',
+          'The bench is in Whitton. Consoles come in from Twickenham, Hounslow, Isleworth, Feltham and Teddington. Call 020 8847 4747 or 07918 440326 if you want to know we are open before you set off. Hours are Monday to Friday 09:00–18:00, Saturday 10:30–17:00, Sunday closed.',
         ],
       },
     ],
@@ -394,7 +394,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'Xbox Series X restarting fix in Whitton',
     title: 'Xbox Series X restarting fix in Whitton, Twickenham',
     metaDescription:
-      'Xbox Series X restarting fix in Whitton and Twickenham. The console reboots to the startup screen. Series S as well. Quoted after diagnosis. Call 07918 440326.',
+      'Xbox Series X restarting fix in Whitton and Twickenham. The console reboots to the startup screen. Series S as well. Quoted after diagnosis. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,
@@ -456,7 +456,7 @@ export const CONSOLE_FAULTS: Service[] = [
     h1: 'Xbox won\'t turn on — repair in Whitton',
     title: 'Xbox won\'t turn on repair in Whitton, Twickenham',
     metaDescription:
-      'Xbox won\'t turn on? Repair in Whitton and Twickenham for Series X, Series S and Xbox One. No light, or a dead power brick. Free diagnosis. Call 07918 440326.',
+      'Xbox won\'t turn on? Repair in Whitton and Twickenham for Series X, Series S and Xbox One. No light, or a dead power brick. Free diagnosis. Call 020 8847 4747 or 07918 440326.',
     fromPrice: 'Quote',
     turnaround: 'After diagnosis',
     quoteOnly: true,

@@ -2,7 +2,7 @@ import { BadgeCheck, Gem, Tag, ShieldCheck } from 'lucide-react';
 import { SITE } from '@/data/site';
 
 const ITEMS = [
-  { icon: BadgeCheck, h: 'Certified technicians', p: 'Every repair is carried out on the bench by trained, experienced technicians — not posted off-site.' },
+  { icon: BadgeCheck, h: 'Done on our bench', p: 'Repairs are carried out at 23 High Street, Whitton. A PS5 HDMI port can be posted to us. We do not send your machine to another shop.' },
   { icon: Gem, h: 'Genuine parts', p: 'OEM-spec or better on every job, and the docket states exactly what grade was fitted.' },
   { icon: Tag, h: 'Upfront pricing, no hidden charges', p: 'A fixed quote in writing before any work starts. If it is not worth repairing, we say so.' },
   { icon: ShieldCheck, h: `Warranty on every repair`, p: `${SITE.repairsWarranty} on repairs, ${SITE.refurbWarranty} on refurbished units — in writing, every time.` },

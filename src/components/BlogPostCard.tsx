@@ -30,7 +30,7 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
         <p className="mono small" style={{ color: '#6B7280', margin: 0 }}>
           {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
         </p>
-        <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--bench-ink)', margin: '8px 0' }}>{post.title}</h3>
+        <h2 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--bench-ink)', margin: '8px 0' }}>{post.title}</h2>
         <p style={{ fontSize: '0.875rem', color: '#4B5563', margin: 0 }}>{post.excerpt}</p>
       </div>
     </Link>

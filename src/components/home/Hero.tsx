@@ -18,8 +18,11 @@ export default function Hero() {
           </p>
 
           <div className="action-row">
-            <a href={SITE.phoneHref} className="btn btn-signal">
-              Call {SITE.phoneDisplay}
+            <a href={SITE.landlineHref} className="btn btn-signal">
+              Landline {SITE.landlineDisplay}
+            </a>
+            <a href={SITE.mobileHref} className="btn btn-ghost">
+              Mobile {SITE.mobileDisplay}
             </a>
             <a href={SITE.directionsHref} className="btn btn-ghost" target="_blank" rel="noopener">
               Get directions

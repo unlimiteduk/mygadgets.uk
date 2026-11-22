@@ -16,8 +16,11 @@ export default function ActionRow({
 }) {
   return (
     <div className="action-row">
-      <a href={SITE.phoneHref} className="btn btn-signal">
-        <Phone size={18} aria-hidden="true" /> Call {SITE.phoneDisplay}
+      <a href={SITE.landlineHref} className="btn btn-signal">
+        <Phone size={18} aria-hidden="true" /> Landline {SITE.landlineDisplay}
+      </a>
+      <a href={SITE.mobileHref} className="btn btn-ghost">
+        <Phone size={18} aria-hidden="true" /> Mobile {SITE.mobileDisplay}
       </a>
       <a href={SITE.directionsHref} className="btn btn-ghost" target="_blank" rel="noopener">
         <MapPin size={18} aria-hidden="true" /> Get directions
