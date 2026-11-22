@@ -46,13 +46,17 @@ export default function Header() {
           </div>
         </div>
 
+        <div className="header-numbers mobile-only">
+          <a href={SITE.landlineHref}>
+            <span className="k">Landline</span>
+            {SITE.landlineDisplay}
+          </a>
+          <a href={SITE.mobileHref}>
+            <span className="k">Mobile</span>
+            {SITE.mobileDisplay}
+          </a>
+        </div>
         <div className="mobile-only" style={{ alignItems: 'center', gap: 8 }}>
-          <a href={SITE.landlineHref} className="header-phone" aria-label={`Landline ${SITE.landlineDisplay}`}>
-            <Phone size={18} />
-          </a>
-          <a href={SITE.mobileHref} className="header-phone" aria-label={`Mobile and WhatsApp ${SITE.mobileDisplay}`}>
-            <Phone size={18} />
-          </a>
           <button onClick={() => setOpen(true)} aria-label="Open menu" className="icon-btn">
             <Menu size={18} />
           </button>

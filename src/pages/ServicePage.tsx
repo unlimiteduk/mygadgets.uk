@@ -4,7 +4,6 @@ import Layout from '@/components/Layout';
 import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
-import PhotoSlot from '@/components/PhotoSlot';
 import { getService, SERVICES, type Service } from '@/data/services';
 import { AREAS_COVERED, SITE, canonical } from '@/data/site';
 import AreaLinks from '@/components/AreaLinks';
@@ -166,7 +165,7 @@ export default function ServicePage() {
       <section style={{ background: '#FFFFFF', borderBlock: '1px solid var(--bench-rule)' }}>
         <div className="container-12 section-pad">
           <div className="grid-12">
-            <div className="col-span-12 lg:col-span-7">
+            <div className={svc.photoImage ? 'col-span-12 lg:col-span-7' : 'col-span-12'}>
               <Reveal><h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>What we actually do</h2></Reveal>
               {svc.whatWeDo.map((p) => (
                 <Reveal key={p.slice(0, 24)}>
@@ -190,31 +189,29 @@ export default function ServicePage() {
                 </Reveal>
               ))}
             </div>
+            {svc.photoImage && (
             <div className="col-span-12 lg:col-span-4 lg:col-start-9">
               <Reveal>
-                {svc.photoImage ? (
-                  <figure
-                    style={{
-                      margin: 0,
-                      aspectRatio: '4 / 5',
-                      borderRadius: 'var(--radius-card)',
-                      overflow: 'hidden',
-                      border: '1px solid var(--bench-rule)',
-                    }}
-                  >
-                    <img
-                      src={svc.photoImage}
-                      alt={svc.photoShot ?? `Before and after — ${svc.name.toLowerCase()} on a ${svc.deviceLabel}`}
-                      width={1200}
-                      height={1500}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
-                  </figure>
-                ) : (
-                  <PhotoSlot shot={svc.photoShot ?? 'Before / after — repair in progress, same device, same angle'} ratio="4 / 5" />
-                )}
+                <figure
+                  style={{
+                    margin: 0,
+                    aspectRatio: '4 / 5',
+                    borderRadius: 'var(--radius-card)',
+                    overflow: 'hidden',
+                    border: '1px solid var(--bench-rule)',
+                  }}
+                >
+                  <img
+                    src={svc.photoImage}
+                    alt={svc.photoShot ?? `Before and after — ${svc.name.toLowerCase()} on a ${svc.deviceLabel}`}
+                    width={1200}
+                    height={1500}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                </figure>
               </Reveal>
             </div>
+            )}
           </div>
         </div>
       </section>

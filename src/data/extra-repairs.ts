@@ -46,7 +46,7 @@ export const EXTRA_SERVICES: Service[] = [
     h1: 'PS5 HDMI port repair by post, or in Whitton',
     title: 'PS5 HDMI port repair by post — £70, free return postage',
     metaDescription:
-      'Mail-in PS5 HDMI repair in the UK is £70, with free return postage, repaired the same day it arrives. Post it to 23 High Street, Whitton, Twickenham TW2 7LB. PS4 is shop only. Call 020 8847 4747 or 07918 440326.',
+      'PS5 HDMI port repair by post is £70, with free return postage, the same day it arrives. 23 High Street, Whitton, Twickenham TW2 7LB. PS4 is shop only.',
     fromPrice: '£70',
     turnaround: 'After diagnosis',
     offerPrice: '70.00',
@@ -70,7 +70,7 @@ export const EXTRA_SERVICES: Service[] = [
     warranty: REPAIR_WARRANTY,
     photoShot: 'PlayStation HDMI socket under magnification, beside the cable the customer brought in',
     priceTable: [
-      { model: 'PS5 by post (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'Same day it arrives, free return postage' },
+      { model: 'PS5 by post (disc and digital)', part: 'HDMI port, free return', price: '£70', turnaround: 'Same day it arrives' },
       { model: 'PS5 in the shop (disc and digital)', part: 'HDMI port', price: '£70', turnaround: 'After diagnosis' },
       { model: 'PS4', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
       { model: 'PS4 Slim', part: 'HDMI port', price: 'Quote', turnaround: 'After diagnosis' },
@@ -95,7 +95,7 @@ export const EXTRA_SERVICES: Service[] = [
       },
       {
         q: 'Is a posted PS5 a same-day HDMI repair?',
-        a: 'Yes. We repair it the same day the console arrives, then return it. That is the day it reaches the shop, not the day you hand it over to be posted. Return postage is free.',
+        a: 'Yes. We repair it the same day the console arrives, then return it. That is the day it reaches the shop, not the day you post it. Return postage is free.',
       },
       {
         q: 'PS4 or PS5 — do you do both?',
@@ -336,7 +336,7 @@ export const EXTRA_HUBS: DeviceHub[] = [
     title: 'Games console repair in Whitton, Twickenham — HDMI from £70',
     h1: 'Games console repair in Whitton, Twickenham',
     metaDescription:
-      'PlayStation and Xbox repair in Whitton, Twickenham. HDMI port repair is £70. PS5 overheating, shutdowns and an Xbox that will not turn on are quoted after a free look. Call 020 8847 4747 or 07918 440326.',
+      'PlayStation and Xbox repair in Whitton. HDMI ports are £70. PS5 can be posted, with free return postage. Overheating, shutdowns and no power are quoted after a look.',
     intro: [
       'My Gadgets Whitton repairs PlayStation and Xbox consoles on the same bench as the laptops. The job we see most is HDMI: no signal, a picture that only works if the cable is held just so, or a socket that took a knock when the lead was caught. Disc faults, consoles that will not power on, and machines that overheat and shut down come in as well.',
       'This page is the hub. PS5 HDMI port repair is £70, and Xbox HDMI port repair is £70. A PS5 can be posted for that port repair, repaired the same day it arrives, with free return postage. Xbox cannot be posted. Overheating, a console that keeps turning off, a random restart, and no power each have their own page, because they are not the HDMI job and they are not one quote. Diagnosis is free.',
