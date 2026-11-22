@@ -61,6 +61,8 @@ export interface Service {
   offerName?: string;
   /** Replaces the default "From £x" line on the JSON-LD PriceSpecification. */
   offerDescription?: string;
+  /** Mail-in as well as walk-in. JSON-LD then covers the UK and a postal channel. */
+  mailIn?: boolean;
   faultLooksLike: string[];
   whatWeDo: string[];
   parts: string;

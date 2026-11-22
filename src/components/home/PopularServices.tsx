@@ -123,7 +123,7 @@ export default function PopularServices() {
           <span className="icon-tile" aria-hidden="true"><Cable size={22} /></span>
           <h3>HDMI port repair</h3>
           <p>
-            {hdmi ? `PS5 and Xbox HDMI port repair from ${hdmi.fromPrice}. PS4 HDMI ports are still quoted after a free look.` : null}
+            {hdmi ? `PS5 and Xbox HDMI port repair from ${hdmi.fromPrice}. A PS5 can be posted and is repaired the same day it arrives. PS4 is still quoted in the shop.` : null}
           </p>
           <div className="feature-meta">
             <span>{hdmi?.quoteOnly ? 'Quote at the bench' : priceLine('playstation/hdmi-port-repair')}</span>
