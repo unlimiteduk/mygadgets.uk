@@ -15,7 +15,13 @@ export default function Footer() {
               {SITE.street}, {SITE.locality}, {SITE.region} {SITE.postcode}
             </p>
             <p className="small" style={{ marginTop: 12 }}>
-              <a href={SITE.phoneHref} className="mono" style={{ color: 'var(--bone)', textDecoration: 'none' }}>{SITE.phoneDisplay}</a>
+              <a href={SITE.landlineHref} className="mono" style={{ color: 'var(--bone)', textDecoration: 'none' }}>
+                Landline {SITE.landlineDisplay}
+              </a>
+              <br />
+              <a href={SITE.mobileHref} className="mono" style={{ color: 'var(--bone)', textDecoration: 'none' }}>
+                Mobile &amp; WhatsApp {SITE.mobileDisplay}
+              </a>
               <br />
               <a href={SITE.whatsappHref} className="mono" style={{ color: 'var(--aluminium)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }} target="_blank" rel="noopener">
                 <WhatsAppIcon size={14} /> WhatsApp {SITE.whatsappDisplay}

@@ -30,7 +30,7 @@ function serviceOffer(svc: Service, path: string) {
               '@type': 'ServiceChannel',
               name: 'Mail-in PS5 HDMI repair',
               serviceType: 'PS5 HDMI port repair by post',
-              servicePhone: '+447918440326',
+              servicePhone: '+44 20 8847 4747',
               servicePostalAddress: {
                 '@type': 'PostalAddress',
                 streetAddress: SITE.street,
@@ -228,7 +228,7 @@ export default function ServicePage() {
                 <div className="col-span-12 lg:col-span-7">
                   <h2 className="h2" style={{ margin: 0 }}>Quote at the bench</h2>
                   <p style={{ color: '#4B5563', marginTop: 12, maxWidth: '62ch' }}>
-                    This repair is not on the published price list. The fault and the part depend on the exact machine, so we look at it first. Diagnosis is free, and the figure we give you is the one we stick to. Call {SITE.phoneDisplay} or bring it to {SITE.street}.
+                    This repair is not on the published price list. The fault and the part depend on the exact machine, so we look at it first. Diagnosis is free, and the figure we give you is the one we stick to. Call {SITE.landlineDisplay} or {SITE.mobileDisplay}, or bring it to {SITE.street}.
                   </p>
                   <div style={{ marginTop: 28 }}>
                     <ActionRow visitLabel="Visit the shop" />

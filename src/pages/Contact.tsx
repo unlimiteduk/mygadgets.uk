@@ -61,7 +61,7 @@ export default function Contact() {
     <Layout>
       <Seo
         title={`Contact — Whitton High Street, TW2 | ${SITE.name}`}
-        description={`Call, WhatsApp or walk in: ${SITE.name}, 23 High Street, Whitton, Twickenham TW2 7LB. Mon–Fri 09:00–18:00, Sat 10:30–17:00.`}
+        description={`Landline ${SITE.landlineDisplay}. Mobile and WhatsApp ${SITE.mobileDisplay}. ${SITE.name}, 23 High Street, Whitton, Twickenham TW2 7LB. Mon–Fri 09:00–18:00, Sat 10:30–17:00.`}
         path="/contact/"
         schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])}
       />
@@ -142,16 +142,28 @@ export default function Contact() {
             <Reveal>
               <div className="panel" style={{ padding: 24 }}>
                 <div style={{ display: 'grid', gap: 0 }}>
+                  <a
+                    href={SITE.landlineHref}
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '14px 0', borderBottom: '1px solid var(--bench-rule)', textDecoration: 'none', color: 'var(--bench-ink)' }}
+                  >
+                    <span className="label">Landline</span>
+                    <span className="mono" style={{ fontWeight: 500 }}>{SITE.landlineDisplay}</span>
+                  </a>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12, padding: '14px 0', borderBottom: '1px solid var(--bench-rule)' }}>
+                    <span className="label">Mobile &amp; WhatsApp</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                      <a href={SITE.mobileHref} className="mono" style={{ fontWeight: 500, color: 'var(--bench-ink)', textDecoration: 'none' }}>{SITE.mobileDisplay}</a>
+                      <a href={SITE.whatsappHref} target="_blank" rel="noopener" aria-label={`WhatsApp ${SITE.whatsappDisplay}`} style={{ color: 'var(--bench-ink)', display: 'inline-flex' }}>
+                        <WhatsAppIcon size={16} />
+                      </a>
+                    </span>
+                  </div>
                   {[
-                    ['Call', SITE.phoneDisplay, SITE.phoneHref],
-                    ['WhatsApp', SITE.whatsappDisplay, SITE.whatsappHref],
                     ['Email', SITE.email, `mailto:${SITE.email}`],
                   ].map(([k, v, href]) => (
                     <a
                       key={k}
                       href={href}
-                      target={href.startsWith('http') ? '_blank' : undefined}
-                      rel="noopener"
                       style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '14px 0', borderBottom: '1px solid var(--bench-rule)', textDecoration: 'none', color: 'var(--bench-ink)' }}
                     >
                       <span className="label">{k}</span>

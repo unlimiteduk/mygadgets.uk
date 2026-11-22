@@ -8,8 +8,11 @@ export default function StickyBar() {
       <a href={SITE.directionsHref} className="btn btn-ghost" target="_blank" rel="noopener">
         <MapPin size={16} aria-hidden="true" /> Directions
       </a>
-      <a href={SITE.phoneHref} className="btn btn-signal">
-        <Phone size={16} aria-hidden="true" /> Call {SITE.phoneDisplay}
+      <a href={SITE.landlineHref} className="btn btn-signal" aria-label={`Landline ${SITE.landlineDisplay}`}>
+        <Phone size={16} aria-hidden="true" /> {SITE.landlineDisplay}
+      </a>
+      <a href={SITE.mobileHref} className="btn btn-ghost" aria-label={`Mobile and WhatsApp ${SITE.mobileDisplay}`}>
+        <Phone size={16} aria-hidden="true" /> {SITE.mobileDisplay}
       </a>
     </div>
   );

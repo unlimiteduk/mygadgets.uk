@@ -45,7 +45,8 @@ export default function ConfirmationScreen({ state }: { state: BookingState }) {
         <a href={`${SITE.whatsappHref}?text=${waText}`} target="_blank" rel="noopener" className="btn btn-signal">
           <WhatsAppIcon size={18} /> Confirm on WhatsApp
         </a>
-        <a href={SITE.phoneHref} className="btn btn-ghost">Call the shop</a>
+        <a href={SITE.landlineHref} className="btn btn-ghost">Landline {SITE.landlineDisplay}</a>
+        <a href={SITE.mobileHref} className="btn btn-ghost">Mobile {SITE.mobileDisplay}</a>
       </div>
     </div>
   );

@@ -34,14 +34,23 @@ export default function Header() {
           <Link to="/book/" className="btn btn-ghost" style={{ minHeight: 42 }}>
             Book a repair
           </Link>
-          <a href={SITE.phoneHref} className="btn btn-signal" style={{ minHeight: 42 }}>
-            <Phone size={16} aria-hidden="true" />
-            {SITE.phoneDisplay}
-          </a>
+          <div className="header-numbers">
+            <a href={SITE.landlineHref}>
+              <span className="k">Landline</span>
+              {SITE.landlineDisplay}
+            </a>
+            <a href={SITE.mobileHref}>
+              <span className="k">Mobile &amp; WhatsApp</span>
+              {SITE.mobileDisplay}
+            </a>
+          </div>
         </div>
 
         <div className="mobile-only" style={{ alignItems: 'center', gap: 8 }}>
-          <a href={SITE.phoneHref} className="header-phone" aria-label={`Call ${SITE.phoneDisplay}`}>
+          <a href={SITE.landlineHref} className="header-phone" aria-label={`Landline ${SITE.landlineDisplay}`}>
+            <Phone size={18} />
+          </a>
+          <a href={SITE.mobileHref} className="header-phone" aria-label={`Mobile and WhatsApp ${SITE.mobileDisplay}`}>
             <Phone size={18} />
           </a>
           <button onClick={() => setOpen(true)} aria-label="Open menu" className="icon-btn">
@@ -66,8 +75,11 @@ export default function Header() {
                 {n.label}
               </Link>
             ))}
-            <a href={SITE.phoneHref} className="btn btn-signal" style={{ marginTop: 20 }}>
-              <Phone size={16} /> Call {SITE.phoneDisplay}
+            <a href={SITE.landlineHref} className="btn btn-signal" style={{ marginTop: 20 }}>
+              <Phone size={16} /> Landline {SITE.landlineDisplay}
+            </a>
+            <a href={SITE.mobileHref} className="btn btn-ghost" style={{ marginTop: 10 }}>
+              <Phone size={16} /> Mobile &amp; WhatsApp {SITE.mobileDisplay}
             </a>
             <a href={SITE.directionsHref} className="btn btn-ghost" style={{ marginTop: 10 }} target="_blank" rel="noopener">
               Get directions

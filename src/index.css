@@ -744,13 +744,35 @@ a.docket:hover,
 .primary-nav a[aria-current="page"] {
   color: hsl(var(--primary));
 }
+.header-numbers {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  line-height: 1.2;
+}
+.header-numbers a {
+  color: var(--bench-ink);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.header-numbers .k {
+  margin-right: 6px;
+  color: #6b7280;
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 .header-actions {
   display: none;
   align-items: center;
   gap: 10px;
 }
 @media (min-width: 980px) {
-  .header-actions {
+  .header-actions,
+  .header-numbers {
     display: flex;
   }
 }
