@@ -29,7 +29,7 @@ function serviceOffer(svc: Service, path: string) {
               '@type': 'ServiceChannel',
               name: 'Mail-in PS5 HDMI repair',
               serviceType: 'PS5 HDMI port repair by post',
-              servicePhone: '+44 20 8847 4747',
+              servicePhone: { '@type': 'ContactPoint', telephone: '+44 20 8847 4747', contactType: 'customer service' },
               servicePostalAddress: {
                 '@type': 'PostalAddress',
                 streetAddress: SITE.street,

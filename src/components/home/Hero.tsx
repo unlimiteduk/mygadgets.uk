@@ -40,14 +40,14 @@ export default function Hero() {
             <Link
               to="/reviews/"
               className="rating-inline"
-              aria-label={`${GOOGLE_RATING.average} out of 5 from ${GOOGLE_RATING.count} Google reviews`}
+              aria-label={`${GOOGLE_RATING.average.toFixed(1)} out of 5 from ${GOOGLE_RATING.count} Google reviews`}
             >
               <span className="stars" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} size={16} fill="currentColor" />
                 ))}
               </span>
-              {GOOGLE_RATING.average}
+              {GOOGLE_RATING.average.toFixed(1)}
               <span>· {GOOGLE_RATING.count} Google reviews</span>
             </Link>
             <address className="hero-address">

@@ -3,7 +3,6 @@ import { useLocation } from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import StickyBar from './StickyBar';
-import Consent from './Consent';
 import FloatingWhatsApp from './FloatingWhatsApp';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -19,7 +18,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Footer />
       <StickyBar />
       <FloatingWhatsApp />
-      <Consent />
     </div>
   );
 }

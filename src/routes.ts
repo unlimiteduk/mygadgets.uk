@@ -1,27 +1,27 @@
-import { AREAS } from './data/areas';
-import { BLOG_POSTS } from './data/blog';
-import { LISTINGS, SHOP_CATEGORIES } from './data/listings';
-import { MODELS } from './data/models';
-import { DEVICE_HUBS, SERVICES } from './data/services';
+import { AREAS } from "./data/areas";
+import { BLOG_POSTS } from "./data/blog";
+import { LISTINGS, SHOP_CATEGORIES } from "./data/listings";
+import { MODELS } from "./data/models";
+import { DEVICE_HUBS, SERVICES } from "./data/services";
 
 const STATIC_ROUTES = [
-  '/',
-  '/repairs/',
-  '/repairs/prices/',
-  '/shop/',
-  '/sell-your-device/',
-  '/business/',
-  '/warranty/',
-  '/about/',
-  '/reviews/',
-  '/contact/',
-  '/book/',
-  '/track/',
-  '/blog/',
+  "/",
+  "/repairs/",
+  "/repairs/prices/",
+  "/shop/",
+  "/sell-your-device/",
+  "/business/",
+  "/warranty/",
+  "/about/",
+  "/reviews/",
+  "/contact/",
+  "/book/",
+  "/track/",
+  "/blog/",
 ];
 
 /** Every URL that should exist as its own HTML file and sitemap entry. */
-export function allIndexableRoutes(): string[] {
+export function allPrerenderRoutes(): string[] {
   const routes = [
     ...STATIC_ROUTES,
     ...DEVICE_HUBS.map((d) => `/repairs/${d.slug}/`),
@@ -39,7 +39,12 @@ export function allIndexableRoutes(): string[] {
     seen.add(route);
   }
   if (dupes.length) {
-    throw new Error(`Duplicate routes: ${dupes.join(', ')}`);
+    throw new Error(`Duplicate routes: ${dupes.join(", ")}`);
   }
   return routes;
+}
+
+// Repair status is a customer utility, not a landing page for search results.
+export function allIndexableRoutes(): string[] {
+  return allPrerenderRoutes().filter((route) => route !== "/track/");
 }

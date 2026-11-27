@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import Seo, { breadcrumbSchema } from '@/components/Seo';
 import Layout from '@/components/Layout';
@@ -41,25 +41,20 @@ export default function Book() {
   const [params] = useSearchParams();
   const devicePrefill = params.get('device');
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
-  const [state, setState] = useState<BookingState>(() => stateForPrefill(devicePrefill));
-  const [appliedPrefill, setAppliedPrefill] = useState(devicePrefill);
-
-  // Re-sync from the URL if it changes while this page stays mounted
-  // (e.g. browser back/forward between two /book/?device= links) — a
-  // render-time adjustment rather than an effect, per React's guidance
-  // on adjusting state when a prop changes.
-  if (devicePrefill !== appliedPrefill) {
-    setAppliedPrefill(devicePrefill);
+  // The initial browser render must match the static /book/ HTML even
+  // when a visitor arrives through a URL containing ?device=... .
+  const [state, setState] = useState<BookingState>(EMPTY_STATE);
+  useEffect(() => {
     setStep(1);
     setState(stateForPrefill(devicePrefill));
-  }
+  }, [devicePrefill]);
 
   const update = (patch: Partial<BookingState>) => setState((s) => ({ ...s, ...patch }));
 
   if (step === 4) {
     return (
       <Layout>
-        <Seo title={`Booked — job ticket | ${SITE.name}`} description="Your repair booking is in. We confirm every booking by text." path="/book/" />
+        <Seo title={`Repair request — review & send | ${SITE.name}`} description="Review your repair request and send it to the Whitton shop on WhatsApp. We confirm the quote and time with you." path="/book/" />
         <section className="container-12 section-pad">
           <ConfirmationScreen state={state} />
         </section>

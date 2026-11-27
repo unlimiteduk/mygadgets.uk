@@ -12,7 +12,7 @@ export default function Testimonials() {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '18px 0 28px', flexWrap: 'wrap' }}>
         <GoogleIcon size={22} />
-        <span style={{ fontWeight: 700, fontSize: '1.125rem', color: 'var(--bench-ink)' }}>{GOOGLE_RATING.average}</span>
+        <span style={{ fontWeight: 700, fontSize: '1.125rem', color: 'var(--bench-ink)' }}>{GOOGLE_RATING.average.toFixed(1)}</span>
         <span className="stars" aria-hidden="true">
           {Array.from({ length: 5 }).map((_, s) => (
             <Star key={s} size={16} fill="currentColor" />

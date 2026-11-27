@@ -1,11 +1,12 @@
-// Real Google reviews for My Gadgets Whitton, captured verbatim from the
-// Business Profile (google.com/maps/place/My+Gadgets+Whitton) on 2026-08-19.
-// Per site policy (see Reviews.tsx): no fabricated or edited quotes — this
-// is a manual snapshot until the Places API feed goes live.
+// Rating and count checked directly on the My Gadgets Whitton Google Maps
+// profile on 2026-11-27. Selected review quotes were originally captured
+// on 2026-08-19; their old relative dates are retained as source metadata
+// but are not displayed as current review dates. This is not a live feed.
 
 export const GOOGLE_RATING = {
-  average: 4.9,
-  count: 90,
+  average: 5.0,
+  count: 108,
+  checkedOn: '27 November 2026',
   profileUrl:
     'https://www.google.com/maps/place/My+Gadgets+Whitton/@51.4523375,-0.3580194,17z/data=!4m15!1m8!3m7!1s0x487673ebfed63241:0x8349bb9059d2bc27!2sMy+Gadgets+Whitton!8m2!3d51.4523533!4d-0.3578779!10e5!16s%2Fg%2F11x2kkpzpj!3m5!1s0x487673ebfed63241:0x8349bb9059d2bc27!8m2!3d51.4523533!4d-0.3578779!16s%2Fg%2F11x2kkpzpj',
 };
