@@ -165,7 +165,7 @@ export default function Home() {
                 <div>
                   <Stars />
                   <Link to="/reviews/">
-                    <strong>{GOOGLE_RATING.average}/5</strong> ·{" "}
+                    <strong>{GOOGLE_RATING.average.toFixed(1)}/5</strong> ·{" "}
                     {GOOGLE_RATING.count} Google reviews{" "}
                     <ArrowUpRight size={13} />
                   </Link>
@@ -496,7 +496,7 @@ export default function Home() {
               <Link to="/reviews/" className="lg-rating-link">
                 <Stars />
                 <span>
-                  <strong>{GOOGLE_RATING.average}/5</strong> on Google{" "}
+                  <strong>{GOOGLE_RATING.average.toFixed(1)}/5</strong> on Google{" "}
                   <ArrowUpRight size={15} />
                 </span>
               </Link>
@@ -520,8 +520,7 @@ export default function Home() {
               )}
             </div>
             <p className="lg-price-note">
-              Reviews and rating from our published Google snapshot, August
-              2026.
+              Google rating checked {GOOGLE_RATING.checkedOn}. Read the latest reviews on Google.
             </p>
           </div>
         </section>

@@ -1923,3 +1923,22 @@ body {
   }
 }
 @media(max-width:359px) { .lg-hero h1 { font-size:2.65rem; } .lg-hero-actions { flex-direction:column; align-items:stretch; padding-inline:20px; } }
+/* Google reviews: current summary, with selected customer quotes below. */
+.lg-reviews-intro { display:grid; grid-template-columns:1.3fr 1fr; gap:80px; align-items:center; margin-bottom:65px; }
+.lg-reviews-page h1 { margin:0; font-weight:550; }
+.lg-reviews-lede { color:#64716a; font-size:1.0625rem; line-height:1.9; max-width:45ch; margin:23px 0 0; }
+.lg-google-rating-card { padding:30px; border:1px solid #c7d9c1; border-radius:26px; background:linear-gradient(135deg,#eff7e9d9,#ffffffb3); box-shadow:inset 0 1px 1px #fff,0 12px 35px #28422508; }
+.lg-google-rating-card > div:first-child { display:flex; align-items:center; gap:12px; color:#3a5140; font-size:.875rem; }
+.lg-google-rating-card > strong { display:block; font-size:4rem; font-weight:500; line-height:1.3; letter-spacing:-.05em; margin-top:15px; color:#23452e; }
+.lg-google-rating-card > strong > span { color:#73856a; font-size:1.25rem; font-weight:400; letter-spacing:0; padding-left:10px; }
+.lg-google-rating-card .lg-stars { color:#4c703b; margin-top:8px; gap:6px; }
+.lg-google-rating-card p { color:#52664d; font-size:.875rem; margin:12px 0 19px; }
+.lg-google-rating-card small { display:block; color:#6c7c64; font-size:.75rem; margin-top:18px; }
+.lg-reviews-heading { margin-bottom:28px; }
+.lg-reviews-heading h2 { margin-bottom:10px; }
+.lg-reviews-heading p { color:#64716a; font-size:1rem; }
+.lg-review-invite { display:flex; align-items:center; justify-content:space-between; gap:35px; padding:35px; margin-top:50px; border-radius:24px; border:1px solid #d4e0ce; background:#eff4eb; }
+.lg-review-invite h2 { margin:0 0 12px; }
+.lg-review-invite p { color:#64716a; font-size:1rem; max-width:52ch; margin:0; line-height:1.8; }
+@media(max-width:900px) { .lg-reviews-intro { gap:35px; } .lg-review-invite { align-items:flex-start; flex-direction:column; } }
+@media(max-width:767px) { .lg-reviews-intro { grid-template-columns:1fr; gap:30px; margin-bottom:45px; } .lg-reviews-lede { font-size:1rem; } .lg-google-rating-card { padding:25px; } .lg-review-invite { padding:25px; } .lg-review-invite .lg-button { white-space:normal; text-align:center; } }
