@@ -141,10 +141,14 @@ export default function Home() {
                 Back to life.
                 <br />
                 <span>Back to you.</span>
+                <span className="lg-hero-service-line">
+                  MacBook, laptop, phone &amp; console repair in Whitton,
+                  Twickenham
+                </span>
               </h1>
               <p className="lg-hero-description">
-                MacBook, laptop, phone &amp; console repairs in Whitton,
-                Twickenham. Expert care for the tech you rely on.
+                Visit 23 High Street for expert care for the tech you rely on.
+                Free diagnosis and a clear quote before work starts.
               </p>
               <div className="lg-hero-actions">
                 <Link to="/book/" className="lg-button lg-button-lime">
@@ -496,8 +500,8 @@ export default function Home() {
               <Link to="/reviews/" className="lg-rating-link">
                 <Stars />
                 <span>
-                  <strong>{GOOGLE_RATING.average.toFixed(1)}/5</strong> on Google{" "}
-                  <ArrowUpRight size={15} />
+                  <strong>{GOOGLE_RATING.average.toFixed(1)}/5</strong> on
+                  Google <ArrowUpRight size={15} />
                 </span>
               </Link>
             </div>
@@ -520,7 +524,8 @@ export default function Home() {
               )}
             </div>
             <p className="lg-price-note">
-              Google rating checked {GOOGLE_RATING.checkedOn}. Read the latest reviews on Google.
+              Google rating checked {GOOGLE_RATING.checkedOn}. Read the latest
+              reviews on Google.
             </p>
           </div>
         </section>

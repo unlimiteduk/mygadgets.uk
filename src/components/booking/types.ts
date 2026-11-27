@@ -1,10 +1,13 @@
-import type { Model } from '@/data/models';
+import type { Model } from "@/data/models";
 
-export const DEVICE_SLUG_TO_MODEL_DEVICE: Record<string, Model['device'] | null> = {
-  macbook: 'MacBook',
-  iphone: 'iPhone',
-  ipad: 'iPad',
-  samsung: 'Galaxy',
+export const DEVICE_SLUG_TO_MODEL_DEVICE: Record<
+  string,
+  Model["device"] | null
+> = {
+  macbook: "MacBook",
+  iphone: "iPhone",
+  ipad: "iPad",
+  samsung: "Galaxy",
   laptop: null,
   playstation: null,
   xbox: null,
@@ -26,13 +29,18 @@ export interface BookingState {
   modelName: string;
   faults: SelectedFault[];
   needsDiagnosis: boolean;
-  fulfilment: 'walk-in' | 'pickup';
+  fulfilment: "walk-in" | "pickup";
   name: string;
   phone: string;
   slot: string;
   ticket: string;
 }
 
-export function faultsTotal(faults: SelectedFault[]): number {
-  return faults.reduce((sum, f) => sum + (parseInt(f.price.replace(/[^\d]/g, ''), 10) || 0), 0);
+export function faultsTotal(faults: SelectedFault[]): number | null {
+  if (!faults.length) return null;
+  const prices = faults.map((fault) =>
+    fault.price.match(/£\s*([0-9]+(?:\.[0-9]{1,2})?)/),
+  );
+  if (prices.some((price) => !price)) return null;
+  return prices.reduce((sum, price) => sum + Number(price![1]), 0);
 }

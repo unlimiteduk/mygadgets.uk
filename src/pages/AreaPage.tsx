@@ -1,204 +1,165 @@
-import { useParams, Link } from 'react-router';
-import Seo, { breadcrumbSchema, faqSchema } from '@/components/Seo';
-import Layout from '@/components/Layout';
-import Reveal from '@/components/Reveal';
-import Docket from '@/components/Docket';
-import Crumbs from '@/components/Crumbs';
-import Map from '@/components/Map';
-import { getArea } from '@/data/areas';
-import { getService } from '@/data/services';
-import { PRIORITY_REPAIR_LINKS } from '@/data/extra-repairs';
-import { AREAS_COVERED, SITE } from '@/data/site';
-import ActionRow from '@/components/ActionRow';
-import NotFound from './NotFound';
+import { useParams, Link } from "react-router";
+import { MapPin, Phone } from "lucide-react";
+import Seo, { breadcrumbSchema } from "@/components/Seo";
+import Layout from "@/components/Layout";
+import Crumbs from "@/components/Crumbs";
+import Docket from "@/components/Docket";
+import { getArea } from "@/data/areas";
+import { getService } from "@/data/services";
+import { AREAS_COVERED, SITE } from "@/data/site";
+import ActionRow from "@/components/ActionRow";
+import NotFound from "./NotFound";
 
-// Area page template — satisfies §5.2: unique copy, real anchoring,
-// travel module, a real job docket, area FAQs, distinct intent.
 export default function AreaPage() {
   const { slug } = useParams();
-  const area = getArea(slug ?? '');
+  const area = getArea(slug ?? "");
   if (!area) return <NotFound />;
   const path = `/areas/${area.slug}/`;
-  const featured = ['macbook/screen-replacement', 'laptop/screen-replacement', 'macbook/ssd-upgrade', 'macbook/data-recovery']
-    .map((slug) => getService(slug))
-    .filter((s) => s != null);
-
+  const services = area.serviceSlugs.map(getService).filter((s) => s != null);
   return (
     <Layout>
       <Seo
-        title={`${area.headline} | ${SITE.name}`}
+        title={`${area.headline} | My Gadgets`}
         description={area.metaDescription}
         path={path}
-        schema={[
-          breadcrumbSchema([
-            { name: 'Home', path: '/' },
-            { name: 'Areas', path: '/areas/whitton/' },
-            { name: area.name, path },
-          ]),
-          faqSchema(area.faqs),
-        ]}
+        schema={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: area.name, path },
+        ])}
       />
-
-      <section className="container-12" style={{ paddingTop: 64, paddingBottom: 64 }}>
-        <Crumbs items={[{ name: 'Home', path: '/' }, { name: 'Areas' }, { name: area.name }]} />
+      <section className="container-12 section-pad">
+        <Crumbs items={[{ name: "Home", path: "/" }, { name: area.name }]} />
         <div className="grid-12">
           <div className="col-span-12 lg:col-span-7">
-            <p className="label text-muted" style={{ marginBottom: 16 }}>{area.name} · {area.postcode}</p>
-            <h1 className="display-l" style={{ margin: 0, color: 'var(--bench-ink)' }}>{area.headline}</h1>
-            {area.intro.map((p) => (
-              <p key={p.slice(0, 20)} className="body-copy text-muted" style={{ fontSize: '1.0625rem', marginTop: 20 }}>{p}</p>
-            ))}
+            <p className="lg-eyebrow">
+              {area.name} · {area.postcode}
+            </p>
+            <h1 className="display-l" style={{ margin: 0 }}>
+              {area.headline}
+            </h1>
+            <p
+              className="body-copy text-muted"
+              style={{ marginTop: 24, fontSize: "1.0625rem" }}
+            >
+              {area.intro}
+            </p>
             <div style={{ marginTop: 28 }}>
-              <ActionRow bookLabel="Get a price" />
+              <ActionRow bookLabel="Get a repair quote" />
             </div>
           </div>
-
-          {/* Distance / route module */}
-          <div className="col-span-12 lg:col-span-4 lg:col-start-9" style={{ marginTop: 24 }}>
-            <Reveal>
-              <Docket
-                id={`RT-${area.postcode}`}
-                title={`${area.name} → Whitton High Street`}
-                rows={area.travel.map((t) => ({ k: t.mode.toUpperCase(), v: t.time }))}
-              />
-              <ul style={{ margin: '16px 0 0', padding: 0, listStyle: 'none' }}>
-                {area.travel.map((t) => (
-                  <li key={t.mode} className="small text-muted" style={{ padding: '10px 0', borderBottom: '1px solid var(--bench-rule)' }}>
-                    <span className="mono" style={{ color: 'var(--bench-ink)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{t.mode} · </span>
-                    {t.detail}
-                  </li>
-                ))}
-              </ul>
-              <p className="small" style={{ color: 'var(--signal)', marginTop: 14 }}>{area.anchorNote}</p>
-            </Reveal>
-          </div>
+          <aside
+            className="col-span-12 lg:col-span-4 lg:col-start-9 panel"
+            style={{ padding: 26, alignSelf: "start" }}
+          >
+            <p className="label">Visit our Whitton workshop</p>
+            <h2 className="h3" style={{ marginTop: 14 }}>
+              {SITE.name}
+            </h2>
+            <address style={{ fontStyle: "normal", marginTop: 14 }}>
+              {SITE.street}, {SITE.locality}
+              <br />
+              {SITE.region} {SITE.postcode}
+            </address>
+            <div className="hours-list">
+              {SITE.hours.map((h) => (
+                <div key={h.days}>
+                  <span>{h.days}</span>
+                  <span>
+                    {h.opens === "Closed" ? "Closed" : `${h.opens}–${h.closes}`}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="small text-muted" style={{ marginTop: 12 }}>
+              {SITE.hoursNote}
+            </p>
+            <div className="action-row" style={{ marginTop: 22 }}>
+              <a
+                className="btn btn-signal"
+                href={SITE.directionsHref}
+                target="_blank"
+                rel="noopener"
+              >
+                <MapPin size={16} />
+                Get directions
+              </a>
+              <a className="btn btn-ghost" href={SITE.landlineHref}>
+                <Phone size={16} />
+                {SITE.landlineDisplay}
+              </a>
+            </div>
+          </aside>
         </div>
       </section>
-
-      {/* Services with prices */}
-      <section style={{ background: '#FFFFFF', borderBlock: '1px solid var(--bench-rule)' }}>
+      <section className="band">
         <div className="container-12 section-pad">
-          <Reveal>
-            <h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Repairs from {area.name}, priced here</h2>
-            <p className="text-muted body-copy">Same prices as walking in off the High Street — because that is exactly what you are doing.</p>
-          </Reveal>
-          <div className="grid-12" style={{ marginTop: 32 }}>
-            {featured.map((s) => (
-              <Reveal key={s.slug} className="col-span-12 md:col-span-6 lg:col-span-4">
+          <h2 className="h2">Repair options for {area.name}</h2>
+          <p className="body-copy text-muted">
+            Starting prices depend on your exact model and fault. We confirm
+            parts, timing and the quote after checking the device.
+          </p>
+          <div className="grid-12" style={{ marginTop: 28 }}>
+            {services.map((s) => (
+              <div key={s.slug} className="col-span-12 md:col-span-6">
                 <Docket
-                  id={s.slug.split('/').pop()!.slice(0, 6).toUpperCase()}
+                  id={s.slug.split("/").pop()!.slice(0, 6).toUpperCase()}
                   title={`${s.deviceLabel} ${s.name.toLowerCase()}`}
                   href={`/repairs/${s.slug}/`}
-                  rows={[
-                    { k: 'FROM', v: s.fromPrice, price: true },
-                    { k: 'TURNAROUND', v: s.turnaround, ok: true },
-                  ]}
+                  rows={
+                    s.quoteOnly
+                      ? [
+                          { k: "PRICE", v: "Quoted after diagnosis" },
+                          { k: "DIAGNOSIS", v: "Free" },
+                        ]
+                      : [
+                          { k: "FROM", v: s.fromPrice, price: true },
+                          { k: "TURNAROUND", v: s.turnaround },
+                        ]
+                  }
                 />
-              </Reveal>
+              </div>
             ))}
           </div>
-          <Reveal>
-            <Link to="/repairs/prices/" className="btn btn-ghost" style={{ marginTop: 32 }}>Full price list →</Link>
-          </Reveal>
-          <div className="grid-12" style={{ marginTop: 48 }}>
-            <div className="col-span-12 lg:col-span-4">
-              <h2 className="h3" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Also booked from {area.name}</h2>
-              <p className="text-muted">Consoles, desktops and upgrades sit alongside the priced jobs above.</p>
-            </div>
-            <div className="col-span-12 lg:col-span-7 lg:col-start-6">
-              <div className="link-list">
-                {PRIORITY_REPAIR_LINKS.map((l) => (
-                  <Link key={l.href} to={l.href}>
-                    <span>{l.label}</span>
-                    <span className="arrow">{l.note ?? 'View'} →</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Link
+            to="/repairs/"
+            className="btn btn-ghost"
+            style={{ marginTop: 25 }}
+          >
+            Explore all repair services →
+          </Link>
         </div>
       </section>
-
-      {/* A real job from this area */}
       <section className="container-12 section-pad">
         <div className="grid-12">
           <div className="col-span-12 lg:col-span-5">
-            <Reveal>
-              <h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>A recent job from {area.name}</h2>
-              <p className="text-muted body-copy">
-                Real dockets from real repairs — the same record you get with yours. (Client-supplied completed jobs replace these examples at launch.)
+            <h2 className="h2">{area.adviceHeading}</h2>
+          </div>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+            {area.advice.map((p) => (
+              <p
+                key={p}
+                className="body-copy text-muted"
+                style={{ marginBottom: 20 }}
+              >
+                {p}
               </p>
-            </Reveal>
-          </div>
-          <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-            <Reveal>
-              <Docket
-                id={area.job.ticket.replace('MG-', '')}
-                title={area.job.device}
-                rows={[
-                  { k: 'FAULT', v: area.job.fault },
-                  { k: 'PART', v: area.job.part },
-                  { k: 'TURNAROUND', v: area.job.turnaround, ok: true },
-                  { k: 'PRICE', v: area.job.price, price: true },
-                  { k: 'OUTCOME', v: area.job.outcome },
-                ]}
-              />
-            </Reveal>
+            ))}
+            <p className="body-copy text-muted">
+              All visits are to our shop in Whitton. Contact us to confirm any
+              collection request before arranging handover.
+            </p>
+            <ActionRow bookLabel="Ask about your repair" />
           </div>
         </div>
-      </section>
-
-      {/* Area FAQs */}
-      <section style={{ borderTop: '1px solid var(--bench-rule)' }}>
-        <div className="container-12 section-pad">
-          <div className="grid-12">
-            <div className="col-span-12 lg:col-span-4">
-              <Reveal><h2 className="h2" style={{ margin: 0, color: 'var(--bench-ink)' }}>{area.name} questions</h2></Reveal>
-            </div>
-            <div className="col-span-12 lg:col-span-7 lg:col-start-6">
-              <Reveal>
-                {area.faqs.map((f) => (
-                  <details key={f.q} className="faq-item">
-                    <summary>{f.q}<span className="faq-marker">+</span></summary>
-                    <div className="faq-body">{f.a}</div>
-                  </details>
-                ))}
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="container-12" style={{ paddingBottom: 64 }}>
-        <h2 className="h3" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Other places we cover</h2>
-        <div className="link-list">
-          {AREAS_COVERED.filter((a) => a.slug !== area.slug).map((a) => (
-            <Link key={a.slug} to={`/areas/${a.slug}/`}>
-              <span>{a.name} repairs</span>
-              <span className="arrow">{a.postcode} →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Map + CTA */}
-      <section style={{ background: '#FFFFFF', borderTop: '1px solid var(--bench-rule)' }}>
-        <div className="container-12 section-pad">
-          <div className="grid-12" style={{ alignItems: 'center' }}>
-            <div className="col-span-12 lg:col-span-6">
-              <Map />
-            </div>
-            <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-              <Reveal>
-                <h2 className="h2" style={{ marginTop: 0, color: 'var(--bench-ink)' }}>Fifteen minutes from {area.name} to a fixed quote</h2>
-                <p className="text-muted body-copy">
-                  {SITE.street}, {SITE.locality}, {SITE.region} {SITE.postcode}. {SITE.hours[0].days} {SITE.hours[0].opens}–{SITE.hours[0].closes}, Saturday {SITE.hours[1].opens}–{SITE.hours[1].closes}.
-                </p>
-                <div style={{ marginTop: 20 }}>
-                  <ActionRow bookLabel="Book a repair" whatsappLabel="WhatsApp us" />
-                </div>
-              </Reveal>
-            </div>
+        <div style={{ marginTop: 60 }}>
+          <h2 className="h3">Nearby areas</h2>
+          <div className="area-grid">
+            {AREAS_COVERED.filter((a) => a.slug !== area.slug).map((a) => (
+              <Link className="area-chip" key={a.slug} to={`/areas/${a.slug}/`}>
+                {a.name}
+                <span className="mono">{a.postcode}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

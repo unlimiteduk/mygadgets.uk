@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { ArrowUpRight, Menu, Phone } from "lucide-react";
 import { SITE } from "@/data/site";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 const NAV = [
   { to: "/repairs/", label: "Repairs" },
   { to: "/repairs/prices/", label: "Prices" },
@@ -69,6 +74,9 @@ export default function Header() {
           <SheetTitle>
             <Brand />
           </SheetTitle>
+          <SheetDescription className="sr-only">
+            Repair services, prices and contact details for the Whitton shop.
+          </SheetDescription>
           <nav aria-label="Mobile">
             {NAV.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)}>
