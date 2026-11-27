@@ -102,12 +102,12 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap);
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE.domain}/sitemap.xml\n`);
 
 const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
-const expectedTitle = 'MacBook &amp; Laptop Repair Whitton, Twickenham | My Gadgets Whitton';
+const expectedTitle = 'MacBook, Laptop &amp; Phone Repair Whitton | My Gadgets';
 if (!home.includes(`<title>${expectedTitle}</title>`)) {
   const found = home.match(/<title>[\s\S]*?<\/title>/)?.[0];
   throw new Error(`Homepage title mismatch: ${found}`);
 }
-if (!home.includes('MacBook, Laptop &amp; Console Repair in Whitton, Twickenham')) {
+if (!home.includes('id="home-title"') || !home.includes('Back to life.') || !home.includes('Back to you.')) {
   throw new Error('Homepage H1 text is missing from the raw HTML');
 }
 const description = home.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';

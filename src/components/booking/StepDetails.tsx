@@ -93,7 +93,7 @@ export default function StepDetails({ state, update, onSubmit, onBack }: Props) 
 
       <div style={{ display: 'flex', gap: 12, marginTop: 32 }}>
         <button type="button" onClick={onBack} className="btn btn-ghost">Back</button>
-        <button type="submit" className="btn btn-signal">Confirm booking</button>
+        <button type="submit" className="btn btn-signal">Review repair request</button>
       </div>
     </form>
   );

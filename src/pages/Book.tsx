@@ -59,7 +59,7 @@ export default function Book() {
   if (step === 4) {
     return (
       <Layout>
-        <Seo title={`Booked — job ticket | ${SITE.name}`} description="Your repair booking is in. We confirm every booking by text." path="/book/" />
+        <Seo title={`Repair request — review & send | ${SITE.name}`} description="Review your repair request and send it to the Whitton shop on WhatsApp. We confirm the quote and time with you." path="/book/" />
         <section className="container-12 section-pad">
           <ConfirmationScreen state={state} />
         </section>
