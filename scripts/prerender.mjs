@@ -128,11 +128,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 fs.writeFileSync(
   path.join(dist, "robots.txt"),
-  `User-agent: *\nAllow: /\n\nSitemap: ${SITE.domain}/sitemap.xml\n`,
+  `User-agent: *\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: anthropic-ai\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Applebot-Extended\nAllow: /\n\nSitemap: ${SITE.domain}/sitemap.xml\n`,
 );
 
 const home = fs.readFileSync(path.join(dist, "index.html"), "utf8");
-const expectedTitle = "MacBook, Laptop &amp; Phone Repair Whitton | My Gadgets";
+const expectedTitle =
+  "MacBook, laptop and console repair in Whitton, Twickenham | My Gadgets";
 if (!home.includes(`<title>${expectedTitle}</title>`)) {
   const found = home.match(/<title>[\s\S]*?<\/title>/)?.[0];
   throw new Error(`Homepage title mismatch: ${found}`);

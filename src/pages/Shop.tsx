@@ -1,14 +1,43 @@
 import { Link } from 'react-router';
-import Seo, { breadcrumbSchema } from '@/components/Seo';
+import Seo, { breadcrumbSchema, faqSchema } from '@/components/Seo';
 import Layout from '@/components/Layout';
 import Reveal from '@/components/Reveal';
 import Docket from '@/components/Docket';
 import Crumbs from '@/components/Crumbs';
 import { LISTINGS, SHOP_CATEGORIES } from '@/data/listings';
-import { SITE } from '@/data/site';
+import { SITE, canonical } from '@/data/site';
+
+const SHOP_FAQS = [
+  {
+    q: 'Do your refurbished MacBooks come with a warranty?',
+    a: 'Yes. Refurbished MacBooks and iMacs have a 6-month warranty. Repair work on a machine you already own has a 3-month warranty.',
+  },
+  {
+    q: 'Can I inspect the MacBook before I pay?',
+    a: 'Yes. You can reserve an in-stock machine and inspect it at the counter at 23 High Street, Whitton, before paying. The written mark description and cycle count are part of the sale.',
+  },
+  {
+    q: 'Is each listing the exact machine I will receive?',
+    a: 'Yes. Each listing is one exact machine, not a generic grade. The cycle count is shown and every mark is described in writing. Sold units stay listed so you can see what the grading looks like.',
+  },
+  {
+    q: 'What if I need more storage than my current MacBook has?',
+    a: 'Apple silicon MacBooks cannot be upgraded. If you need more storage or memory, choose a refurbished machine that already has it. We can also look at a part-exchange if you bring your current machine in.',
+  },
+  {
+    q: 'Do I need an appointment to view a machine?',
+    a: 'No. Walk in during opening hours, or reserve the machine first so it is held for you.',
+  },
+];
 
 export default function Shop() {
-  return <ShopGrid title="Refurbished, graded, warrantied" intro={`Every listing is one exact machine: the cycle count is shown, every mark is described in writing, and a ${SITE.refurbWarranty} warranty is in the box. What you read is the unit you inspect at the counter.`} />;
+  return (
+    <ShopGrid
+      title="Refurbished MacBooks in Whitton, Twickenham"
+      intro={`Every listing is one exact machine: the cycle count is shown, every mark is described in writing, and a ${SITE.refurbWarranty} warranty is in the box. What you read is the unit you inspect at the counter.`}
+      showFaqs
+    />
+  );
 }
 
 export function ShopCategory({ categorySlug }: { categorySlug: string }) {
@@ -35,16 +64,28 @@ function NotFoundShop() {
   );
 }
 
-function ShopGrid({ title, intro, category, crumbs }: { title: string; intro: string; category?: string; crumbs?: { name: string; path?: string }[] }) {
+function ShopGrid({ title, intro, category, crumbs, showFaqs }: { title: string; intro: string; category?: string; crumbs?: { name: string; path?: string }[]; showFaqs?: boolean }) {
   const items = LISTINGS.filter((l) => (!category || l.category === category));
   const path = category ? `/shop/${category}/` : '/shop/';
+  const itemList = {
+    '@type': 'ItemList',
+    itemListElement: items.map((listing, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${listing.name} · ${listing.year}`,
+      url: canonical(`/shop/${listing.slug}/`),
+    })),
+  };
   return (
     <Layout>
       <Seo
         title={`${title} | ${SITE.name}`}
         description={intro}
         path={path}
-        schema={breadcrumbSchema(crumbs ?? [{ name: 'Home', path: '/' }, { name: 'Shop', path: '/shop/' }])}
+        schema={[
+          breadcrumbSchema(crumbs ?? [{ name: 'Home', path: '/' }, { name: 'Shop', path: '/shop/' }]),
+          ...(showFaqs ? [faqSchema(SHOP_FAQS), itemList] : []),
+        ]}
       />
       <section className="container-12 section-pad">
         <Crumbs items={crumbs ?? [{ name: 'Home', path: '/' }, { name: 'Shop' }]} />
@@ -90,6 +131,17 @@ function ShopGrid({ title, intro, category, crumbs }: { title: string; intro: st
             Sold units stay listed so you can see what good grading looks like. Reserve any in-stock unit and inspect it at the counter before paying — the written mark description is part of the sale.
           </p>
         </Reveal>
+        {showFaqs && (
+          <div style={{ marginTop: 48, maxWidth: '72ch' }}>
+            <h2 className="h2">Questions about refurbished MacBooks</h2>
+            {SHOP_FAQS.map((faq) => (
+              <details key={faq.q} style={{ marginTop: 12 }}>
+                <summary>{faq.q}</summary>
+                <p className="body-copy text-muted">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        )}
       </section>
     </Layout>
   );

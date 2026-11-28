@@ -44,7 +44,7 @@ export const EXTRA_SERVICES: Service[] = [
     deviceLabel: 'PlayStation',
     name: 'HDMI port repair',
     h1: 'PS5 HDMI port repair by post, or in Whitton',
-    title: 'PS5 HDMI port repair by post — £70, free return postage',
+    title: 'PS5 HDMI port repair by post or in Whitton, Twickenham — £70',
     metaDescription:
       'PS5 HDMI port repair by post is £70, with free return postage, the same day it arrives. 23 High Street, Whitton, Twickenham TW2 7LB. PS4 is shop only.',
     fromPrice: '£70',
@@ -100,6 +100,10 @@ export const EXTRA_SERVICES: Service[] = [
       {
         q: 'PS4 or PS5 — do you do both?',
         a: 'Yes, in the shop. Original PS4, Slim, Pro and PS5. PS5 HDMI port repair is £70, including by post. The PS4 boards are not the same, so those stay a quote, and we do not take a PS4 by post.',
+      },
+      {
+        q: 'Do I need an appointment, and what should I send if I post it?',
+        a: 'You can walk in during opening hours; no appointment is required. If you post a PS5, pack it so it cannot slide about, include your name, a phone number or email, a short note of the fault, and the power lead if you still have it. A controller is not needed. Send it to 23 High Street, Whitton, Twickenham TW2 7LB. We repair it the same day it arrives, and return postage is free.',
       },
     ],
     sections: [
@@ -180,6 +184,18 @@ export const EXTRA_SERVICES: Service[] = [
       {
         q: 'Will my account and installs be wiped?',
         a: 'No. An HDMI repair does not factory-reset the console. Sign in details and installed games stay put.',
+      },
+      {
+        q: 'Can I post my Xbox for HDMI repair?',
+        a: 'No. Xbox HDMI port repair is a shop job at 23 High Street, Whitton, Twickenham TW2 7LB. The postal service is PS5 HDMI port repair only.',
+      },
+      {
+        q: 'Do I need an appointment?',
+        a: 'No. Walk in during opening hours, Monday to Friday 9am–6pm and Saturday 10:30am–5pm, or call or WhatsApp first if you want us to expect it. Bring the console, the power lead or power brick, and the HDMI cable you were using.',
+      },
+      {
+        q: 'What warranty do I get?',
+        a: 'A written 3-month warranty on the part we fitted and the work we did. New physical damage after the repair is not covered.',
       },
     ],
     sections: [
@@ -446,6 +462,10 @@ export const EXTRA_HUBS: DeviceHub[] = [
         q: 'How do I get a quote?',
         a: 'Bring it to 23 High Street, Whitton, TW2 7LB, or call 020 8847 4747 or 07918 440326. The look is free. You can also book a repair online and describe the fault. Opening hours are on this site and on the door.',
       },
+      {
+        q: 'How much is PS5 HDMI port repair, and can I post it?',
+        a: '£70 when the socket is the fault, for a disc or digital PS5, in the shop or by post from anywhere in the UK. We repair a posted PS5 the same day it arrives and return postage is free. If the fault is the HDMI chip, we quote that after a free look. PS4 HDMI repair is quoted in the shop and cannot be posted.',
+      },
     ],
     links: [
       { href: '/repairs/playstation/hdmi-port-repair/', label: 'PS4 and PS5 HDMI port repair', note: 'PS5 £70, free return postage' },
@@ -506,6 +526,10 @@ export const EXTRA_HUBS: DeviceHub[] = [
       {
         q: 'Where is the shop?',
         a: '23 High Street, Whitton, Twickenham TW2 7LB. Call 020 8847 4747 or 07918 440326. Area pages cover Twickenham, Hounslow, Isleworth, Feltham, Hanworth, Heston and Teddington.',
+      },
+      {
+        q: 'How much is Xbox HDMI port repair, and can I post an Xbox?',
+        a: '£70 for Series X, Series S, Xbox One, One S and One X when the socket is the fault. That is a shop repair in Whitton. We do not take Xbox consoles by post. The postal service is PS5 HDMI port repair only.',
       },
     ],
     links: [

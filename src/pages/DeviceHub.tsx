@@ -9,7 +9,7 @@ import RepairCta from '@/components/RepairCta';
 import ActionRow from '@/components/ActionRow';
 import { DEVICE_HUBS, servicesByDevice } from '@/data/services';
 import { MODELS } from '@/data/models';
-import { SITE } from '@/data/site';
+import { AREAS_COVERED, SITE, canonical } from '@/data/site';
 import NotFound from './NotFound';
 
 export default function DeviceHub() {
@@ -20,6 +20,16 @@ export default function DeviceHub() {
   const deviceModels = MODELS.filter((m) => m.device.toLowerCase() === hub.slug || (hub.slug === 'samsung' && m.device === 'Galaxy') || (hub.slug === 'laptop' && false));
   const path = `/repairs/${hub.slug}/`;
   const title = hub.title ? `${hub.title} | ${SITE.name}` : `${hub.label} repairs — Whitton | ${SITE.name}`;
+  const serviceSchema = ['macbook', 'laptop', 'console', 'playstation', 'xbox'].includes(hub.slug)
+    ? {
+        '@type': 'Service',
+        name: hub.slug === 'macbook' ? 'MacBook repair' : hub.slug === 'laptop' ? 'Laptop repair' : `${hub.label} repair`,
+        serviceType: hub.slug === 'macbook' ? 'MacBook repair' : hub.slug === 'laptop' ? 'Laptop repair' : `${hub.label} repair`,
+        url: canonical(path),
+        provider: { '@id': `${SITE.domain}/#business` },
+        areaServed: AREAS_COVERED.map((area) => area.name),
+      }
+    : null;
   const description = hub.metaDescription ?? `${hub.label} repairs on Whitton High Street: ${services.map((s) => s.name.toLowerCase()).join(', ')}. Prices in writing where we publish them, ${SITE.repairsWarranty} warranty.`;
 
   return (
@@ -35,6 +45,7 @@ export default function DeviceHub() {
             { name: hub.label, path },
           ]),
           ...(hub.faqs?.length ? [faqSchema(hub.faqs)] : []),
+          ...(serviceSchema ? [serviceSchema] : []),
         ]}
       />
       <section className="container-12 section-pad">

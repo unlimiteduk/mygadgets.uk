@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router";
 import { MapPin, Phone } from "lucide-react";
-import Seo, { breadcrumbSchema } from "@/components/Seo";
+import Seo, { breadcrumbSchema, faqSchema } from "@/components/Seo";
 import Layout from "@/components/Layout";
 import Crumbs from "@/components/Crumbs";
 import Docket from "@/components/Docket";
@@ -19,13 +19,16 @@ export default function AreaPage() {
   return (
     <Layout>
       <Seo
-        title={`${area.headline} | My Gadgets`}
+        title={`${area.headline} | ${SITE.name}`}
         description={area.metaDescription}
         path={path}
-        schema={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: area.name, path },
-        ])}
+        schema={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: area.name, path },
+          ]),
+          faqSchema(area.faqs),
+        ]}
       />
       <section className="container-12 section-pad">
         <Crumbs items={[{ name: "Home", path: "/" }, { name: area.name }]} />
@@ -43,6 +46,28 @@ export default function AreaPage() {
             >
               {area.intro}
             </p>
+            {["whitton", "twickenham", "hounslow"].includes(area.slug) && (
+              <p className="body-copy text-muted" style={{ marginTop: 16 }}>
+                See{" "}
+                <Link to="/repairs/macbook/">MacBook repair</Link>,{" "}
+                <Link to="/repairs/macbook/screen-replacement/">
+                  MacBook screen replacement
+                </Link>
+                ,{" "}
+                <Link to="/repairs/playstation/hdmi-port-repair/">
+                  PS5 HDMI port repair
+                </Link>
+                ,{" "}
+                <Link to="/repairs/xbox/hdmi-port-repair/">
+                  Xbox HDMI port repair
+                </Link>
+                ,{" "}
+                <Link to="/repairs/macbook/data-recovery/">
+                  MacBook data recovery
+                </Link>{" "}
+                and the <Link to="/shop/">refurbished MacBook shop</Link>.
+              </p>
+            )}
             <div style={{ marginTop: 28 }}>
               <ActionRow bookLabel="Get a repair quote" />
             </div>
@@ -149,6 +174,17 @@ export default function AreaPage() {
               collection request before arranging handover.
             </p>
             <ActionRow bookLabel="Ask about your repair" />
+          </div>
+        </div>
+        <div style={{ marginTop: 60 }}>
+          <h2 className="h2">Questions about repairs for {area.name}</h2>
+          <div style={{ marginTop: 20, maxWidth: "72ch" }}>
+            {area.faqs.map((faq) => (
+              <details key={faq.q} style={{ marginBottom: 12 }}>
+                <summary>{faq.q}</summary>
+                <p className="body-copy text-muted">{faq.a}</p>
+              </details>
+            ))}
           </div>
         </div>
         <div style={{ marginTop: 60 }}>
