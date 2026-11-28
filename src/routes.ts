@@ -12,6 +12,8 @@ const STATIC_ROUTES = [
   "/sell-your-device/",
   "/business/",
   "/warranty/",
+  "/privacy-policy/",
+  "/terms/",
   "/about/",
   "/reviews/",
   "/contact/",

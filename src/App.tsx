@@ -18,6 +18,8 @@ const Book = lazy(() => import("./pages/Book"));
 const AreaPage = lazy(() => import("./pages/AreaPage"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Warranty = lazy(() => import("./pages/Warranty"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 const About = lazy(() => import("./pages/About"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const Business = lazy(() => import("./pages/Business"));
@@ -56,6 +58,8 @@ export default function App() {
         <Route path="/areas/:slug/" element={<AreaPage />} />
         <Route path="/business/" element={<Business />} />
         <Route path="/warranty/" element={<Warranty />} />
+        <Route path="/privacy-policy/" element={<Privacy />} />
+        <Route path="/terms/" element={<Terms />} />
         <Route path="/about/" element={<About />} />
         <Route path="/reviews/" element={<Reviews />} />
         <Route path="/contact/" element={<Contact />} />

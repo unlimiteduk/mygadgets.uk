@@ -27,7 +27,7 @@ export default function Consent() {
         Cookies, briefly.
       </p>
       <p className="small" style={{ margin: '0 0 14px', color: '#4B5563' }}>
-        We use analytics to see which repairs people search for. Nothing is sold, nothing tracks you elsewhere. Reject and we set only the cookie that remembers you said no.
+        We do not use analytics or advertising cookies. Accept or reject, and we store only that choice in this browser so we do not ask again. Nothing is sold.
       </p>
       <div style={{ display: 'flex', gap: 10 }}>
         <button className="btn btn-signal" style={{ padding: '10px 16px', fontSize: '0.8125rem' }} onClick={() => choose('accepted')}>
