@@ -807,8 +807,80 @@ export function getService(slug: string): Service | undefined {
 }
 
 export const DEVICE_HUBS: DeviceHub[] = [
-  { slug: 'macbook', label: 'MacBook', blurb: 'Screens, batteries, keyboards, logic boards, liquid damage, data recovery and upgrades.' },
-  { slug: 'laptop', label: 'Windows laptops', blurb: 'Screens, hinges, SSD upgrades, data recovery and tune-ups for Dell, HP, Lenovo, ASUS and Acer.' },
+  {
+    slug: 'macbook',
+    label: 'MacBook',
+    blurb: 'Screens, batteries, keyboards, logic boards, liquid damage, data recovery and upgrades.',
+    title: 'MacBook repair in Whitton, Twickenham',
+    h1: 'MacBook repair in Whitton, Twickenham',
+    metaDescription:
+      'MacBook repair at 23 High Street, Whitton, Twickenham. Screens from £129, often the same day, batteries from £89, SSD upgrades from £79, data recovery from £129. Free diagnosis and a 3-month warranty.',
+    faqs: [
+      {
+        q: 'How much does MacBook repair cost in Twickenham?',
+        a: 'It depends on the job and the exact model. MacBook screen replacement starts from £129, battery replacement from £89, keyboard replacement from £119, logic-board repair from £149, liquid-damage assessment from £99, data recovery from £129, and SSD or RAM upgrades from £79. Diagnosis is free, and you get a written quote before we start.',
+      },
+      {
+        q: 'How long does a MacBook screen replacement take?',
+        a: 'Most are a 2–4 hour, same-day job if you are in before midday and the assembly is on the shelf. A MacBook Air M1 (A2337) with an OEM-pull assembly is £189. Rarer lids can take one working day to source.',
+      },
+      {
+        q: 'Do I need an appointment?',
+        a: 'No. You can walk in at 23 High Street, Whitton, Twickenham TW2 7LB during opening hours, Monday to Friday 9am–6pm and Saturday 10:30am–5pm. Booking ahead means we can reserve the part so the job starts when you arrive.',
+      },
+      {
+        q: 'Will you keep my data safe?',
+        a: 'Screen, battery, keyboard and storage-upgrade work does not wipe your files. On a dead or liquid-damaged machine, say if the data matters more than the repair; data recovery is a separate job, and if we cannot recover the files you need, you pay nothing.',
+      },
+      {
+        q: 'What warranty do I get?',
+        a: 'Every MacBook repair has a written 3-month warranty on the part we fitted and the work we did. New physical damage after the repair is not covered. Full terms are on the warranty page.',
+      },
+      {
+        q: 'Can you upgrade the SSD on an M1, M2 or M3 MacBook?',
+        a: 'No. Storage and memory are soldered on Apple silicon, so they cannot be upgraded by us or anyone else. On serviceable older Intel MacBooks we can fit an SSD or extra RAM, clone your drive, and have it back the same day. If an upgrade is not possible, we can show you a refurbished MacBook with more storage instead.',
+      },
+      {
+        q: 'Do you repair liquid-damaged MacBooks?',
+        a: 'Yes. Switch the machine off, do not charge it, and bring it in as it is. We ultrasonic-clean the board and inspect it under the microscope, then quote the repair. Assessment starts from £99, and that is applied to the repair if you go ahead. If it is not worth repairing, we will say so.',
+      },
+    ],
+  },
+  {
+    slug: 'laptop',
+    label: 'Windows laptops',
+    blurb: 'Screens, hinges, SSD upgrades, data recovery and tune-ups for Dell, HP, Lenovo, ASUS and Acer.',
+    title: 'Laptop repair in Whitton, Twickenham',
+    h1: 'Laptop repair in Whitton, Twickenham',
+    metaDescription:
+      'Laptop repair in Whitton and Twickenham. Windows laptop screens from £79, SSD upgrades, hinges and data recovery. Free diagnosis at 23 High Street. Call 020 8847 4747 or 07918 440326.',
+    faqs: [
+      {
+        q: 'How much is a Windows laptop screen replacement?',
+        a: 'From £79, depending on the exact panel. We repair Dell, HP, Lenovo, ASUS, Acer and other common makes. Diagnosis is free, and we quote before fitting the screen. There is a written 3-month warranty on the part and the fitting.',
+      },
+      {
+        q: 'How long will I be without my laptop?',
+        a: 'Most laptop screens are sourced next day and fitted in about an hour once the panel is in. SSD upgrades are often finished the same day after we clone your drive. Timing is confirmed after we see the machine and the part.',
+      },
+      {
+        q: 'Do I need to book?',
+        a: 'No. Walk in at 23 High Street, Whitton, Twickenham TW2 7LB, Monday to Friday 9am–6pm or Saturday 10:30am–5pm. A message with the make, model and a photo of the fault helps us check the panel before you travel.',
+      },
+      {
+        q: 'Will I lose my files?',
+        a: 'A screen replacement does not touch your storage. For an SSD upgrade we clone the old drive and check that the clone boots before the old drive comes out. If the drive itself has failed, that becomes a data-recovery job, and if we cannot recover the files you need, you pay nothing.',
+      },
+      {
+        q: 'Do you also repair MacBooks?',
+        a: 'Yes. MacBook repairs have their own pages, including screen replacement from £129 and SSD upgrades on serviceable Intel models. Apple silicon MacBooks cannot have storage upgraded.',
+      },
+      {
+        q: 'What warranty do you give?',
+        a: 'A written 3-month warranty on the repair. Full terms are on the warranty page.',
+      },
+    ],
+  },
   { slug: 'iphone', label: 'iPhone', blurb: 'Screens, batteries, charge ports and back glass — most while you wait.' },
   { slug: 'samsung', label: 'Samsung Galaxy', blurb: 'Service-pack screen assemblies for S and A series, same day.' },
   { slug: 'ipad', label: 'iPad', blurb: 'Digitiser and laminated screen replacement across all generations.' },

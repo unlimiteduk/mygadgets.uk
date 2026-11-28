@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import { SITE, canonical } from "@/data/site";
+import { GOOGLE_RATING, type GoogleReview } from "@/data/reviews";
 import { registerPrerenderHead } from "@/prerender-status";
 
 interface SeoProps {
@@ -200,7 +201,12 @@ export function localBusinessSchema() {
       "TW14",
     ],
     hasMap: SITE.socials.gbp,
-    sameAs: [SITE.socials.gbp],
+    sameAs: [
+      SITE.socials.gbp,
+      "https://www.facebook.com/mygadgets.uk",
+      SITE.socials.instagram,
+      SITE.socials.tiktok,
+    ],
   };
 }
 
@@ -225,4 +231,35 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
+}
+
+/** Only for pages that visibly show the Google rating. */
+export function aggregateRatingSchema() {
+  return {
+    "@type": "LocalBusiness",
+    "@id": `${SITE.domain}/#business`,
+    name: SITE.name,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: GOOGLE_RATING.average.toFixed(1),
+      reviewCount: String(GOOGLE_RATING.count),
+      bestRating: "5",
+      worstRating: "1",
+    },
+  };
+}
+
+export function visibleReviewSchema(reviews: GoogleReview[]) {
+  return reviews.map((review) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: review.name },
+    reviewBody: review.text,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: String(review.rating),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    itemReviewed: { "@id": `${SITE.domain}/#business` },
+  }));
 }

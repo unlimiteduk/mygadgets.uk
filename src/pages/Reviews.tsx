@@ -1,5 +1,10 @@
 import { ArrowUpRight, Star } from "lucide-react";
-import Seo, { breadcrumbSchema } from "@/components/Seo";
+import { Link } from "react-router";
+import Seo, {
+  aggregateRatingSchema,
+  breadcrumbSchema,
+  visibleReviewSchema,
+} from "@/components/Seo";
 import Layout from "@/components/Layout";
 import GoogleReviewCard from "@/components/GoogleReviewCard";
 import GoogleIcon from "@/components/icons/GoogleIcon";
@@ -10,13 +15,17 @@ export default function Reviews() {
   return (
     <Layout>
       <Seo
-        title={`Google Reviews | ${SITE.name}`}
+        title={`Reviews of My Gadgets Whitton, Twickenham — ${GOOGLE_RATING.average.toFixed(1)} from ${GOOGLE_RATING.count} Google reviews`}
         description={`${GOOGLE_RATING.average.toFixed(1)} stars from ${GOOGLE_RATING.count} Google reviews for ${SITE.name}. Read customer experiences of our local repair shop at 23 High Street, Whitton, Twickenham.`}
         path="/reviews/"
-        schema={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Reviews", path: "/reviews/" },
-        ])}
+        schema={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Reviews", path: "/reviews/" },
+          ]),
+          aggregateRatingSchema(),
+          ...visibleReviewSchema(GOOGLE_REVIEWS),
+        ]}
       />
       <section className="container-12 section-pad lg-reviews-page">
         <div className="lg-reviews-intro">
@@ -28,8 +37,12 @@ export default function Reviews() {
               From our customers.
             </h1>
             <p className="lg-reviews-lede">
-              A repaired laptop. A new-to-you MacBook. A little peace of mind.
-              Here’s what customers say about My Gadgets Whitton.
+              The {GOOGLE_RATING.average.toFixed(1)} rating from{" "}
+              {GOOGLE_RATING.count} reviews is Google’s rating for the shop at
+              23 High Street, Whitton, Twickenham. See{" "}
+              <Link to="/repairs/macbook/">MacBook repair</Link>,{" "}
+              <Link to="/repairs/console/">console repair</Link> and the{" "}
+              <Link to="/shop/">refurbished MacBook shop</Link>.
             </p>
           </div>
           <div className="lg-google-rating-card">

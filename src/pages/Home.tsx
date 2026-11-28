@@ -16,7 +16,7 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
-import Seo from "@/components/Seo";
+import Seo, { aggregateRatingSchema, faqSchema } from "@/components/Seo";
 import Layout from "@/components/Layout";
 import { SITE, AREAS_COVERED, canonical } from "@/data/site";
 import { GOOGLE_RATING, GOOGLE_REVIEWS } from "@/data/reviews";
@@ -90,6 +90,14 @@ const FAQS = [
     q: "Do you repair Samsung phones, iPads and other devices?",
     a: "Yes. Alongside MacBooks, Windows laptops and iPhones, we repair Samsung Galaxy phones, iPads, iMacs, desktop PCs, PlayStation and Xbox consoles. Tell us your model and what has gone wrong.",
   },
+  {
+    q: "Can I post a PS5 for HDMI port repair?",
+    a: "Yes. PS5 HDMI port repair is £70 when the socket is the fault, in the shop or by post from anywhere in the UK. We repair it the same day it arrives and return postage is free. Pack the console so it cannot move about, include your name, a phone number or email, and a short note of the fault, and send it to 23 High Street, Whitton, Twickenham TW2 7LB. Xbox and PS4 are not a postal repair.",
+  },
+  {
+    q: "Will I lose my files or game saves during a repair?",
+    a: "Screen, battery, port and HDMI repairs do not wipe your storage. For data recovery, if we cannot recover the files you asked for, you pay nothing. We still recommend keeping a backup of anything precious.",
+  },
 ];
 function Stars() {
   return (
@@ -124,10 +132,14 @@ export default function Home() {
   return (
     <Layout>
       <Seo
-        title="MacBook, Laptop & Phone Repair Whitton | My Gadgets"
-        description="MacBook, laptop, phone and console repairs in Whitton, Twickenham. Free diagnosis, upfront quotes and a written warranty. Visit 23 High Street or get a quote."
+        title="MacBook, laptop and console repair in Whitton, Twickenham | My Gadgets"
+        description="MacBook, laptop and console repairs in Whitton, Twickenham. Free diagnosis, upfront quotes and a written warranty. Visit 23 High Street, or post a PS5."
         path="/"
-        schema={{ "@type": "WebSite", name: SITE.name, url: canonical("/") }}
+        schema={[
+          { "@type": "WebSite", name: SITE.name, url: canonical("/") },
+          faqSchema(FAQS),
+          aggregateRatingSchema(),
+        ]}
       />
       <div className="lg-home">
         <section className="lg-hero" aria-labelledby="home-title">
